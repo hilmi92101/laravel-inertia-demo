@@ -1,10 +1,5 @@
 <template>  
-    <div> 
-        <div>
-            <Link :href="route('posts.index')">Posts</Link><br>
-            <Link :href="route('about')">About</Link><br>
-            <br>
-        </div>
+    <AppLayout> 
         <table class="posts">
             <tr>
                 <th>Title</th>
@@ -18,14 +13,15 @@
             </tr>
            
         </table>
-    </div>  
+    </AppLayout>  
 </template>  
 <script>  
-    import { Link } from '@inertiajs/inertia-vue3';
+
+    import AppLayout from '../../Layouts/App';
 
     export default {  
         components: {
-            Link,
+            AppLayout,
         },
         props: {
             posts: Object
