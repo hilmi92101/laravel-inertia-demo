@@ -5,6 +5,9 @@ createInertiaApp({
     resolve: name => require(`./Pages/${name}`),
     setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
+        .mixin({ 
+            methods: {route} 
+        })
         .use(plugin)
         .mount(el)
     },
