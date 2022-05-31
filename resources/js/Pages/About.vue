@@ -1,9 +1,13 @@
 <template>  
     <div> 
-    about <br>
+        <div>
+            <Link :href="route('posts.index')">Posts</Link><br>
+            <Link :href="route('about')">About</Link><br>
+            <br>
+        </div>
+        about<br>
 
-    <Link :href="route('posts.index')">Posts</Link><br>
-    <Link :href="route('about')">About</Link><br>
+    
         
     </div>  
 </template>  
