@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('posts', [\App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
+Route::resource('posts', \App\Http\Controllers\PostController::class);
 Route::inertia('about', 'About')->name('about');
 Route::inertia('login', 'Auth/Login')->name('login');
 

@@ -15,21 +15,48 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         
-                        <table class="posts max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
-                            <tr>
-                                <th>Title</th>
-                                <th>Content</th>
-                                <th>Created At</th>
-                            </tr>
-                            <tr v-for="post in posts">
-                                <td>{{ post.title }}</td>
-                                <td>{{ post.content }}</td>
-                                <td>{{ post.created_at }}</td>
-                            </tr>
-                        
-                        </table>
-
-
+                        <!-- Go to Create Page -->
+                        <div class="flex space-x-2">
+                            <Link :href="route('posts.create')" type="button" class="inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out">New Post</Link>
+                        </div>
+                        <!-- Table -->
+                        <div class="flex flex-col">
+                            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                                    <div class="overflow-hidden">
+                                        <table class="min-w-full">
+                                            <thead class="bg-white border-b">
+                                                <tr>
+                                                    
+                                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                        Title
+                                                    </th>
+                                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                        Content
+                                                    </th>
+                                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                        Created At
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="post in posts" class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                        {{ post.title }}
+                                                    </td>
+                                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                        {{ post.content }}
+                                                    </td>
+                                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                        {{ post.created_at }}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
                     </div>
@@ -42,12 +69,13 @@
 <script>  
 
     import AuthenticatedLayout from '../../Layouts/Authenticated';
-    import { Head } from '@inertiajs/inertia-vue3';
+    import { Head, Link } from '@inertiajs/inertia-vue3';
 
     export default {  
         components: {
             AuthenticatedLayout,
             Head,
+            Link,
         },
         props: {
             posts: Object
