@@ -1,4 +1,10 @@
-<template>  
+<template> 
+    <!--
+    <Head>
+        <title>About</title>
+    </Head>
+    -->
+    <Head title="About" />
     <AppLayout> 
         about<br>
     </AppLayout>
@@ -6,10 +12,12 @@
 <script>  
 
     import AppLayout from '../Layouts/App';
+    import { Head } from '@inertiajs/inertia-vue3';
 
     export default {  
         components: {
             AppLayout,
+            Head,
         },
     }
         
