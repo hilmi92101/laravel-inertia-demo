@@ -32,6 +32,9 @@
                                             <thead class="bg-white border-b">
                                                 <tr>
                                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                        ID
+                                                    </th>
+                                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                         Title
                                                     </th>
                                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
@@ -48,6 +51,9 @@
                                             <tbody>
                                                 <tr v-for="post in posts" class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                        {{ post.id }}
+                                                    </td>
+                                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                         {{ post.title }}
                                                     </td>
                                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -57,8 +63,12 @@
                                                         {{ post.created_at }}
                                                     </td>
                                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                        <div @click="destroy(post.id)" class="flex space-x-2 justify-center">
-                                                            <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Delete</button>
+                                                        <div class="flex space-x-2 justify-center">
+                                                            <Link 
+                                                            :href="route('posts.edit', post.id)"
+                                                            data-mdb-ripple="true" data-mdb-ripple-color="light" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Edit</Link>
+
+                                                            <button @click="destroy(post.id)"  type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Delete</button>
                                                         </div>
                                                     </td>
                                                 </tr>

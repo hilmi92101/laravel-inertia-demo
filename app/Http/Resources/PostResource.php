@@ -17,8 +17,8 @@ class PostResource extends JsonResource
         //return parent::toArray($request);
         return [ 
             'id' => $this->id, 
-            'title' => $this->title, 
-            'content' => substr($this->content, 0, 50) . '...', 
+            'title' => substr($this->title, 0, 15) . '...', 
+            'content' => substr($this->content, 0, 30) . '...', 
             'created_at' => $this->created_at->toDateString(), 
         ];
     }

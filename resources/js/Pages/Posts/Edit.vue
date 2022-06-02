@@ -1,12 +1,12 @@
 <template> 
     <Head>
-        <title>New Post</title>
+        <title>Edit Post</title>
     </Head>
     <AuthenticatedLayout> 
 
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                New Post
+                Edit Post
             </h2>
         </template>
 
@@ -16,7 +16,7 @@
                     <div class="p-6 bg-white border-b border-gray-200">
                         
                         
-                        <form @submit.prevent="form.post(route('posts.store'))" class="px-8 pt-6 pb-8 mb-4">
+                        <form @submit.prevent="form.put(route('posts.update', form.id))" class="px-8 pt-6 pb-8 mb-4">
                             <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                                     Title
@@ -59,7 +59,7 @@
                             </div>
                             <div class="flex items-center justify-between">
                                 <button :disabled="form.processing" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                                    Create
+                                    Update
                                 </button>
                                 <Link :href="route('posts.index')" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
                                     Back
@@ -89,12 +89,14 @@
             useForm,
         },
         props: {
+            post: Object,
             errors: Object
         },
-        setup() {
+        setup(props) {
             const form = useForm({
-                title: '',
-                content: '',
+                id: props.post.id,
+                title: props.post.title,
+                content: props.post.content,
             })
 
             return { form }
