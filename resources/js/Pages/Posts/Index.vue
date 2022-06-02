@@ -27,11 +27,10 @@
                         <div class="flex flex-col">
                             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                                    <div class="overflow-hidden">
-                                        <table class="min-w-full">
+                                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                        <table class="table-fixed w-full">
                                             <thead class="bg-white border-b">
                                                 <tr>
-                                                    
                                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                         Title
                                                     </th>
@@ -40,6 +39,9 @@
                                                     </th>
                                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                         Created At
+                                                    </th>
+                                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                        Action
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -53,6 +55,11 @@
                                                     </td>
                                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                         {{ post.created_at }}
+                                                    </td>
+                                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                        <div @click="destroy(post.id)" class="flex space-x-2 justify-center">
+                                                            <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Delete</button>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -74,6 +81,7 @@
 
     import AuthenticatedLayout from '../../Layouts/Authenticated';
     import { Head, Link } from '@inertiajs/inertia-vue3';
+    import { Inertia } from '@inertiajs/inertia';
 
     export default {  
         components: {
@@ -83,6 +91,16 @@
         },
         props: {
             posts: Object
+        },
+        setup() {
+
+            const destroy = (id) => {
+                if(confirm('Are you sure?')){
+                    Inertia.delete(route('posts.destroy', id));
+                }
+            }
+
+            return { destroy }
         }
           
     }  
