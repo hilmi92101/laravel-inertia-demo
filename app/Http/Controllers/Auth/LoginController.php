@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Auth\LoginRequest;
 use  App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -18,6 +19,16 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         return redirect(RouteServiceProvider::HOME);
+
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
 
     }
 

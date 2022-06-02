@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth'], function(){
 Route::inertia('login', 'Auth/Login')->name('login');
 
 Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'store'])->name('login.post');
+Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::get('generate-password', [\App\Http\Controllers\Auth\LoginController::class, 'generatePassword'])->name('login.generatePassword');
 
 // Route::get('/', function () {
