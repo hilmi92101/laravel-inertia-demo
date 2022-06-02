@@ -16,7 +16,7 @@
                     <div class="p-6 bg-white border-b border-gray-200">
                         
                         
-                        <form @submit.prevent="form.post(route('posts.store'))" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                        <form @submit.prevent="form.post(route('posts.store'))" class="px-8 pt-6 pb-8 mb-4">
                             <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                                     Title
@@ -33,6 +33,7 @@
                                 <textarea
                                     v-model="form.content"
                                     class="
+                                        shadow
                                         form-control
                                         block
                                         w-full
