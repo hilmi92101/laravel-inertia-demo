@@ -22,6 +22,9 @@
                                     Title
                                 </label>
                                 <input v-model="form.title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:border-blue-600 focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="Title">
+                                <div v-if="errors.title" class="text-red-600">
+                                    {{ errors.title }}
+                                </div>
                             </div>
                             <div class="mb-6">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -49,9 +52,12 @@
                                 rows="3"
                                 placeholder="Your message"
                                 ></textarea>
+                                <div v-if="errors.content" class="text-red-600">
+                                    {{ errors.content }}
+                                </div>
                             </div>
                             <div class="flex items-center justify-between">
-                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                <button :disabled="form.processing" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                                     Create
                                 </button>
                                 <Link :href="route('posts.index')" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
@@ -80,6 +86,9 @@
             Head,
             Link,
             useForm,
+        },
+        props: {
+            errors: Object
         },
         setup() {
             const form = useForm({
