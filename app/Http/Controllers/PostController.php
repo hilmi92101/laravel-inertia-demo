@@ -14,6 +14,9 @@ class PostController extends Controller
     {
         //sleep(3);
         //$posts = Post::all();
+        if(!auth()->user()->permissions['posts_view']){
+            abort(403);
+        }
         $posts = PostResource::collection(Post::orderBy('created_at','desc')->get());
 
         return inertia('Posts/Index', compact('posts'));

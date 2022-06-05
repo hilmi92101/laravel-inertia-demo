@@ -34,6 +34,6 @@ class LoginController extends Controller
 
     public function generatePassword(Request $request)
     {
-        return Hash::make('1q2w3e4r');
+        return Hash::make('!Q@W#E$R');
     }
 }

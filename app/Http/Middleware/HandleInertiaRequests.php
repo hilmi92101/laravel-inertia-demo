@@ -44,6 +44,7 @@ class HandleInertiaRequests extends Middleware
                 'name' => auth()->user()->name ?? '',
                 'email' => auth()->user()->email ?? '',
             ],
+            'permissions' => auth()->user()->permissions ?? [],
         ]);
     }
 }
