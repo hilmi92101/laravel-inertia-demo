@@ -23,6 +23,8 @@ Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'store'
 Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::get('generate-password', [\App\Http\Controllers\Auth\LoginController::class, 'generatePassword'])->name('login.generatePassword');
 
+Route::inertia('projects/todo', 'Projects/Todo')->name('projects.todo');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
