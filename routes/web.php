@@ -24,6 +24,7 @@ Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logou
 Route::get('generate-password', [\App\Http\Controllers\Auth\LoginController::class, 'generatePassword'])->name('login.generatePassword');
 
 Route::inertia('projects/todo', 'Projects/Todo')->name('projects.todo');
+Route::inertia('projects/counter', 'Projects/Counter')->name('projects.counter');
 
 // Route::get('/', function () {
 //     return view('welcome');
