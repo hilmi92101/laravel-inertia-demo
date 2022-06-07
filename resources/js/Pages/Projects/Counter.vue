@@ -34,6 +34,7 @@
         onBeforeMount, onMounted, onBeforeUnmount, onUnmounted,
         onActivated, onDeactivated,
         onBeforeUpdate, onUpdated, 
+        nextTick,
     } from 'vue';
 
     import { vAutofocus } from '../../Directives/vAutofocus';
@@ -63,10 +64,19 @@
         return 'odd';
     });
 
-    const increaseCounter = (amount, e) => {
-        //counter.value++;
-        //console.log(e);
+    // const increaseCounter = (amount, e) => {
+    //     //counter.value++;
+    //     //console.log(e);
+    //     counterData.counter += amount;
+    //     nextTick(() => {
+    //         console.log('do something when counter is updated.');
+    //     });
+    // }
+
+    const increaseCounter = async (amount, e) => {
         counterData.counter += amount;
+        await nextTick();
+        console.log('do something when counter is updated.');
     }
 
     const descreaseCounter = (amount) => {

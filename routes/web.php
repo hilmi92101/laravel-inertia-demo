@@ -25,6 +25,8 @@ Route::get('generate-password', [\App\Http\Controllers\Auth\LoginController::cla
 
 Route::inertia('projects/todo', 'Projects/Todo')->name('projects.todo');
 Route::inertia('projects/counter', 'Projects/Counter')->name('projects.counter');
+Route::inertia('projects/list', 'Projects/List')->name('projects.list');
+Route::inertia('projects/teleport', 'Projects/Teleport')->name('projects.teleport');
 
 // Route::get('/', function () {
 //     return view('welcome');

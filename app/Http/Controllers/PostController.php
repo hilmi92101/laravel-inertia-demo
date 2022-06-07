@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use URL;
 use App\Http\Resources\PostResource;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
@@ -19,7 +20,10 @@ class PostController extends Controller
         }
         $posts = PostResource::collection(Post::orderBy('created_at','desc')->get());
 
-        return inertia('Posts/Index', compact('posts'));
+        return inertia('Posts/Index', [
+            "posts" => $posts,
+            "routes" => URL::route('login.post'),
+        ]);
     }
 
     public function create()

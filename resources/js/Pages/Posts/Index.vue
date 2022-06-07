@@ -109,15 +109,19 @@
         },
         props: {
             posts: Object,
+            routes: String,
             permissions: Object
         },
-        setup() {
+        setup(props) {
 
             const destroy = (id) => {
                 if(confirm('Are you sure?')){
                     Inertia.delete(route('posts.destroy', id));
                 }
             }
+
+            console.log(props.routes)
+
 
             return { destroy }
         }
