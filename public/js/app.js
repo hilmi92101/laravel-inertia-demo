@@ -19851,6 +19851,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _Directives_vAutofocus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Directives/vAutofocus */ "./resources/js/Directives/vAutofocus.js");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
@@ -19894,32 +19896,31 @@ __webpack_require__.r(__webpack_exports__);
     }; // hooks
 
 
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount)(function () {
-      console.log('onBeforeMount');
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount)(function () {//console.log('onBeforeMount');
     });
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
-      console.log('onMounted');
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {//console.log('onMounted');
     });
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount)(function () {
-      console.log('onBeforeUnmount');
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount)(function () {//console.log('onBeforeUnmount');
     });
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(function () {
-      console.log('onUnmounted');
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(function () {//console.log('onUnmounted');
     });
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onActivated)(function () {
-      console.log('onActivated');
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onActivated)(function () {//console.log('onActivated');
     });
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onDeactivated)(function () {
-      console.log('onDeactivated');
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onDeactivated)(function () {//console.log('onDeactivated');
     });
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate)(function () {
-      console.log('onBeforeUpdate');
-      console.log(appTitle);
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate)(function () {//console.log('onBeforeUpdate');
+      //console.log(appTitle);
     });
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUpdated)(function () {
-      console.log('onUpdated');
-      console.log(appTitle + '2');
-    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUpdated)(function () {//console.log('onUpdated');
+      //console.log(appTitle + '2');
+    }); // directive
+    // const vAutofocus = {
+    //     mounted: (el) => {
+    //         console.log(el);
+    //         el.style.color = "red";
+    //     }
+    // }
+
     var __returned__ = {
       appTitle: appTitle,
       counterData: counterData,
@@ -19937,7 +19938,8 @@ __webpack_require__.r(__webpack_exports__);
       onActivated: vue__WEBPACK_IMPORTED_MODULE_0__.onActivated,
       onDeactivated: vue__WEBPACK_IMPORTED_MODULE_0__.onDeactivated,
       onBeforeUpdate: vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate,
-      onUpdated: vue__WEBPACK_IMPORTED_MODULE_0__.onUpdated
+      onUpdated: vue__WEBPACK_IMPORTED_MODULE_0__.onUpdated,
+      vAutofocus: _Directives_vAutofocus__WEBPACK_IMPORTED_MODULE_1__.vAutofocus
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -21233,7 +21235,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "w-full px-2 py-1 text-sm border border-gray-300 rounded outline-none"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.counterData.title]])])]);
+  ), [[$setup["vAutofocus"]], [vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.counterData.title]])])]);
 }
 
 /***/ }),
@@ -21334,6 +21336,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* KEYED_FRAGMENT */
   ))])])]);
 }
+
+/***/ }),
+
+/***/ "./resources/js/Directives/vAutofocus.js":
+/*!***********************************************!*\
+  !*** ./resources/js/Directives/vAutofocus.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "vAutofocus": () => (/* binding */ vAutofocus)
+/* harmony export */ });
+var vAutofocus = {
+  mounted: function mounted(el) {
+    console.log(el);
+    el.style.color = "green";
+  }
+};
 
 /***/ }),
 

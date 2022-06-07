@@ -18,6 +18,7 @@
         <div class="w-1/3 my-5">
             <h4 class="text-3xl my-5">Edit counter title</h4>
             <input
+                v-autofocus
                 v-model="counterData.title"
                 type="text"
                 class="w-full px-2 py-1 text-sm border border-gray-300 rounded outline-none"
@@ -34,6 +35,8 @@
         onActivated, onDeactivated,
         onBeforeUpdate, onUpdated, 
     } from 'vue';
+
+    import { vAutofocus } from '../../Directives/vAutofocus';
 
     const appTitle = 'My Amazing Counter App'; // non reactive data
 
@@ -73,38 +76,46 @@
 
     // hooks
     onBeforeMount(() => {
-        console.log('onBeforeMount');
+        //console.log('onBeforeMount');
     });
 
     onMounted(() => {
-        console.log('onMounted');
+        //console.log('onMounted');
     });
 
     onBeforeUnmount(() => {
-        console.log('onBeforeUnmount');
+        //console.log('onBeforeUnmount');
     });
 
     onUnmounted(() => {
-        console.log('onUnmounted');
+        //console.log('onUnmounted');
     });
 
     onActivated(() => {
-        console.log('onActivated');
+        //console.log('onActivated');
     });
 
     onDeactivated(() => {
-        console.log('onDeactivated');
+        //console.log('onDeactivated');
     });
 
     onBeforeUpdate(() => {
-        console.log('onBeforeUpdate');
-        console.log(appTitle);
+        //console.log('onBeforeUpdate');
+        //console.log(appTitle);
     });
 
     onUpdated(() => {
-        console.log('onUpdated');
-        console.log(appTitle + '2');
+        //console.log('onUpdated');
+        //console.log(appTitle + '2');
     });
+
+    // directive
+    // const vAutofocus = {
+    //     mounted: (el) => {
+    //         console.log(el);
+    //         el.style.color = "red";
+    //     }
+    // }
         
     
 </script>
