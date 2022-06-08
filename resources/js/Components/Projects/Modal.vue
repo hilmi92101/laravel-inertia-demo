@@ -1,6 +1,9 @@
 <template>
     <teleport to="body">
-        <div class="modal">
+        <div 
+            v-if="modelValue"
+            class="modal"
+        >
             <h2 class="text-5xl py-5">
                 <!--
                 <slot name="title" />
@@ -32,6 +35,10 @@
     //console.log(slots.title());
 
     const props = defineProps({
+        modelValue: {
+            type: Boolean,
+            default: false,
+        },
         title: {
             type: String,
             default: 'No title',

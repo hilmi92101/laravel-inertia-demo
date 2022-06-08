@@ -6,7 +6,7 @@
         <button @click="showModal = true" class="px-6 py-2 font-semibold text-white border-b-4 rounded bg-cyan-500 border-cyan-800 hover:border-cyan-600 mt-6">Show modal</button>
         
         <Modal 
-            v-if="showModal"
+            v-model="showModal"
             title="My modal title (via prop)"
             @hideModal="showModal = false"
         >
