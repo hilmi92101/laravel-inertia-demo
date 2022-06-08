@@ -1,0 +1,47 @@
+.dashboard-2 {
+
+    background: linear-gradient(60deg, #736AFF, #AA6DEB);
+
+    nav {
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        .menu-items{
+            .nav-links{
+                li {
+                    a {
+                        span {
+                            color: #575F66;
+                            margin: auto 20px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .logout-mode {
+                li {
+                    a {
+                        span {
+                            color: #575F66;
+                            margin: auto 20px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .dashboard {
+        .top {
+            position: initial;
+            padding: 10px 0px;
+        }
+
+        .dash-content{
+            padding-top: 0px;
+        }
+    }
+    
+}
+
