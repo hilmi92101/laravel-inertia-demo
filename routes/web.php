@@ -28,6 +28,9 @@ Route::inertia('projects/counter', 'Projects/Counter')->name('projects.counter')
 Route::inertia('projects/list', 'Projects/List')->name('projects.list');
 Route::inertia('projects/teleport', 'Projects/Teleport')->name('projects.teleport');
 
+Route::inertia('backoffice/dashboard-1', 'Backoffice/Dashboard1')->name('backoffice.dashboard1');
+Route::inertia('backoffice/dashboard-2', 'Backoffice/Dashboard2')->name('backoffice.dashboard2');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
