@@ -30,6 +30,7 @@ Route::inertia('projects/teleport', 'Projects/Teleport')->name('projects.telepor
 
 Route::inertia('backoffice/dashboard-1', 'Backoffice/Dashboard1')->name('backoffice.dashboard1');
 Route::inertia('backoffice/dashboard-2', 'Backoffice/Dashboard2')->name('backoffice.dashboard2');
+Route::inertia('backoffice/dashboard-2/form', 'Backoffice/Form')->name('backoffice.form');
 
 // Route::get('/', function () {
 //     return view('welcome');
