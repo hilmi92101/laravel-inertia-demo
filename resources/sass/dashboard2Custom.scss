@@ -1,10 +1,13 @@
 .dashboard-2 {
 
-    background: linear-gradient(60deg, #736AFF, #AA6DEB);
+    //background: linear-gradient(60deg, #736AFF, #AA6DEB);
+    background: #e4e2f5;
 
     nav {
-        border-top-right-radius: 15px;
-        border-bottom-right-radius: 15px;
+        //border-top-right-radius: 15px;
+        //border-bottom-right-radius: 15px;
+        background-color: #3d5af1;
+        border-right: none;
 
         .logo-name {
             .logo-image {
@@ -12,25 +15,52 @@
                     border-radius: unset;
                 }
             }
+
+            .logo_name {
+                color: #fff;
+            }
         }
         .menu-items{
             .nav-links{
                 li {
+
+                    color: #cfcde7;
+                    padding: 2.5px 0;
                     a {
+                        i {
+                            color: #cfcde7;
+                        }
+
+                        i.active {
+                            color: #fff;
+                        }
+
                         span {
-                            color: #575F66;
-                            margin: auto 20px;
+                            color: #cfcde7;
+                            margin: auto 10px;
                             font-size: 16px;
                         }
+
+                        span.active {
+                            color: #fff;
+                        }
                     }
+
+                    
                 }
             }
 
             .logout-mode {
+                border-top: none;
                 li {
+                    padding: 2.5px 0;
                     a {
+                        i {
+                            color: #cfcde7;
+                        }
+
                         span {
-                            color: #575F66;
+                            color: #cfcde7;
                             margin: auto 20px;
                             font-size: 16px;
                         }

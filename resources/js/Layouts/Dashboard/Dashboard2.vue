@@ -14,8 +14,8 @@
                 <ul class="nav-links">
                     <li v-for="link in sidebarLinks" :key="sidebarLinks.id">
                         <Link :href="route(link.route)">
-                            <i :class="link.icon"></i>
-                            <span class="link-name">{{ link.title }}</span>
+                            <i :class="iconClasses(link)"></i>
+                            <span :class="{ 'active': link.isActive }" class="link-name">{{ link.title }}</span>
                         </Link>
                     </li>
                 </ul>
@@ -65,10 +65,10 @@
 </template>  
 <script setup>  
 
-    import { ref } from 'vue';
+    import { ref, computed } from 'vue';
     import { Link } from '@inertiajs/inertia-vue3';
 
-    const logo = `/asset/dashboard2/images/logo.png`; 
+    const logo = `/asset/dashboard2/images/logo.png?v=3`; 
     const sidebarClose = ref(false); 
 
     const sidebarLinks = ref([ 
@@ -77,24 +77,37 @@
             title: 'Dashboard',
             icon: 'bx bx-grid-alt',
             route: 'backoffice.dashboard2',
+            isActive: true,
         }, 
         { 
             id: 2, 
             title: 'Form',
             icon: 'bx bxs-spreadsheet',
             route: 'backoffice.form',
+            isActive: false,
         },
         { 
             id: 3, 
             title: 'Toast',
             icon: 'bx bxs-notification',
             route: 'backoffice.toast',
+            isActive: false,
         },
         
     ]);
 
     const toggleSidebar = () => { 
         sidebarClose.value = !sidebarClose.value;
+    }
+
+    const iconClasses = (link) => { 
+        var classes = ``;
+        classes += link.icon;
+
+        if(link.isActive){
+            classes += ` active`;
+        }
+        return classes;
     } 
 
       
