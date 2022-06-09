@@ -112,36 +112,24 @@
     import { ref, computed } from 'vue';
     import { Link } from '@inertiajs/inertia-vue3';
 
-    const iconEye = ref(false);
-    const iconEye2 = ref(false);
+    const iconEyeSee = ref(false);
+    const iconEyeSee2 = ref(false);
 
     const isSignup = ref(false);
     const openSignup = () => { 
         isSignup.value = true;
-        iconEye.value = false;
-        iconEye2.value = false;
+        iconEyeSee.value = false;
+        iconEyeSee2.value = false;
     } 
     const openLogin = () => { 
         isSignup.value = false;
-        iconEye.value = false;
-        iconEye2.value = false;
+        iconEyeSee.value = false;
+        iconEyeSee2.value = false;
     }
-    const inputPasswordClass = computed( () => { 
-        if(iconEye.value){ 
-            return 'uil-eye'; 
-        } 
-        return 'uil-eye-slash '; 
-    });
-    const inputPasswordClass2 = computed( () => { 
-        if(iconEye2.value){ 
-            return 'uil-eye'; 
-        } 
-        return 'uil-eye-slash '; 
-    });
     
     const passwordRef = ref(null);
     const toggleEye = () => { 
-        iconEye.value = !iconEye.value;
+        iconEyeSee.value = !iconEyeSee.value;
         if(passwordRef.value.type ==="password"){
             passwordRef.value.type = "text";
         }else{
@@ -152,7 +140,7 @@
 
     const confirmPasswordRef = ref(null);
     const toggleEye2 = () => { 
-        iconEye2.value = !iconEye2.value;
+        iconEyeSee2.value = !iconEyeSee2.value;
         if(confirmPasswordRef.value.type ==="password"){
             confirmPasswordRef.value.type = "text";
         }else{
@@ -160,7 +148,18 @@
         }
     }
 
-    
+    const inputPasswordClass = computed( () => { 
+        if(iconEyeSee.value){ 
+            return 'uil-eye'; 
+        } 
+        return 'uil-eye-slash '; 
+    });
+    const inputPasswordClass2 = computed( () => { 
+        if(iconEyeSee2.value){ 
+            return 'uil-eye'; 
+        } 
+        return 'uil-eye-slash '; 
+    });
 
     
 

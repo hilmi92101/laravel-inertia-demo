@@ -863,6 +863,9 @@ body.dark .activity-data::-webkit-scrollbar-thumb:hover {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
+.dashboard-2 nav .logo-name .logo-image img {
+  border-radius: unset;
+}
 .dashboard-2 nav .menu-items .nav-links li a span {
   color: #575F66;
   margin: auto 20px;

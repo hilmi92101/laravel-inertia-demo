@@ -5,6 +5,14 @@
     nav {
         border-top-right-radius: 15px;
         border-bottom-right-radius: 15px;
+
+        .logo-name {
+            .logo-image {
+                img {
+                    border-radius: unset;
+                }
+            }
+        }
         .menu-items{
             .nav-links{
                 li {
