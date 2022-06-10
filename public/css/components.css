@@ -623,6 +623,16 @@ body.dark .activity-data::-webkit-scrollbar-thumb:hover {
 .dashboard-2 nav .menu-items .nav-links li a span.active {
   color: #fff;
 }
+.dashboard-2 nav .menu-items .nav-links li a:hover i {
+  color: #fff;
+}
+.dashboard-2 nav .menu-items .nav-links li a:hover span {
+  color: #fff;
+}
+.dashboard-2 nav .menu-items .nav-links li a.active {
+  background-color: #3651d4;
+  border-radius: 10px;
+}
 .dashboard-2 nav .menu-items .logout-mode {
   border-top: none;
 }
@@ -636,6 +646,12 @@ body.dark .activity-data::-webkit-scrollbar-thumb:hover {
   color: #cfcde7;
   margin: auto 20px;
   font-size: 16px;
+}
+.dashboard-2 nav .menu-items .logout-mode li a:hover i {
+  color: #fff;
+}
+.dashboard-2 nav .menu-items .logout-mode li a:hover span {
+  color: #fff;
 }
 .dashboard-2 .dashboard .top {
   position: initial;

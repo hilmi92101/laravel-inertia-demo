@@ -46,6 +46,21 @@
                         }
                     }
 
+                    a:hover {
+                        i {
+                            color: #fff;
+                        }
+
+                        span {
+                            color: #fff;
+                        }
+                    }
+
+                    a.active {
+                        background-color: #3651d4;
+                        border-radius: 10px;
+                    }
+
                     
                 }
             }
@@ -63,6 +78,16 @@
                             color: #cfcde7;
                             margin: auto 20px;
                             font-size: 16px;
+                        }
+                    }
+
+                    a:hover {
+                        i {
+                            color: #fff;
+                        }
+
+                        span {
+                            color: #fff;
                         }
                     }
                 }

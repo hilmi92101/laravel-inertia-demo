@@ -19759,7 +19759,7 @@ __webpack_require__.r(__webpack_exports__);
       title: 'Dashboard',
       icon: 'bx bx-grid-alt',
       route: 'backoffice.dashboard2',
-      isActive: true
+      isActive: false
     }, {
       id: 2,
       title: 'Form',
@@ -19773,6 +19773,14 @@ __webpack_require__.r(__webpack_exports__);
       route: 'backoffice.toast',
       isActive: false
     }]);
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      var currentRoute = route().current();
+      sidebarLinks.value.forEach(function (item) {
+        if (item.route === currentRoute) {
+          item.isActive = true;
+        }
+      });
+    });
 
     var toggleSidebar = function toggleSidebar() {
       sidebarClose.value = !sidebarClose.value;
@@ -19797,6 +19805,7 @@ __webpack_require__.r(__webpack_exports__);
       iconClasses: iconClasses,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
       Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -21360,7 +21369,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
       key: $setup.sidebarLinks.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
-      href: _ctx.route(link.route)
+      href: _ctx.route(link.route),
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+        'active': link.isActive
+      })
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
@@ -21380,7 +21392,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
     }, 1032
     /* PROPS, DYNAMIC_SLOTS */
-    , ["href"])]);
+    , ["href", "class"])]);
   }), 128
   /* KEYED_FRAGMENT */
   ))]), _hoisted_5])], 2
@@ -21671,7 +21683,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full mt-4"
+  "class": "w-full mt-4 mb-4"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "p-8 bg-white rounded-2xl shadow-md"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {

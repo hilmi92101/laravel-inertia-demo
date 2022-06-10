@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="w-full mt-4">
+        <div class="w-full mt-4 mb-4">
             <div class="p-8 bg-white rounded-2xl shadow-md">
                 
                 <div class="mb-8">
