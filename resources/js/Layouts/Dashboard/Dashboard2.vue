@@ -88,7 +88,6 @@
             route: 'backoffice.form',
             isActive: false,
         },
-
         { 
             id: 3, 
             title: 'Toast',
@@ -96,6 +95,22 @@
             route: 'backoffice.toast',
             isActive: false,
         },
+        { 
+            id: 4, 
+            title: 'Alert',
+            icon: 'bx bxs-notification',
+            route: 'backoffice.alert',
+            isActive: false,
+        },
+        { 
+            id: 5, 
+            title: 'Accordion',
+            icon: 'bx bxs-notification',
+            route: 'backoffice.accordion',
+            isActive: false,
+        },
+
+        
         
     ]);
 
