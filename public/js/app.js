@@ -19775,9 +19775,9 @@ __webpack_require__.r(__webpack_exports__);
     }]);
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
       var currentRoute = route().current();
-      sidebarLinks.value.forEach(function (item) {
-        if (item.route === currentRoute) {
-          item.isActive = true;
+      sidebarLinks.value.forEach(function (link) {
+        if (link.route === currentRoute) {
+          link.isActive = true;
         }
       });
     });

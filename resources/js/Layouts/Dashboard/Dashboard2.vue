@@ -88,6 +88,7 @@
             route: 'backoffice.form',
             isActive: false,
         },
+
         { 
             id: 3, 
             title: 'Toast',
@@ -102,9 +103,9 @@
 
         var currentRoute = route().current();
 
-        sidebarLinks.value.forEach(function (item) {
-            if(item.route === currentRoute) {
-                item.isActive = true;
+        sidebarLinks.value.forEach(function (link) {
+            if(link.route === currentRoute) {
+                link.isActive = true;
             }
         });
         
