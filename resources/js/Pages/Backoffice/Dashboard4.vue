@@ -4,7 +4,6 @@
 
     <DashboardLayout>
 
-        lalalalal
 
         
     </DashboardLayout>
