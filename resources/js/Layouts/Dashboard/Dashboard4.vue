@@ -1,8 +1,18 @@
 <template>  
     <!-- sidenav  -->
-    <aside class="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
+    <aside 
+        class="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent"
+        :class="{ 'translate-x-0 shadow-soft-xl': sidebarIsDisplayed }"
+
+    >
         <div class="h-19.5">
-            <i class="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" sidenav-close></i>
+            <i
+                :class="{ 'hidden': !sidebarIsDisplayed }"
+                @click="toggleSidenav"
+                class="absolute top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" 
+                sidenav-close
+            >
+            </i>
             <a class="block px-8 py-6 m-0 text-size-sm whitespace-nowrap text-slate-700" href="javascript:;" target="_blank">
                 <img src="/asset/dashboard4/assets/img/logo-ct.png" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
                 <span class="ml-1 font-semibold transition-all duration-200 ease-nav-brand">Soft UI Dashboard</span>
@@ -71,16 +81,9 @@
         <!-- Navbar -->
         <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="true">
             <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
-                <nav>
-                    <!-- breadcrumb -->
-                    <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
-                        <li class="leading-normal text-size-sm">
-                            <a class="opacity-50 text-slate-700" href="javascript:;">Pages</a>
-                        </li>
-                        <li class="text-size-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']" aria-current="page">Dashboard</li>
-                    </ol>
-                    <h6 class="mb-0 font-bold capitalize">Dashboard</h6>
-                </nav>
+                
+
+                <Breadcrumb title="Dashboard 4"></Breadcrumb>
 
                 <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
                     <div class="flex items-center md:ml-auto md:pr-4">
@@ -92,10 +95,6 @@
                         </div>
                     </div>
                     <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
-                        <!-- online builder btn  -->
-                        <!-- <li class="flex items-center">
-                <a class="inline-block px-8 py-2 mb-0 mr-4 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro border-fuchsia-500 ease-soft-in text-size-xs hover:scale-102 active:shadow-soft-xs text-fuchsia-500 hover:border-fuchsia-500 active:bg-fuchsia-500 active:hover:text-fuchsia-500 hover:text-fuchsia-500 tracking-tight-soft hover:bg-transparent hover:opacity-75 hover:shadow-none active:text-white active:hover:bg-transparent" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard&amp;_ga=2.76518741.1192788655.1647724933-1242940210.1644448053">Online Builder</a>
-              </li> -->
                         <li class="flex items-center">
                             <a href="./pages/sign-in.html" class="block px-0 py-2 font-semibold transition-all ease-nav-brand text-size-sm text-slate-500">
                                 <i class="fa fa-user sm:mr-1"></i>
@@ -103,11 +102,16 @@
                             </a>
                         </li>
                         <li class="flex items-center pl-4 xl:hidden">
-                            <a href="javascript:;" class="block p-0 transition-all ease-nav-brand text-size-sm text-slate-500" sidenav-trigger>
+                            <a 
+                                @click="toggleSidenav" 
+                                href="javascript:;" 
+                                class="block p-0 transition-all ease-nav-brand text-size-sm text-slate-500" 
+                                sidenav-trigger
+                            >
                                 <div class="w-4.5 overflow-hidden">
+                                    <i :class="burgerIconClass()" class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
                                     <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-                                    <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-                                    <i class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                                    <i :class="burgerIconClass()" class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
                                 </div>
                             </a>
                         </li>
@@ -1007,6 +1011,30 @@
     import { ref } from 'vue';
     import { Link } from '@inertiajs/inertia-vue3';
 
+
+    import Breadcrumb from '../../Components/Dashboard4/Breadcrumb';
+
+    
+    /* ================================================
+        SIDEBAR
+    ================================================ */
+    const sidebarIsDisplayed = ref(false); 
+    const toggleSidenav = () => { 
+        sidebarIsDisplayed.value = !sidebarIsDisplayed.value;
+        console.log(sidebarIsDisplayed.value);
+    }
+
+    const burgerIconClass = () => { 
+        if(sidebarIsDisplayed.value){
+            return `translate-x-[5px]`;
+        }
+        return ``;
+    }
+    
+
+    /* ================================================
+        LINKS
+    ================================================ */
     const mainLinks = ref([
 
         {
@@ -1062,7 +1090,6 @@
         },
         
     ]);
-
 
     const linkIsActiveIcon = (isActive) => { 
         if(isActive){
