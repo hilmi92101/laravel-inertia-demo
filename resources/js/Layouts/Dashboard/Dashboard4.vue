@@ -1,8 +1,12 @@
 <template>  
     <!-- sidenav  -->
     <aside 
-        class="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent"
-        :class="{ 'translate-x-0 shadow-soft-xl': sidebarIsDisplayed }"
+        class="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased transition-transform duration-200 xl:left-0 xl:translate-x-0"
+        :class="{ 
+            'translate-x-0 shadow-soft-xl': sidebarIsDisplayed,
+            'shadow-none xl:bg-transparent': isTransparent,
+            'xl:bg-white shadow-soft-xl': !isTransparent,
+        }"
 
     >
         <div class="h-19.5">
@@ -26,7 +30,7 @@
 
             <ul class="flex flex-col pl-0 mb-0">
                 <li v-for="link in mainLinks" :key="link.id" class="mt-0.5 w-full">
-                    <a :class="linkIsActiveBg(link.isActive)" class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="./pages/tables.html">
+                    <a :class="linkIsActiveBg(link.isActive)" class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="./pages/dashboard-4.html">
                         <div :class="linkIsActiveIcon(link.isActive)" class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                             <i :class="link.icon"></i>
                         </div>
@@ -830,6 +834,7 @@
             <hr class="h-px mx-0 my-1 bg-transparent bg-gradient-horizontal-dark" />
             <div class="flex-auto p-6 pt-0 sm:pt-4">
                 <!-- Sidebar Backgrounds -->
+                <!--
                 <div>
                     <h6 class="mb-0">Sidebar Colors</h6>
                 </div>
@@ -843,14 +848,16 @@
                         <span class="py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-red relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700" data-color="red" onclick="sidebarColor(this)"></span>
                     </div>
                 </a>
+                -->
+                 
                 <!-- Sidenav Type -->
-                <div class="mt-4">
+                <div class="mt-0">
                     <h6 class="mb-0">Sidenav Type</h6>
                     <p class="leading-normal text-size-sm">Choose between 2 different sidenav types.</p>
                 </div>
                 <div class="flex">
-                    <button transparent-style-btn class="inline-block w-full px-4 py-3 mb-2 font-bold text-center text-white uppercase align-middle transition-all border border-transparent border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-fuchsia xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-fuchsia bg-fuchsia-500 hover:border-fuchsia-500" data-class="bg-transparent" active-style>Transparent</button>
-                    <button white-style-btn class="inline-block w-full px-4 py-3 mb-2 ml-2 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-fuchsia xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 border-fuchsia-500 bg-none text-fuchsia-500 hover:border-fuchsia-500" data-class="bg-white">White</button>
+                    <button @click="changeSidenavColor('transparent')" transparent-style-btn class="inline-block w-full px-4 py-3 mb-2 font-bold text-center uppercase align-middle transition-all border border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-fuchsia xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:border-fuchsia-500" data-class="bg-transparent" :class="{'bg-gradient-fuchsia bg-fuchsia-500 text-white border-transparent' : isTransparent, 'bg-none bg-transparent text-fuchsia-500 border-fuchsia-500' : !isTransparent }" active-style>Transparent</button>
+                    <button @click="changeSidenavColor('white')" white-style-btn class="inline-block w-full px-4 py-3 mb-2 ml-2 font-bold text-center uppercase align-middle transition-all border border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-fuchsia xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:border-fuchsia-500" data-class="bg-white" :class="{'bg-none bg-transparent text-fuchsia-500 border-fuchsia-500' : isTransparent, 'bg-gradient-fuchsia bg-fuchsia-500 text-white border-transparent' : !isTransparent }">White</button>
                 </div>
                 <p class="block mt-2 leading-normal text-size-sm xl:hidden">You can change the sidenav type just on desktop view.</p>
                 <!-- Navbar Fixed -->
@@ -880,6 +887,18 @@
 
 
     import Breadcrumb from '../../Components/Dashboard4/Breadcrumb';
+
+    /* ================================================
+        SIDENAV BG COLOR
+    ================================================ */
+    const isTransparent = ref(true);
+    const changeSidenavColor = (color) => { 
+        if(color === 'white'){
+            isTransparent.value = false;
+        } else {
+            isTransparent.value = true;
+        }
+    }
 
     /* ================================================
         FIXED PLUGIN CARD

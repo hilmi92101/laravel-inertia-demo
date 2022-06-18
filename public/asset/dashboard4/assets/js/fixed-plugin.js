@@ -48,6 +48,8 @@ var white_sidenav_classes = ["xl:bg-white", "shadow-soft-xl"];
 var white_sidenav_highlighted = ["shadow-none"];
 var white_sidenav_icons = ["bg-gray-200"];
 
+console.log(sidenav_target);
+console.log(CSS.escape(sidenav_target));
 var sidenav_highlight = document.querySelector("a[href=" + CSS.escape(sidenav_target) + "]");
 
 // fixed plugin toggle
@@ -159,32 +161,32 @@ transparentBtn.addEventListener("click", function() {
 
         this.setAttributeNode(active_style_attr);
 
-        non_active_style.forEach((style_class) => {
-            this.classList.remove(style_class);
-        });
+        // non_active_style.forEach((style_class) => {
+        //     this.classList.remove(style_class);
+        // });
 
-        active_style.forEach((style_class) => {
-            this.classList.add(style_class);
-        });
+        // active_style.forEach((style_class) => {
+        //     this.classList.add(style_class);
+        // });
 
-        whiteBtn.removeAttribute(active_style_attr);
+        //whiteBtn.removeAttribute(active_style_attr);
 
-        active_style.forEach((style_class) => {
-            whiteBtn.classList.remove(style_class);
-        });
+        // active_style.forEach((style_class) => {
+        //     whiteBtn.classList.remove(style_class);
+        // });
 
-        non_active_style.forEach((style_class) => {
-            whiteBtn.classList.add(style_class);
-        });
+        // non_active_style.forEach((style_class) => {
+        //     whiteBtn.classList.add(style_class);
+        // });
 
         // change actual styles
 
-        white_sidenav_classes.forEach((style_class) => {
-            sidenav.classList.remove(style_class);
-        });
-        transparent_sidenav_classes.forEach((style_class) => {
-            sidenav.classList.add(style_class);
-        });
+        // white_sidenav_classes.forEach((style_class) => {
+        //     sidenav.classList.remove(style_class);
+        // });
+        // transparent_sidenav_classes.forEach((style_class) => {
+        //     sidenav.classList.add(style_class);
+        // });
 
         white_sidenav_highlighted.forEach((style_class) => {
             sidenav_highlight.classList.remove(style_class);
@@ -205,31 +207,35 @@ transparentBtn.addEventListener("click", function() {
 
 whiteBtn.addEventListener("click", function() {
     const active_style_attr = document.createAttribute("active-style");
-    if (!this.hasAttribute(active_style_attr)) {
-        this.setAttributeNode(active_style_attr);
-        non_active_style.forEach((style_class) => {
-            this.classList.remove(style_class);
-        });
-        active_style.forEach((style_class) => {
-            this.classList.add(style_class);
-        });
 
-        transparentBtn.removeAttribute(active_style_attr);
-        active_style.forEach((style_class) => {
-            transparentBtn.classList.remove(style_class);
-        });
-        non_active_style.forEach((style_class) => {
-            transparentBtn.classList.add(style_class);
-        });
+    
+    if (!this.hasAttribute(active_style_attr)) {
+
+        this.setAttributeNode(active_style_attr);
+
+        // non_active_style.forEach((style_class) => {
+        //     this.classList.remove(style_class);
+        // });
+        // active_style.forEach((style_class) => {
+        //     this.classList.add(style_class);
+        // });
+
+        // transparentBtn.removeAttribute(active_style_attr);
+        // active_style.forEach((style_class) => {
+        //     transparentBtn.classList.remove(style_class);
+        // });
+        // non_active_style.forEach((style_class) => {
+        //     transparentBtn.classList.add(style_class);
+        // });
 
         // change actual styles
 
-        transparent_sidenav_classes.forEach((style_class) => {
-            sidenav.classList.remove(style_class);
-        });
-        white_sidenav_classes.forEach((style_class) => {
-            sidenav.classList.add(style_class);
-        });
+        // transparent_sidenav_classes.forEach((style_class) => {
+        //     sidenav.classList.remove(style_class);
+        // });
+        // white_sidenav_classes.forEach((style_class) => {
+        //     sidenav.classList.add(style_class);
+        // });
 
         transparent_sidenav_highlighted.forEach((style_class) => {
             sidenav_highlight.classList.remove(style_class);

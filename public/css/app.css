@@ -1629,15 +1629,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.before\:top-0::before {
   content: var(--tw-content);
   top: 0px;
+}.before\:-top-5::before {
+  content: var(--tw-content);
+  top: -1.25rem;
 }.before\:right-7::before {
   content: var(--tw-content);
   right: 1.75rem;
 }.before\:left-4::before {
   content: var(--tw-content);
   left: 1rem;
-}.before\:-top-5::before {
-  content: var(--tw-content);
-  top: -1.25rem;
 }.before\:z-50::before {
   content: var(--tw-content);
   z-index: 50;
@@ -2243,6 +2243,9 @@ Ensure the default browser behavior of the `hidden` attribute.
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }.xl\:bg-transparent {
     background-color: transparent;
+  }.xl\:bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }.xl\:p-2\.5 {
     padding: 0.625rem;
   }.xl\:p-2 {

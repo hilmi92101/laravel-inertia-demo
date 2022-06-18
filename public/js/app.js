@@ -19943,13 +19943,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* ================================================
-    FIXED PLUGIN CARD
+    SIDENAV BG COLOR
 ================================================ */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    var isTransparent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(true);
+
+    var changeSidenavColor = function changeSidenavColor(color) {
+      if (color === 'white') {
+        isTransparent.value = false;
+      } else {
+        isTransparent.value = true;
+      }
+    };
+    /* ================================================
+        FIXED PLUGIN CARD
+    ================================================ */
+
+
     var showFixedPluginCard = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
     var fixedPluginRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
     var fixedPluginButtonRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
@@ -20095,6 +20109,8 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     var __returned__ = {
+      isTransparent: isTransparent,
+      changeSidenavColor: changeSidenavColor,
       showFixedPluginCard: showFixedPluginCard,
       fixedPluginRef: fixedPluginRef,
       fixedPluginButtonRef: fixedPluginButtonRef,
@@ -22640,112 +22656,64 @@ var _hoisted_58 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_59 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_59 = {
+  "class": "flex-auto p-6 pt-0 sm:pt-4"
+};
+
+var _hoisted_60 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "flex-auto p-6 pt-0 sm:pt-4"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidebar Backgrounds "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
-    "class": "mb-0"
-  }, "Sidebar Colors")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "javascript:void(0)"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "my-2 text-left",
-    "sidenav-colors": ""
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-fuchsia relative inline-block cursor-pointer whitespace-nowrap border border-solid border-slate-700 text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700",
-    "active-color": "",
-    "data-color": "fuchsia",
-    onclick: "sidebarColor(this)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-dark-gray relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700",
-    "data-color": "dark-gray",
-    onclick: "sidebarColor(this)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-cyan relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700",
-    "data-color": "cyan",
-    onclick: "sidebarColor(this)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-lime relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700",
-    "data-color": "lime",
-    onclick: "sidebarColor(this)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-orange relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700",
-    "data-color": "orange",
-    onclick: "sidebarColor(this)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-red relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700",
-    "data-color": "red",
-    onclick: "sidebarColor(this)"
-  })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidenav Type "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "mt-4"
+    "class": "mt-0"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
     "class": "mb-0"
   }, "Sidenav Type"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "leading-normal text-size-sm"
-  }, "Choose between 2 different sidenav types.")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "flex"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "transparent-style-btn": "",
-    "class": "inline-block w-full px-4 py-3 mb-2 font-bold text-center text-white uppercase align-middle transition-all border border-transparent border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-fuchsia xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-fuchsia bg-fuchsia-500 hover:border-fuchsia-500",
-    "data-class": "bg-transparent",
-    "active-style": ""
-  }, "Transparent"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "white-style-btn": "",
-    "class": "inline-block w-full px-4 py-3 mb-2 ml-2 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-fuchsia xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 border-fuchsia-500 bg-none text-fuchsia-500 hover:border-fuchsia-500",
-    "data-class": "bg-white"
-  }, "White")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  }, "Choose between 2 different sidenav types.")], -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_61 = {
+  "class": "flex"
+};
+
+var _hoisted_62 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "block mt-2 leading-normal text-size-sm xl:hidden"
-  }, "You can change the sidenav type just on desktop view."), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar Fixed "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, "You can change the sidenav type just on desktop view.", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_63 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "mt-4"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
     "class": "mb-0"
-  }, "Navbar Fixed")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, "Navbar Fixed")], -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_64 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "min-h-6 mb-0.5 block pl-0"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     navbarFixed: "",
     "class": "rounded-10 duration-250 ease-soft-in-out after:rounded-circle after:shadow-soft-2xl after:duration-250 checked:after:translate-x-5.25 h-5-em relative float-left mt-1 ml-auto w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-slate-800/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-slate-800/95 checked:bg-slate-800/95 checked:bg-none checked:bg-right",
     type: "checkbox"
-  })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
-    "class": "h-px bg-transparent bg-gradient-horizontal-dark sm:my-6"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    "class": "inline-block w-full px-6 py-3 mb-4 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer leading-pro text-size-xs ease-soft-in hover:shadow-soft-xs hover:scale-102 active:opacity-85 tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-dark-gray",
-    href: "https://www.creative-tim.com/product/soft-ui-dashboard-tailwind",
-    target: "_blank"
-  }, "Free Download"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    "class": "inline-block w-full px-6 py-3 mb-4 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer active:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 border-slate-700 text-slate-700 hover:bg-transparent hover:text-slate-700 hover:shadow-none active:bg-slate-700 active:text-white active:hover:bg-transparent active:hover:text-slate-700 active:hover:shadow-none",
-    href: "https://www.creative-tim.com/learning-lab/tailwind/html/quick-start/soft-ui-dashboard/",
-    target: "_blank"
-  }, "View documentation"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "w-full text-center"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    "class": "github-button",
-    href: "https://github.com/creativetimofficial/soft-ui-dashboard",
-    "data-icon": "octicon-star",
-    "data-size": "large",
-    "data-show-count": "true",
-    "aria-label": "Star creativetimofficial/soft-ui-dashboard on GitHub"
-  }, "Star"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
-    "class": "mt-4"
-  }, "Thank you for sharing!"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard",
-    "class": "inline-block px-6 py-3 mb-0 mr-2 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 me-2 border-slate-700 bg-slate-700",
-    target: "_blank"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "mr-1 fab fa-twitter"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Tweet ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard",
-    "class": "inline-block px-6 py-3 mb-0 mr-2 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 me-2 border-slate-700 bg-slate-700",
-    target: "_blank"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "mr-1 fab fa-facebook-square"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Share ")])])], -1
+  })], -1
   /* HOISTED */
   );
 });
 
+var _hoisted_65 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<hr class=\"h-px bg-transparent bg-gradient-horizontal-dark sm:my-6\" data-v-779c299f><a class=\"inline-block w-full px-6 py-3 mb-4 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer leading-pro text-size-xs ease-soft-in hover:shadow-soft-xs hover:scale-102 active:opacity-85 tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-dark-gray\" href=\"https://www.creative-tim.com/product/soft-ui-dashboard-tailwind\" target=\"_blank\" data-v-779c299f>Free Download</a><a class=\"inline-block w-full px-6 py-3 mb-4 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer active:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 border-slate-700 text-slate-700 hover:bg-transparent hover:text-slate-700 hover:shadow-none active:bg-slate-700 active:text-white active:hover:bg-transparent active:hover:text-slate-700 active:hover:shadow-none\" href=\"https://www.creative-tim.com/learning-lab/tailwind/html/quick-start/soft-ui-dashboard/\" target=\"_blank\" data-v-779c299f>View documentation</a><div class=\"w-full text-center\" data-v-779c299f><a class=\"github-button\" href=\"https://github.com/creativetimofficial/soft-ui-dashboard\" data-icon=\"octicon-star\" data-size=\"large\" data-show-count=\"true\" aria-label=\"Star creativetimofficial/soft-ui-dashboard on GitHub\" data-v-779c299f>Star</a><h6 class=\"mt-4\" data-v-779c299f>Thank you for sharing!</h6><a href=\"https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard\" class=\"inline-block px-6 py-3 mb-0 mr-2 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 me-2 border-slate-700 bg-slate-700\" target=\"_blank\" data-v-779c299f><i class=\"mr-1 fab fa-twitter\" data-v-779c299f></i> Tweet </a><a href=\"https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard\" class=\"inline-block px-6 py-3 mb-0 mr-2 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 me-2 border-slate-700 bg-slate-700\" target=\"_blank\" data-v-779c299f><i class=\"mr-1 fab fa-facebook-square\" data-v-779c299f></i> Share </a></div>", 4);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" sidenav  "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("aside", {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent", {
-      'translate-x-0 shadow-soft-xl': $setup.sidebarIsDisplayed
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased transition-transform duration-200 xl:left-0 xl:translate-x-0", {
+      'translate-x-0 shadow-soft-xl': $setup.sidebarIsDisplayed,
+      'shadow-none xl:bg-transparent': $setup.isTransparent,
+      'xl:bg-white shadow-soft-xl': !$setup.isTransparent
     }])
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
@@ -22761,7 +22729,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "mt-0.5 w-full"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$setup.linkIsActiveBg(link.isActive), "py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"]),
-      href: "./pages/tables.html"
+      href: "./pages/dashboard-4.html"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$setup.linkIsActiveIcon(link.isActive), "shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5"])
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
@@ -22878,7 +22846,32 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: $setup.toggleFixedPluginCard,
     "fixed-plugin-close-button": "",
     "class": "inline-block p-0 mb-4 font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 active:opacity-85 text-slate-700"
-  }, _hoisted_57)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Toggle Button ")]), _hoisted_58, _hoisted_59], 2
+  }, _hoisted_57)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Toggle Button ")]), _hoisted_58, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_59, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidebar Backgrounds "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\r\n                <div>\r\n                    <h6 class=\"mb-0\">Sidebar Colors</h6>\r\n                </div>\r\n                <a href=\"javascript:void(0)\">\r\n                    <div class=\"my-2 text-left\" sidenav-colors>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-fuchsia relative inline-block cursor-pointer whitespace-nowrap border border-solid border-slate-700 text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" active-color data-color=\"fuchsia\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-dark-gray relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"dark-gray\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-cyan relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"cyan\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-lime relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"lime\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-orange relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"orange\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-red relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"red\" onclick=\"sidebarColor(this)\"></span>\r\n                    </div>\r\n                </a>\r\n                "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidenav Type "), _hoisted_60, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_61, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $setup.changeSidenavColor('transparent');
+    }),
+    "transparent-style-btn": "",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["inline-block w-full px-4 py-3 mb-2 font-bold text-center uppercase align-middle transition-all border border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-fuchsia xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:border-fuchsia-500", {
+      'bg-gradient-fuchsia bg-fuchsia-500 text-white border-transparent': $setup.isTransparent,
+      'bg-none bg-transparent text-fuchsia-500 border-fuchsia-500': !$setup.isTransparent
+    }]),
+    "data-class": "bg-transparent",
+    "active-style": ""
+  }, "Transparent", 2
+  /* CLASS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $setup.changeSidenavColor('white');
+    }),
+    "white-style-btn": "",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["inline-block w-full px-4 py-3 mb-2 ml-2 font-bold text-center uppercase align-middle transition-all border border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-fuchsia xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:border-fuchsia-500", {
+      'bg-none bg-transparent text-fuchsia-500 border-fuchsia-500': $setup.isTransparent,
+      'bg-gradient-fuchsia bg-fuchsia-500 text-white border-transparent': !$setup.isTransparent
+    }]),
+    "data-class": "bg-white"
+  }, "White", 2
+  /* CLASS */
+  )]), _hoisted_62, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar Fixed "), _hoisted_63, _hoisted_64, _hoisted_65])], 2
   /* CLASS */
   )], 512
   /* NEED_PATCH */
