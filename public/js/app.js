@@ -19982,24 +19982,26 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
 
+    var closeDropdown = function closeDropdown(e) {
+      if (!dropdownmenuProjectRef.value.contains(e.target) && !dropdownTriggerProjectRef.value.contains(e.target)) {
+        if (dropdownDisplayedProject.value) {
+          dropdownDisplayedProject.value = !dropdownDisplayedProject.value;
+        }
+      }
+
+      if (!dropdownTriggerNotificationRef.value.contains(e.target) && !dropdownTriggerNotificationRef.value.contains(e.target)) {
+        if (dropdownDisplayedNotification.value) {
+          dropdownDisplayedNotification.value = !dropdownDisplayedNotification.value;
+        }
+      }
+    };
+
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
-      window.addEventListener("click", function (e) {
-        if (!dropdownmenuProjectRef.value.contains(e.target) && !dropdownTriggerProjectRef.value.contains(e.target)) {
-          if (dropdownDisplayedProject.value) {
-            dropdownDisplayedProject.value = !dropdownDisplayedProject.value;
-          }
-        }
-
-        if (!dropdownTriggerNotificationRef.value.contains(e.target) && !dropdownTriggerNotificationRef.value.contains(e.target)) {
-          if (dropdownDisplayedNotification.value) {
-            dropdownDisplayedNotification.value = !dropdownDisplayedNotification.value;
-          }
-        }
-      });
-    }); // onUnmounted(() => { 
-    //     window.removeEventListener('click', toggleDropdownProject);
-    // });
-
+      window.addEventListener('click', closeDropdown);
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(function () {
+      window.removeEventListener('click', closeDropdown);
+    });
     /* ================================================
         SIDEBAR
     ================================================ */
@@ -20092,6 +20094,7 @@ __webpack_require__.r(__webpack_exports__);
       dropdownmenuNotificationRef: dropdownmenuNotificationRef,
       toggleDropdownNotification: toggleDropdownNotification,
       dropdownClassesNotification: dropdownClassesNotification,
+      closeDropdown: closeDropdown,
       sidebarIsDisplayed: sidebarIsDisplayed,
       toggleSidenav: toggleSidenav,
       burgerIconClass: burgerIconClass,

@@ -885,12 +885,9 @@
     /* ================================================
         DROPDOWN
     ================================================ */
-   
-
     const dropdownDisplayedProject = ref(false); 
     const dropdownTriggerProjectRef = ref(null);
     const dropdownmenuProjectRef = ref(null);
-    
     const toggleDropdownProject = () => { 
         dropdownDisplayedProject.value = !dropdownDisplayedProject.value;
     }
@@ -907,7 +904,6 @@
     const dropdownDisplayedNotification = ref(false); 
     const dropdownTriggerNotificationRef = ref(null);
     const dropdownmenuNotificationRef = ref(null);
-
     const toggleDropdownNotification = () => { 
         dropdownDisplayedNotification.value = !dropdownDisplayedNotification.value;
     }
@@ -920,26 +916,29 @@
         
     }
 
-    onMounted(() => { 
-        window.addEventListener("click", function (e) {
-            
-            if(!dropdownmenuProjectRef.value.contains(e.target) && !dropdownTriggerProjectRef.value.contains(e.target)){
-                if(dropdownDisplayedProject.value){
-                    dropdownDisplayedProject.value = !dropdownDisplayedProject.value;
-                }
+    const closeDropdown = (e) => { 
+        if(!dropdownmenuProjectRef.value.contains(e.target) && !dropdownTriggerProjectRef.value.contains(e.target)){
+            if(dropdownDisplayedProject.value){
+                dropdownDisplayedProject.value = !dropdownDisplayedProject.value;
             }
+        }
 
-            if(!dropdownTriggerNotificationRef.value.contains(e.target) && !dropdownTriggerNotificationRef.value.contains(e.target)){
-                if(dropdownDisplayedNotification.value){
-                    dropdownDisplayedNotification.value = !dropdownDisplayedNotification.value;
-                }
+        if(!dropdownTriggerNotificationRef.value.contains(e.target) && !dropdownTriggerNotificationRef.value.contains(e.target)){
+            if(dropdownDisplayedNotification.value){
+                dropdownDisplayedNotification.value = !dropdownDisplayedNotification.value;
             }
-        });
+        }
+    }
+
+    onMounted(() => { 
+
+        window.addEventListener('click', closeDropdown);
+
     }); 
 
-    // onUnmounted(() => { 
-    //     window.removeEventListener('click', toggleDropdownProject);
-    // });
+    onUnmounted(() => { 
+        window.removeEventListener('click', closeDropdown);
+    });
     
 
     /* ================================================
