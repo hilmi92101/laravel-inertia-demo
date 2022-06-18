@@ -20,6 +20,9 @@ dropdown_triggers.forEach((dropdown_trigger) => {
   });
 
   window.addEventListener("click", function (e) {
+    //console.log(dropdown_menu);
+    //console.log(dropdown_trigger);
+
     if (!dropdown_menu.contains(e.target) && !dropdown_trigger.contains(e.target)) {
       if (dropdown_trigger.getAttribute("aria-expanded") == "true") {
         dropdown_trigger.click();

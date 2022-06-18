@@ -1635,6 +1635,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.before\:left-4::before {
   content: var(--tw-content);
   left: 1rem;
+}.before\:-top-5::before {
+  content: var(--tw-content);
+  top: -1.25rem;
 }.before\:z-50::before {
   content: var(--tw-content);
   z-index: 50;
