@@ -116,8 +116,8 @@
                             </a>
                         </li>
                         <li class="flex items-center px-4">
-                            <a href="javascript:;" class="p-0 transition-all text-size-sm ease-nav-brand text-slate-500">
-                                <i fixed-plugin-button-nav class="cursor-pointer fa fa-cog"></i>
+                            <a @click="toggleFixedPluginCard" href="javascript:;" class="p-0 transition-all text-size-sm ease-nav-brand text-slate-500">
+                                <i fixed-plugin-button-nav ref="fixedPluginButtonNavRef" class="cursor-pointer fa fa-cog"></i>
                                 <!-- fixed-plugin-button-nav  -->
                             </a>
                         </li>
@@ -130,7 +130,7 @@
                                 <i class="cursor-pointer fa fa-bell"></i>
                             </a>
 
-                            <ul dropdown-menu ref="dropdownmenuNotificationRef" class="text-size-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer" :class="dropdownClassesNotification()">
+                            <ul dropdown-menu ref="dropdownmenuNotificationRef" class="text-size-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer" :class="{'before:-top-5 transform-dropdown-show' : dropdownDisplayedNotification, 'opacity-0 pointer-events-none transform-dropdown' : !dropdownDisplayedNotification }">
                                 <!-- add show class on dropdown open js -->
                                 <li class="relative mb-2">
                                     <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
@@ -378,7 +378,7 @@
                                         </a>
                                         <p class="hidden transform-dropdown-show"></p>
 
-                                        <ul dropdown-menu ref="dropdownmenuProjectRef" class="z-100 text-size-sm shadow-soft-3xl duration-250 before:duration-350 before:font-awesome before:ease-soft min-w-44 -ml-34 before:text-5.5 absolute top-0 m-0 mt-2 list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:top-0 before:right-7 before:left-auto before:z-40 before:text-white before:transition-all before:content-['\f0d8']" :class="dropdownClassesProject()">
+                                        <ul dropdown-menu ref="dropdownmenuProjectRef" class="z-100 text-size-sm shadow-soft-3xl duration-250 before:duration-350 before:font-awesome before:ease-soft min-w-44 -ml-34 before:text-5.5 absolute top-0 m-0 mt-2 list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:top-0 before:right-7 before:left-auto before:z-40 before:text-white before:transition-all before:content-['\f0d8']" :class="{'before:-top-5 transform-dropdown-show' : dropdownDisplayedProject, 'opacity-0 pointer-events-none transform-dropdown' : !dropdownDisplayedProject }">
                                             <li class="relative">
                                                 <a class="py-1.2 lg:ease-soft clear-both block w-full whitespace-nowrap rounded-lg border-0 bg-transparent px-4 text-left font-normal text-slate-500 lg:transition-colors lg:duration-300" href="javascript:;">Action</a>
                                             </li>
@@ -809,19 +809,19 @@
         </div>
         <!-- end cards -->
     </main>
-    <div fixed-plugin>
-        <a fixed-plugin-button class="bottom-7.5 right-7.5 text-size-xl z-990 shadow-soft-lg rounded-circle fixed cursor-pointer bg-white px-4 py-2 text-slate-700">
+    <div fixed-plugin ref="fixedPluginRef">
+        <a @click="toggleFixedPluginCard" ref="fixedPluginButtonRef" fixed-plugin-button class="bottom-7.5 right-7.5 text-size-xl z-990 shadow-soft-lg rounded-circle fixed cursor-pointer bg-white px-4 py-2 text-slate-700">
             <i class="py-2 pointer-events-none fa fa-cog"> </i>
         </a>
         <!-- -right-90 in loc de 0-->
-        <div fixed-plugin-card class="z-sticky shadow-soft-3xl w-90 ease-soft -right-90 fixed top-0 left-auto flex h-full min-w-0 flex-col break-words rounded-none border-0 bg-white bg-clip-border px-2.5 duration-200">
+        <div fixed-plugin-card class="z-sticky shadow-soft-3xl w-90 ease-soft fixed top-0 left-auto flex h-full min-w-0 flex-col break-words rounded-none border-0 bg-white bg-clip-border px-2.5 duration-200" :class="{'right-0' : showFixedPluginCard, '-right-90 ' : !showFixedPluginCard }" >
             <div class="px-6 pt-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
                 <div class="float-left">
                     <h5 class="mt-4 mb-0">Soft UI Configurator</h5>
                     <p>See our dashboard options.</p>
                 </div>
                 <div class="float-right mt-6">
-                    <button fixed-plugin-close-button class="inline-block p-0 mb-4 font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 active:opacity-85 text-slate-700">
+                    <button @click="toggleFixedPluginCard" fixed-plugin-close-button class="inline-block p-0 mb-4 font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 active:opacity-85 text-slate-700">
                         <i class="fa fa-close"></i>
                     </button>
                 </div>
@@ -881,7 +881,33 @@
 
     import Breadcrumb from '../../Components/Dashboard4/Breadcrumb';
 
-    
+    /* ================================================
+        FIXED PLUGIN CARD
+    ================================================ */
+    const showFixedPluginCard = ref(false); 
+    const fixedPluginRef = ref(null);
+    const fixedPluginButtonRef = ref(null);
+    const fixedPluginButtonNavRef = ref(null);
+    const toggleFixedPluginCard = () => { 
+        showFixedPluginCard.value = !showFixedPluginCard.value;
+    }
+
+    const closeFixedPluginCard = (e) => { 
+        if (!fixedPluginRef.value.contains(e.target) && !fixedPluginButtonRef.value.contains(e.target) && !fixedPluginButtonNavRef.value.contains(e.target)) {
+            if(showFixedPluginCard.value){
+                showFixedPluginCard.value = !showFixedPluginCard.value;
+            }
+        }
+    }
+
+    onMounted(() => { 
+        window.addEventListener('click', closeFixedPluginCard);
+    }); 
+
+    onUnmounted(() => { 
+        window.removeEventListener('click', closeFixedPluginCard);
+    });
+
     /* ================================================
         DROPDOWN
     ================================================ */
@@ -891,29 +917,12 @@
     const toggleDropdownProject = () => { 
         dropdownDisplayedProject.value = !dropdownDisplayedProject.value;
     }
-    const dropdownClassesProject = () => { 
-        if(dropdownDisplayedProject.value){
-            return 'before:-top-5 transform-dropdown-show';
-        } else {
-            return 'opacity-0 pointer-events-none transform-dropdown';
-        }
-        
-    }
-
 
     const dropdownDisplayedNotification = ref(false); 
     const dropdownTriggerNotificationRef = ref(null);
     const dropdownmenuNotificationRef = ref(null);
     const toggleDropdownNotification = () => { 
         dropdownDisplayedNotification.value = !dropdownDisplayedNotification.value;
-    }
-    const dropdownClassesNotification = () => { 
-        if(dropdownDisplayedNotification.value){
-            return 'before:-top-5 transform-dropdown-show';
-        } else {
-            return 'opacity-0 pointer-events-none transform-dropdown';
-        }
-        
     }
 
     const closeDropdown = (e) => { 
@@ -931,9 +940,7 @@
     }
 
     onMounted(() => { 
-
         window.addEventListener('click', closeDropdown);
-
     }); 
 
     onUnmounted(() => { 
