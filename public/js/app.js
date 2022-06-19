@@ -22728,10 +22728,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: link.id,
       "class": "mt-0.5 w-full"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$setup.linkIsActiveBg(link.isActive), "py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"]),
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors", {
+        'rounded-lg bg-white font-semibold text-slate-700': link.isActive,
+        '': !link.isActive,
+        'shadow-soft-xl': link.isActive && $setup.isTransparent,
+        'shadow-none': link.isActive && !$setup.isTransparent
+      }]),
       href: "./pages/dashboard-4.html"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$setup.linkIsActiveIcon(link.isActive), "shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5"])
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5", {
+        'bg-gradient-fuchsia text-white': link.isActive,
+        '': !link.isActive,
+        'bg-white': $setup.isTransparent,
+        'bg-gray-200': !$setup.isTransparent
+      }])
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(link.icon)
     }, null, 2
@@ -22750,10 +22760,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: link.id,
       "class": "mt-0.5 w-full"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$setup.linkIsActiveBg(link.isActive), "py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"]),
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors", {
+        'rounded-lg bg-white font-semibold text-slate-700': link.isActive,
+        '': !link.isActive,
+        'shadow-soft-xl': link.isActive && $setup.isTransparent,
+        'shadow-none': link.isActive && !$setup.isTransparent
+      }]),
       href: "./pages/tables.html"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$setup.linkIsActiveIcon(link.isActive), "shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5"])
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5", {
+        'bg-gradient-fuchsia text-white': link.isActive,
+        '': !link.isActive,
+        'bg-white': $setup.isTransparent,
+        'bg-gray-200': !$setup.isTransparent
+      }])
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(link.icon)
     }, null, 2

@@ -48,58 +48,61 @@ var white_sidenav_classes = ["xl:bg-white", "shadow-soft-xl"];
 var white_sidenav_highlighted = ["shadow-none"];
 var white_sidenav_icons = ["bg-gray-200"];
 
-console.log(sidenav_target);
-console.log(CSS.escape(sidenav_target));
+
 var sidenav_highlight = document.querySelector("a[href=" + CSS.escape(sidenav_target) + "]");
 
+console.log(sidenav_target);
+console.log(CSS.escape(sidenav_target));
+console.log(sidenav_highlight);
+
 // fixed plugin toggle
-if (pageName != "rtl") {
-    // fixedPluginButton.addEventListener("click", function() {
-    //     fixedPluginCard.classList.toggle("-right-90");
-    //     fixedPluginCard.classList.toggle("right-0");
-    // });
+// if (pageName != "rtl") {
+//     fixedPluginButton.addEventListener("click", function() {
+//         fixedPluginCard.classList.toggle("-right-90");
+//         fixedPluginCard.classList.toggle("right-0");
+//     });
 
-    // fixedPluginButtonNav.addEventListener("click", function() {
-    //     fixedPluginCard.classList.toggle("-right-90");
-    //     fixedPluginCard.classList.toggle("right-0");
-    // });
+//     fixedPluginButtonNav.addEventListener("click", function() {
+//         fixedPluginCard.classList.toggle("-right-90");
+//         fixedPluginCard.classList.toggle("right-0");
+//     });
 
-    // fixedPluginCloseButton.addEventListener("click", function() {
-    //     fixedPluginCard.classList.toggle("-right-90");
-    //     fixedPluginCard.classList.toggle("right-0");
-    // });
+//     fixedPluginCloseButton.addEventListener("click", function() {
+//         fixedPluginCard.classList.toggle("-right-90");
+//         fixedPluginCard.classList.toggle("right-0");
+//     });
 
-    // window.addEventListener("click", function(e) {
-    //     if (!fixedPlugin.contains(e.target) && !fixedPluginButton.contains(e.target) && !fixedPluginButtonNav.contains(e.target)) {
-    //         if (fixedPluginCard.classList.contains("right-0")) {
-    //             fixedPluginCloseButton.click();
-    //         }
-    //     }
-    // });
-} else {
-    fixedPluginButton.addEventListener("click", function() {
-        fixedPluginCard.classList.toggle("-left-90");
-        fixedPluginCard.classList.toggle("left-0");
-    });
+//     window.addEventListener("click", function(e) {
+//         if (!fixedPlugin.contains(e.target) && !fixedPluginButton.contains(e.target) && !fixedPluginButtonNav.contains(e.target)) {
+//             if (fixedPluginCard.classList.contains("right-0")) {
+//                 fixedPluginCloseButton.click();
+//             }
+//         }
+//     });
+// } else {
+//     fixedPluginButton.addEventListener("click", function() {
+//         fixedPluginCard.classList.toggle("-left-90");
+//         fixedPluginCard.classList.toggle("left-0");
+//     });
 
-    fixedPluginButtonNav.addEventListener("click", function() {
-        fixedPluginCard.classList.toggle("-left-90");
-        fixedPluginCard.classList.toggle("left-0");
-    });
+//     fixedPluginButtonNav.addEventListener("click", function() {
+//         fixedPluginCard.classList.toggle("-left-90");
+//         fixedPluginCard.classList.toggle("left-0");
+//     });
 
-    fixedPluginCloseButton.addEventListener("click", function() {
-        fixedPluginCard.classList.toggle("-left-90");
-        fixedPluginCard.classList.toggle("left-0");
-    });
+//     fixedPluginCloseButton.addEventListener("click", function() {
+//         fixedPluginCard.classList.toggle("-left-90");
+//         fixedPluginCard.classList.toggle("left-0");
+//     });
 
-    window.addEventListener("click", function(e) {
-        if (!fixedPlugin.contains(e.target) && !fixedPluginButton.contains(e.target) && !fixedPluginButtonNav.contains(e.target)) {
-            if (fixedPluginCard.classList.contains("left-0")) {
-                fixedPluginCloseButton.click();
-            }
-        }
-    });
-}
+//     window.addEventListener("click", function(e) {
+//         if (!fixedPlugin.contains(e.target) && !fixedPluginButton.contains(e.target) && !fixedPluginButtonNav.contains(e.target)) {
+//             if (fixedPluginCard.classList.contains("left-0")) {
+//                 fixedPluginCloseButton.click();
+//             }
+//         }
+//     });
+// }
 
 // color sidenav
 
@@ -188,20 +191,20 @@ transparentBtn.addEventListener("click", function() {
         //     sidenav.classList.add(style_class);
         // });
 
-        white_sidenav_highlighted.forEach((style_class) => {
-            sidenav_highlight.classList.remove(style_class);
-        });
-        transparent_sidenav_highlighted.forEach((style_class) => {
-            sidenav_highlight.classList.add(style_class);
-        });
-        for (var i = 0; i < sidenav_icons.length; i++) {
-            white_sidenav_icons.forEach((style_class) => {
-                sidenav_icons[i].classList.remove(style_class);
-            });
-            transparent_sidenav_icons.forEach((style_class) => {
-                sidenav_icons[i].classList.add(style_class);
-            });
-        }
+        // white_sidenav_highlighted.forEach((style_class) => {
+        //     sidenav_highlight.classList.remove(style_class);
+        // });
+        // transparent_sidenav_highlighted.forEach((style_class) => {
+        //     sidenav_highlight.classList.add(style_class);
+        // });
+        // for (var i = 0; i < sidenav_icons.length; i++) {
+        //     white_sidenav_icons.forEach((style_class) => {
+        //         sidenav_icons[i].classList.remove(style_class);
+        //     });
+        //     transparent_sidenav_icons.forEach((style_class) => {
+        //         sidenav_icons[i].classList.add(style_class);
+        //     });
+        // }
     }
 });
 
@@ -237,22 +240,22 @@ whiteBtn.addEventListener("click", function() {
         //     sidenav.classList.add(style_class);
         // });
 
-        transparent_sidenav_highlighted.forEach((style_class) => {
-            sidenav_highlight.classList.remove(style_class);
-        });
+        // transparent_sidenav_highlighted.forEach((style_class) => {
+        //     sidenav_highlight.classList.remove(style_class);
+        // });
 
-        white_sidenav_highlighted.forEach((style_class) => {
-            sidenav_highlight.classList.add(style_class);
-        });
+        // white_sidenav_highlighted.forEach((style_class) => {
+        //     sidenav_highlight.classList.add(style_class);
+        // });
 
-        for (var i = 0; i < sidenav_icons.length; i++) {
-            transparent_sidenav_icons.forEach((style_class) => {
-                sidenav_icons[i].classList.remove(style_class);
-            });
-            white_sidenav_icons.forEach((style_class) => {
-                sidenav_icons[i].classList.add(style_class);
-            });
-        }
+        // for (var i = 0; i < sidenav_icons.length; i++) {
+        //     transparent_sidenav_icons.forEach((style_class) => {
+        //         sidenav_icons[i].classList.remove(style_class);
+        //     });
+        //     white_sidenav_icons.forEach((style_class) => {
+        //         sidenav_icons[i].classList.add(style_class);
+        //     });
+        // }
     }
 });
 
