@@ -3,7 +3,10 @@
 
 
     <DashboardLayout>
-
+        <h3>{{ currentLang }}</h3>
+        <button @click="changeLanguage" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Change Language
+        </button>
         <!-- row 1 -->
         <div class="flex flex-wrap -mx-3">
             <!-- card1 -->
@@ -580,6 +583,21 @@
     import { ref, computed, onMounted, onUnmounted } from 'vue';
     import { Link } from '@inertiajs/inertia-vue3';
 
+    import { useStore } from 'vuex'
+
+    /* ================================================
+        VUEX
+    ================================================ */
+    const store = useStore();
+
+    //const currentLang = store.getters["Dashboard4/currentLang"]; 
+    const currentLang = computed( () => { 
+        return store.getters["Dashboard4/currentLang"]; 
+    });
+    const changeLanguage = () => { 
+        store.dispatch('Dashboard4/changeLanguaeg', 'my');
+    }
+    
 
     /* ================================================
         DROPDOWN

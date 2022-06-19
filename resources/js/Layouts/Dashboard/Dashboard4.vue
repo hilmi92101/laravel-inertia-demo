@@ -30,7 +30,7 @@
 
             <ul class="flex flex-col pl-0 mb-0">
                 <li v-for="link in mainLinks" :key="link.id" class="mt-0.5 w-full">
-                    <a 
+                    <Link 
                         class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" 
                         :class="{
                             'rounded-lg bg-white font-semibold text-slate-700' : link.isActive, 
@@ -38,7 +38,7 @@
                             'shadow-soft-xl' : link.isActive && isTransparent, 
                             'shadow-none' : link.isActive && !isTransparent, 
                         }"
-                        href="./pages/dashboard-4.html"
+                        :href="route(link.route)"
                     >
                         <div 
                             class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5"
@@ -52,7 +52,7 @@
                             <i :class="link.icon"></i>
                         </div>
                         <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{{ link.title }}</span>
-                    </a>
+                    </Link>
                 </li>
 
                 <li class="w-full mt-4">
@@ -409,30 +409,35 @@
             isActive: true,
             title: 'Dashboard',
             icon: `fa-solid fa-chart-simple`,
+            route: 'backoffice.dashboard4',
         },
         {
             id: 2,
             isActive: false,
             title: 'Tables',
             icon: `fa-solid fa-table`,
+            route: 'backoffice.dashboard4.test',
         },
         {
             id: 3,
             isActive: false,
             title: 'Billing',
             icon: `fa-solid fa-file-invoice`,
+            route: 'backoffice.dashboard4.test',
         },
         {
             id: 4,
             isActive: false,
             title: 'Virtual Reality',
             icon: `fa-solid fa-vr-cardboard`,
+            route: 'backoffice.dashboard4.test',
         },
         {
             id: 5,
             isActive: false,
             title: 'RTL',
             icon: `fa-solid fa-align-right`,
+            route: 'backoffice.dashboard4.test',
         },
     ]);
 
