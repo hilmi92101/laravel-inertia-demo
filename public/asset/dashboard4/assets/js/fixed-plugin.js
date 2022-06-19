@@ -31,7 +31,7 @@ var navbar = document.querySelector("[navbar-main]");
 var buttonNavbarFixed = document.querySelector("[navbarFixed]");
 
 var sidenav = document.querySelector("aside");
-var sidenav_icons = sidenav.querySelectorAll("li a div");
+//var sidenav_icons = sidenav.querySelectorAll("li a div");
 
 
 var transparentBtn = document.querySelector("[transparent-style-btn]");
@@ -51,9 +51,9 @@ var white_sidenav_icons = ["bg-gray-200"];
 
 var sidenav_highlight = document.querySelector("a[href=" + CSS.escape(sidenav_target) + "]");
 
-console.log(sidenav_target);
-console.log(CSS.escape(sidenav_target));
-console.log(sidenav_highlight);
+// console.log(sidenav_target);
+// console.log(CSS.escape(sidenav_target));
+// console.log(sidenav_highlight);
 
 // fixed plugin toggle
 // if (pageName != "rtl") {

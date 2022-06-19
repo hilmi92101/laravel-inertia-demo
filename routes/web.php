@@ -36,7 +36,7 @@ Route::inertia('backoffice/dashboard-2/alert', 'Backoffice/Alert')->name('backof
 Route::inertia('backoffice/dashboard-2/accordion', 'Backoffice/Accordion')->name('backoffice.accordion');
 
 Route::inertia('backoffice/dashboard-3', 'Backoffice/Dashboard3')->name('backoffice.dashboard3');
-Route::inertia('backoffice/dashboard-4', 'Backoffice/Dashboard4')->name('backoffice.dashboard4');
+Route::inertia('backoffice/dashboard-4', 'Backoffice/Dashboard4/Index')->name('backoffice.dashboard4');
 
 
 // Route::get('/', function () {
