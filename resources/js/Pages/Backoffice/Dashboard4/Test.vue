@@ -25,6 +25,10 @@
     const currentLang = computed( () => { 
         return store.getters["Dashboard4/currentLang"]; 
     });
+
+    onMounted(() => { 
+        store.dispatch('Dashboard4/changeBreadcrumbPageTitle', 'Test page');
+    });
     
       
 </script>

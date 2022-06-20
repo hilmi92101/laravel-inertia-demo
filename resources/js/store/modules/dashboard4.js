@@ -1,20 +1,35 @@
 const state = { 
     currentLang: 'en', 
+    breadcrumb: {
+        root: 'Pages',
+        currentPage: 'Dashboard'
+    }, 
 }; 
 const getters = { 
     currentLang: state => { 
         return state.currentLang; 
     }, 
+    breadcrumb: state => { 
+        return state.breadcrumb; 
+    },
 }; 
 const actions = { 
 
-    changeLanguaeg: (context, payload) => { 
-        context.commit('changeLanguaeg', payload); 
+    changeLanguage: (context, payload) => { 
+        context.commit('changeLanguage', payload); 
     },
+    changeBreadcrumbPageTitle: (context, payload) => { 
+        context.commit('changeBreadcrumbPageTitle', payload); 
+    },
+
+    
 }; 
 const mutations = { 
-    changeLanguaeg: (state, payload) => { 
+    changeLanguage: (state, payload) => { 
         state.currentLang = payload; 
+    },
+    changeBreadcrumbPageTitle: (state, payload) => { 
+        state.breadcrumb.currentPage = payload; 
     },
 }; 
 export default { 

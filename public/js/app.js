@@ -19652,6 +19652,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+
+
+/* ================================================
+    VUEX
+================================================ */
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     title: {
@@ -19663,8 +19671,17 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var props = __props;
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.useStore)();
+    var breadcrumb = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return store.getters["Dashboard4/breadcrumb"];
+    });
     var __returned__ = {
-      props: props
+      store: store,
+      breadcrumb: breadcrumb,
+      props: props,
+      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
+      computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed,
+      useStore: vuex__WEBPACK_IMPORTED_MODULE_1__.useStore
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -20754,19 +20771,21 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_3__.useStore)(); //const currentLang = store.getters["Dashboard4/currentLang"]; 
-
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_3__.useStore)();
     var currentLang = (0,vue__WEBPACK_IMPORTED_MODULE_2__.computed)(function () {
       return store.getters["Dashboard4/currentLang"];
     });
 
     var changeLanguage = function changeLanguage() {
-      store.dispatch('Dashboard4/changeLanguaeg', 'my');
+      store.dispatch('Dashboard4/changeLanguage', 'my');
     };
+
+    (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(function () {
+      store.dispatch('Dashboard4/changeBreadcrumbPageTitle', 'Dashboard 1');
+    });
     /* ================================================
         DROPDOWN
     ================================================ */
-
 
     var dropdownDisplayedProject = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)(false);
     var dropdownTriggerProjectRef = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)(null);
@@ -20849,6 +20868,9 @@ __webpack_require__.r(__webpack_exports__);
     var store = (0,vuex__WEBPACK_IMPORTED_MODULE_3__.useStore)();
     var currentLang = (0,vue__WEBPACK_IMPORTED_MODULE_2__.computed)(function () {
       return store.getters["Dashboard4/currentLang"];
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(function () {
+      store.dispatch('Dashboard4/changeBreadcrumbPageTitle', 'Test page');
     });
     var __returned__ = {
       store: store,
@@ -21563,27 +21585,26 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16"
 };
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+var _hoisted_2 = {
   "class": "leading-normal text-size-sm"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+};
+var _hoisted_3 = {
   "class": "opacity-50 text-slate-700",
   href: "javascript:;"
-}, "Pages")], -1
-/* HOISTED */
-);
-
-var _hoisted_3 = {
+};
+var _hoisted_4 = {
   "class": "text-size-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']",
   "aria-current": "page"
 };
-var _hoisted_4 = {
+var _hoisted_5 = {
   "class": "mb-0 font-bold capitalize"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ol", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.props.title), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ol", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.breadcrumb.root), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.props.title), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.breadcrumb.currentPage), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.breadcrumb.currentPage), 1
   /* TEXT */
   )]);
 }
@@ -22685,9 +22706,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), _hoisted_9], 2
   /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end sidenav "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Breadcrumb"], {
-    title: "Dashboard 4"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end sidenav "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Breadcrumb"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     onClick: $setup.toggleSidenav,
     href: "javascript:;",
     "class": "block p-0 transition-all ease-nav-brand text-size-sm text-slate-500",
@@ -25662,21 +25681,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var state = {
-  currentLang: 'en'
+  currentLang: 'en',
+  breadcrumb: {
+    root: 'Pages',
+    currentPage: 'Dashboard'
+  }
 };
 var getters = {
   currentLang: function currentLang(state) {
     return state.currentLang;
+  },
+  breadcrumb: function breadcrumb(state) {
+    return state.breadcrumb;
   }
 };
 var actions = {
-  changeLanguaeg: function changeLanguaeg(context, payload) {
-    context.commit('changeLanguaeg', payload);
+  changeLanguage: function changeLanguage(context, payload) {
+    context.commit('changeLanguage', payload);
+  },
+  changeBreadcrumbPageTitle: function changeBreadcrumbPageTitle(context, payload) {
+    context.commit('changeBreadcrumbPageTitle', payload);
   }
 };
 var mutations = {
-  changeLanguaeg: function changeLanguaeg(state, payload) {
+  changeLanguage: function changeLanguage(state, payload) {
     state.currentLang = payload;
+  },
+  changeBreadcrumbPageTitle: function changeBreadcrumbPageTitle(state, payload) {
+    state.breadcrumb.currentPage = payload;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({

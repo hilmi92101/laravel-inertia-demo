@@ -118,7 +118,7 @@
             <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
                 
 
-                <Breadcrumb title="Dashboard 4"></Breadcrumb>
+                <Breadcrumb></Breadcrumb>
 
                 <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
                     <div class="flex items-center md:ml-auto md:pr-4">
@@ -332,7 +332,7 @@
     onUnmounted(() => { 
         document.body.classList.remove('dashboard-4')
     });
-    
+
     /* ================================================
         FIXED PLUGIN CARD
     ================================================ */

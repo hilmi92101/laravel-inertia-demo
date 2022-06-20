@@ -583,20 +583,22 @@
     import { ref, computed, onMounted, onUnmounted } from 'vue';
     import { Link } from '@inertiajs/inertia-vue3';
 
-    import { useStore } from 'vuex'
+    import { useStore } from 'vuex';
 
     /* ================================================
         VUEX
     ================================================ */
     const store = useStore();
-
-    //const currentLang = store.getters["Dashboard4/currentLang"]; 
     const currentLang = computed( () => { 
         return store.getters["Dashboard4/currentLang"]; 
     });
     const changeLanguage = () => { 
-        store.dispatch('Dashboard4/changeLanguaeg', 'my');
+        store.dispatch('Dashboard4/changeLanguage', 'my');
     }
+
+    onMounted(() => { 
+        store.dispatch('Dashboard4/changeBreadcrumbPageTitle', 'Dashboard 1');
+    }); 
     
 
     /* ================================================
