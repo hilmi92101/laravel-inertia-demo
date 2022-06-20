@@ -1,115 +1,6 @@
 <template>  
     <!-- sidenav  -->
-    <aside 
-        class="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased transition-transform duration-200 xl:left-0 xl:translate-x-0"
-        :class="{ 
-            'translate-x-0 shadow-soft-xl': sidebarIsDisplayed,
-            'shadow-none xl:bg-transparent': isTransparent,
-            'xl:bg-white shadow-soft-xl': !isTransparent,
-        }"
-
-    >
-        <div class="h-19.5">
-            <i
-                :class="{ 'hidden': !sidebarIsDisplayed }"
-                @click="toggleSidenav"
-                class="absolute top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" 
-                sidenav-close
-            >
-            </i>
-            <a class="block px-8 py-6 m-0 text-size-sm whitespace-nowrap text-slate-700" href="javascript:;" target="_blank">
-                <img src="/asset/dashboard4/assets/img/logo-ct.png" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
-                <span class="ml-1 font-semibold transition-all duration-200 ease-nav-brand">Soft UI Dashboard</span>
-            </a>
-        </div>
-
-        <hr class="h-px mt-0 bg-transparent bg-gradient-horizontal-dark" />
-
-        <div ref="sidenavRef" class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
-            <ul class="flex flex-col pl-0 mb-0">
-                <li v-for="link in mainLinks" :key="link.id" class="mt-0.5 w-full">
-                    <Link 
-                        class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" 
-                        :class="{
-                            'rounded-lg bg-white font-semibold text-slate-700' : link.isActive, 
-                            '' : !link.isActive, 
-                            'shadow-soft-xl' : link.isActive && isTransparent, 
-                            'shadow-none' : link.isActive && !isTransparent, 
-                        }"
-                        :href="route(link.route)"
-                    >
-                        <div 
-                            class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5"
-                            :class="{
-                                'bg-gradient-fuchsia text-white' : link.isActive, '' : !link.isActive,
-                                'bg-white' : isTransparent, 
-                                'bg-gray-200' : !isTransparent, 
-                            }"
-
-                        >
-                            <i :class="link.icon"></i>
-                        </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{{ link.title }}</span>
-                    </Link>
-                </li>
-
-                <li class="w-full mt-4">
-                    <h6 class="pl-6 ml-2 font-bold leading-tight uppercase text-size-xs opacity-60">Account pages</h6>
-                </li>
-
-                <li v-for="link in accountLinks" :key="link.id" class="mt-0.5 w-full">
-                    <a 
-                        class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" 
-                        :class="{
-                            'rounded-lg bg-white font-semibold text-slate-700' : link.isActive, 
-                            '' : !link.isActive,
-                            'shadow-soft-xl' : link.isActive && isTransparent, 
-                            'shadow-none' : link.isActive && !isTransparent,
-                        }"
-                        href="./pages/tables.html"
-                    >
-                        <div 
-                            class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5"
-                            :class="{
-                                'bg-gradient-fuchsia text-white' : link.isActive, '' : !link.isActive, 
-                                'bg-white' : isTransparent, 
-                                'bg-gray-200' : !isTransparent, 
-                            }"
-                        >
-                            <i :class="link.icon"></i>
-                        </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{{ link.title }}</span>
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-
-        <div class="mx-4">
-            <!-- load phantom colors for card after: -->
-            <!--
-            <p class="invisible hidden text-gray-800 text-red-500 text-red-600 after:bg-gradient-dark-gray after:bg-gradient-cyan after:bg-gradient-orange after:bg-gradient-lime after:bg-gradient-red after:bg-gradient-slate text-lime-500 text-cyan-500 text-slate-400 text-fuchsia-500"></p>
-            <div class="after:opacity-65 after:bg-gradient-slate relative flex min-w-0 flex-col items-center break-words rounded-2xl border-0 border-solid border-blue-900 bg-white bg-clip-border shadow-none after:absolute after:top-0 after:bottom-0 after:left-0 after:z-10 after:block after:h-full after:w-full after:rounded-2xl after:content-['']" sidenav-card>
-                <div class="mb-7.5 absolute h-full w-full rounded-2xl bg-cover bg-center" style="background-image: url('/asset/dashboard4/assets/img/curved-images/white-curved.jpeg')"></div>
-                <div class="relative z-20 flex-auto w-full p-4 text-left text-white">
-                    <div class="flex items-center justify-center w-8 h-8 mb-4 text-center bg-white bg-center rounded-lg icon shadow-soft-2xl">
-                        <i class="top-0 z-10 text-transparent ni ni-diamond text-size-lg bg-gradient-slate bg-clip-text opacity-80" sidenav-card-icon></i>
-                    </div>
-                    <div class="transition-all duration-200 ease-nav-brand">
-                        <h6 class="mb-0 text-white">Need help?</h6>
-                        <p class="mt-0 mb-4 font-semibold leading-tight text-size-xs">Please check our docs</p>
-                        <a href="https://www.creative-tim.com/learning-lab/tailwind/html/quick-start/soft-ui-dashboard/" target="_blank" class="inline-block w-full px-8 py-2 mb-0 font-bold text-center text-black uppercase transition-all ease-in bg-white border-0 border-white rounded-lg shadow-soft-md bg-150 leading-pro text-size-xs hover:shadow-soft-2xl hover:scale-102">Documentation</a>
-                    </div>
-                </div>
-            </div>
-            -->
-            <!-- pro btn  -->
-            <!--
-            <a class="inline-block w-full px-6 py-3 my-4 font-bold text-center text-white uppercase align-middle transition-all ease-in border-0 rounded-lg select-none shadow-soft-md bg-150 bg-x-25 leading-pro text-size-xs bg-gradient-fuchsia hover:shadow-soft-2xl hover:scale-102">Logout</a>
-            -->
-        </div>
-    </aside>
-
+    <Sidenav></Sidenav>
     <!-- end sidenav -->
 
     <main ref="mainRef" class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
@@ -315,12 +206,25 @@
 </template>  
 <script setup>  
 
-    import { ref, onMounted, onUnmounted } from 'vue';
+    import { ref, computed, onMounted, onUnmounted } from 'vue';
     import { Link } from '@inertiajs/inertia-vue3';
-
+    import { useStore } from 'vuex';
 
     import Breadcrumb from '../../Components/Dashboard4/Breadcrumb';
     import Footer from '../../Components/Dashboard4/Footer';
+
+    /* ================================================
+        VUEX
+    ================================================ */
+    const store = useStore();
+    const currentRoute = route().current();
+    const mainLinks = computed( () => { 
+        return store.getters["Dashboard4/mainLinks"]; 
+    });
+
+    onMounted(() => { 
+        store.dispatch('Dashboard4/showIsActiveLink', currentRoute);
+    }); 
 
     /* ================================================
         ADD CLASS TO BODY
@@ -425,45 +329,7 @@
     /* ================================================
         SIDEBAR LINKS
     ================================================ */
-    const mainLinks = ref([
-
-        {
-            id: 1,
-            isActive: true,
-            title: 'Dashboard',
-            icon: `fa-solid fa-chart-simple`,
-            route: 'backoffice.dashboard4',
-        },
-        {
-            id: 2,
-            isActive: false,
-            title: 'Tables',
-            icon: `fa-solid fa-table`,
-            route: 'backoffice.dashboard4.test',
-        },
-        {
-            id: 3,
-            isActive: false,
-            title: 'Billing',
-            icon: `fa-solid fa-file-invoice`,
-            route: 'backoffice.dashboard4.test',
-        },
-        {
-            id: 4,
-            isActive: false,
-            title: 'Virtual Reality',
-            icon: `fa-solid fa-vr-cardboard`,
-            route: 'backoffice.dashboard4.test',
-        },
-        {
-            id: 5,
-            isActive: false,
-            title: 'RTL',
-            icon: `fa-solid fa-align-right`,
-            route: 'backoffice.dashboard4.test',
-        },
-    ]);
-
+    /* 
     const accountLinks = ref([
         {
             id: 1,
@@ -485,6 +351,7 @@
         },
         
     ]);
+    */
 
       
 </script>

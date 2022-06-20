@@ -3,10 +3,7 @@
 
 
     <DashboardLayout>
-        <h3>{{ currentLang }}</h3>
-        <button @click="changeLanguage" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Change Language
-        </button>
+        
         <!-- row 1 -->
         <div class="flex flex-wrap -mx-3">
             <!-- card1 -->
@@ -589,15 +586,8 @@
         VUEX
     ================================================ */
     const store = useStore();
-    const currentLang = computed( () => { 
-        return store.getters["Dashboard4/currentLang"]; 
-    });
-    const changeLanguage = () => { 
-        store.dispatch('Dashboard4/changeLanguage', 'my');
-    }
-
     onMounted(() => { 
-        store.dispatch('Dashboard4/changeBreadcrumbPageTitle', 'Dashboard 1');
+        store.dispatch('Dashboard4/changeBreadcrumbPageTitle', 'Dashboard');
     }); 
     
 
