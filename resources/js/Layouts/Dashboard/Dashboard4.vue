@@ -25,9 +25,7 @@
 
         <hr class="h-px mt-0 bg-transparent bg-gradient-horizontal-dark" />
 
-        <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
-
-
+        <div ref="sidenavRef" class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
             <ul class="flex flex-col pl-0 mb-0">
                 <li v-for="link in mainLinks" :key="link.id" class="mt-0.5 w-full">
                     <Link 
@@ -114,7 +112,7 @@
 
     <!-- end sidenav -->
 
-    <main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
+    <main ref="mainRef" class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
         <!-- Navbar -->
         <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="true">
             <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
@@ -253,7 +251,7 @@
             <i class="py-2 pointer-events-none fa fa-cog"> </i>
         </a>
         <!-- -right-90 in loc de 0-->
-        <div fixed-plugin-card class="z-sticky shadow-soft-3xl w-90 ease-soft fixed top-0 left-auto flex h-full min-w-0 flex-col break-words rounded-none border-0 bg-white bg-clip-border px-2.5 duration-200" :class="{'right-0' : showFixedPluginCard, '-right-90 ' : !showFixedPluginCard }" >
+        <div ref="fixedPluginContentRef" fixed-plugin-card class="z-sticky shadow-soft-3xl w-90 ease-soft fixed top-0 left-auto flex h-full min-w-0 flex-col break-words rounded-none border-0 bg-white bg-clip-border px-2.5 duration-200 overflow-hidden" :class="{'right-0' : showFixedPluginCard, '-right-90 ' : !showFixedPluginCard }" >
             <div class="px-6 pt-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
                 <div class="float-left">
                     <h5 class="mt-4 mb-0">Soft UI Configurator</h5>
@@ -324,8 +322,6 @@
     import Breadcrumb from '../../Components/Dashboard4/Breadcrumb';
     import Footer from '../../Components/Dashboard4/Footer';
 
-    
-
     /* ================================================
         FIXED PLUGIN CARD
     ================================================ */
@@ -351,6 +347,22 @@
 
     onUnmounted(() => { 
         window.removeEventListener('click', closeFixedPluginCard);
+    });
+
+    /* ================================================
+        PERFECTS SCROLLBAR
+    ================================================ */
+    const mainRef = ref(null);
+    const sidenavRef = ref(null);
+    const fixedPluginContentRef = ref(null);
+    
+    onMounted(() => { 
+        var isWindows = navigator.platform.indexOf("Win") > -1 ? true : false;
+        if(isWindows) {
+            var ps = new PerfectScrollbar(mainRef.value);
+            var ps2 = new PerfectScrollbar(sidenavRef.value);
+            var ps3 = new PerfectScrollbar(fixedPluginContentRef.value);
+        }
     });
 
     /* ================================================

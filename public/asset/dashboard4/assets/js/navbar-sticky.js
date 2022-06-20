@@ -9,6 +9,7 @@ window.onscroll = function () {
 
 function stickyNav() {
   if (window.scrollY >= 5) {
+    console.log('window.scrollY', window.scrollY );
     navbar.classList.add("sticky", "top-[1%]", "backdrop-saturate-[200%]", "backdrop-blur-[30px]", "bg-[hsla(0,0%,100%,0.8)]", "shadow-blur", "z-110");
   } else {
     navbar.classList.remove("sticky", "top-[1%]", "backdrop-saturate-[200%]", "backdrop-blur-[30px]", "bg-[hsla(0,0%,100%,0.8)]", "shadow-blur", "z-110");

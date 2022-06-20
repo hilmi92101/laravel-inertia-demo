@@ -20233,6 +20233,22 @@ __webpack_require__.r(__webpack_exports__);
       window.removeEventListener('click', closeFixedPluginCard);
     });
     /* ================================================
+        PERFECTS SCROLLBAR
+    ================================================ */
+
+    var mainRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    var sidenavRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    var fixedPluginContentRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      var isWindows = navigator.platform.indexOf("Win") > -1 ? true : false;
+
+      if (isWindows) {
+        var ps = new PerfectScrollbar(mainRef.value);
+        var ps2 = new PerfectScrollbar(sidenavRef.value);
+        var ps3 = new PerfectScrollbar(fixedPluginContentRef.value);
+      }
+    });
+    /* ================================================
         DROPDOWN
     ================================================ */
 
@@ -20340,6 +20356,9 @@ __webpack_require__.r(__webpack_exports__);
       fixedPluginButtonNavRef: fixedPluginButtonNavRef,
       toggleFixedPluginCard: toggleFixedPluginCard,
       closeFixedPluginCard: closeFixedPluginCard,
+      mainRef: mainRef,
+      sidenavRef: sidenavRef,
+      fixedPluginContentRef: fixedPluginContentRef,
       dropdownDisplayedNotification: dropdownDisplayedNotification,
       dropdownTriggerNotificationRef: dropdownTriggerNotificationRef,
       dropdownmenuNotificationRef: dropdownmenuNotificationRef,
@@ -22300,6 +22319,7 @@ var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_4 = {
+  ref: "sidenavRef",
   "class": "items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full"
 };
 var _hoisted_5 = {
@@ -22332,6 +22352,7 @@ var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_10 = {
+  ref: "mainRef",
   "class": "ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200"
 };
 var _hoisted_11 = {
@@ -22650,7 +22671,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     )]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])]), _hoisted_9], 2
+  ))])], 512
+  /* NEED_PATCH */
+  ), _hoisted_9], 2
   /* CLASS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end sidenav "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Breadcrumb"], {
     title: "Dashboard 4"
@@ -22695,7 +22718,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }])
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" add show class on dropdown open js "), _hoisted_27, _hoisted_29], 2
   /* CLASS */
-  )])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" cards "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Footer"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end cards ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  )])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" cards "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Footer"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end cards ")], 512
+  /* NEED_PATCH */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     onClick: $setup.toggleFixedPluginCard,
     ref: "fixedPluginButtonRef",
     "fixed-plugin-button": "",
@@ -22703,8 +22728,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, _hoisted_33, 512
   /* NEED_PATCH */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" -right-90 in loc de 0"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    ref: "fixedPluginContentRef",
     "fixed-plugin-card": "",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["z-sticky shadow-soft-3xl w-90 ease-soft fixed top-0 left-auto flex h-full min-w-0 flex-col break-words rounded-none border-0 bg-white bg-clip-border px-2.5 duration-200", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["z-sticky shadow-soft-3xl w-90 ease-soft fixed top-0 left-auto flex h-full min-w-0 flex-col break-words rounded-none border-0 bg-white bg-clip-border px-2.5 duration-200 overflow-hidden", {
       'right-0': $setup.showFixedPluginCard,
       '-right-90 ': !$setup.showFixedPluginCard
     }])

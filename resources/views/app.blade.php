@@ -51,8 +51,6 @@
         ------------------------------------------------------ -->
         
         <script src="/asset/dashboard4/assets/js/plugins/perfect-scrollbar.min.js" async></script>
-        <script src="/asset/dashboard4/assets/js/navbar-sticky.js" async></script>
-        <script src="/asset/dashboard4/assets/js/perfect-scrollbar.js" async></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
 
         <!--
@@ -63,10 +61,11 @@
         <script src="/asset/dashboard4/assets/js/chart-2.js" async></script>
         <script src="/asset/dashboard4/assets/js/fixed-plugin.js?v={{ mt_rand() }}" async></script>
         <script src="/asset/dashboard4/assets/js/tooltips.js" async></script>
-        -->
-
-        <!--
+        <script src="/asset/dashboard4/assets/js/navbar-sticky.js?v={{ mt_rand() }}" async></script>
         <script src="/asset/dashboard4/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.0" async></script>
+        <script src="/asset/dashboard4/assets/js/perfect-scrollbar.js?v={{ mt_rand() }}" async></script>
+
         -->
+        
     </body>
 </html>
