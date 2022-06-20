@@ -20229,13 +20229,6 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.useStore)();
-    var currentRoute = route().current();
-    var mainLinks = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
-      return store.getters["Dashboard4/mainLinks"];
-    });
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
-      store.dispatch('Dashboard4/showIsActiveLink', currentRoute);
-    });
     /* ================================================
         ADD CLASS TO BODY
     ================================================ */
@@ -20316,8 +20309,18 @@ __webpack_require__.r(__webpack_exports__);
       window.removeEventListener('click', closeDropdown);
     });
     /* ================================================
+        SIDEBAR
+    ================================================ */
+
+    var sidebarIsDisplayed = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+
+    var toggleSidenav = function toggleSidenav() {
+      sidebarIsDisplayed.value = !sidebarIsDisplayed.value;
+    };
+    /* ================================================
         SIDENAV BG COLOR
     ================================================ */
+
 
     var isTransparent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(true);
 
@@ -20329,48 +20332,77 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
     /* ================================================
-        SIDEBAR
-    ================================================ */
-
-
-    var sidebarIsDisplayed = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
-
-    var toggleSidenav = function toggleSidenav() {
-      sidebarIsDisplayed.value = !sidebarIsDisplayed.value;
-    };
-    /* ================================================
         SIDEBAR LINKS
     ================================================ */
 
-    /* 
-    const accountLinks = ref([
-        {
-            id: 1,
-            isActive: false,
-            title: 'Profile',
-            icon: `fa-solid fa-address-card`,
-        },
-        {
-            id: 2,
-            isActive: false,
-            title: 'Sign In',
-            icon: `fa-solid fa-right-to-bracket`,
-        },
-        {
-            id: 3,
-            isActive: false,
-            title: 'Register',
-            icon: `fa-brands fa-wpforms`,
-        },
-        
+
+    var mainLinks = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([{
+      id: 1,
+      isActive: false,
+      title: 'Dashboard',
+      icon: "fa-solid fa-chart-simple",
+      route: 'backoffice.dashboard4'
+    }, {
+      id: 2,
+      isActive: false,
+      title: 'Tables',
+      icon: "fa-solid fa-table",
+      route: 'backoffice.dashboard4.test'
+    } // {
+    //     id: 3,
+    //     isActive: false,
+    //     title: 'Billing',
+    //     icon: `fa-solid fa-file-invoice`,
+    //     route: 'backoffice.dashboard4.test',
+    // },
+    // {
+    //     id: 4,
+    //     isActive: false,
+    //     title: 'Virtual Reality',
+    //     icon: `fa-solid fa-vr-cardboard`,
+    //     route: 'backoffice.dashboard4.test',
+    // },
+    // {
+    //     id: 5,
+    //     isActive: false,
+    //     title: 'RTL',
+    //     icon: `fa-solid fa-align-right`,
+    //     route: 'backoffice.dashboard4.test',
+    // },
     ]);
-    */
+    var accountLinks = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([{
+      id: 1,
+      isActive: false,
+      title: 'Profile',
+      icon: "fa-solid fa-address-card"
+    }, {
+      id: 2,
+      isActive: false,
+      title: 'Sign In',
+      icon: "fa-solid fa-right-to-bracket"
+    }, {
+      id: 3,
+      isActive: false,
+      title: 'Register',
+      icon: "fa-brands fa-wpforms"
+    }]);
+    var currentRoute = route().current();
 
+    var showIsActiveLink = function showIsActiveLink() {
+      mainLinks.value.forEach(function (link) {
+        if (link.route === currentRoute) {
+          link.isActive = true;
+        } else {
+          link.isActive = false;
+        }
+      });
+    };
 
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      showIsActiveLink();
+    });
     var __returned__ = {
       store: store,
-      currentRoute: currentRoute,
-      mainLinks: mainLinks,
       showFixedPluginCard: showFixedPluginCard,
       fixedPluginRef: fixedPluginRef,
       fixedPluginButtonRef: fixedPluginButtonRef,
@@ -20385,10 +20417,14 @@ __webpack_require__.r(__webpack_exports__);
       dropdownmenuNotificationRef: dropdownmenuNotificationRef,
       toggleDropdownNotification: toggleDropdownNotification,
       closeDropdown: closeDropdown,
-      isTransparent: isTransparent,
-      changeSidenavColor: changeSidenavColor,
       sidebarIsDisplayed: sidebarIsDisplayed,
       toggleSidenav: toggleSidenav,
+      isTransparent: isTransparent,
+      changeSidenavColor: changeSidenavColor,
+      mainLinks: mainLinks,
+      accountLinks: accountLinks,
+      currentRoute: currentRoute,
+      showIsActiveLink: showIsActiveLink,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
@@ -22370,29 +22406,43 @@ var _hoisted_5 = {
 var _hoisted_6 = {
   "class": "ml-1 duration-300 opacity-100 pointer-events-none ease-soft"
 };
-var _hoisted_7 = {
+
+var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+    "class": "w-full mt-4"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
+    "class": "pl-6 ml-2 font-bold leading-tight uppercase text-size-xs opacity-60"
+  }, "Account pages")], -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_8 = {
+  "class": "ml-1 duration-300 opacity-100 pointer-events-none ease-soft"
+};
+var _hoisted_9 = {
   ref: "mainRef",
   "class": "ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200"
 };
-var _hoisted_8 = {
+var _hoisted_10 = {
   "class": "relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start",
   "navbar-main": "",
   "navbar-scroll": "true"
 };
-var _hoisted_9 = {
+var _hoisted_11 = {
   "class": "flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit"
 };
-var _hoisted_10 = {
+var _hoisted_12 = {
   "class": "flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto"
 };
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center md:ml-auto md:pr-4\" data-v-779c299f><div class=\"relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft\" data-v-779c299f><span class=\"text-size-sm ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all\" data-v-779c299f><i class=\"fas fa-search\" data-v-779c299f></i></span><input type=\"text\" class=\"pl-8.75 text-size-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow\" placeholder=\"Type here...\" data-v-779c299f></div></div>", 1);
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center md:ml-auto md:pr-4\" data-v-779c299f><div class=\"relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft\" data-v-779c299f><span class=\"text-size-sm ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all\" data-v-779c299f><i class=\"fas fa-search\" data-v-779c299f></i></span><input type=\"text\" class=\"pl-8.75 text-size-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow\" placeholder=\"Type here...\" data-v-779c299f></div></div>", 1);
 
-var _hoisted_12 = {
+var _hoisted_14 = {
   "class": "flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full"
 };
 
-var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "flex items-center"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
@@ -22407,14 +22457,14 @@ var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_14 = {
+var _hoisted_16 = {
   "class": "flex items-center pl-4 xl:hidden"
 };
-var _hoisted_15 = {
+var _hoisted_17 = {
   "class": "w-4.5 overflow-hidden"
 };
 
-var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"
   }, null, -1
@@ -22422,19 +22472,19 @@ var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_17 = {
+var _hoisted_19 = {
   "class": "flex items-center px-4"
 };
-var _hoisted_18 = {
+var _hoisted_20 = {
   "fixed-plugin-button-nav": "",
   ref: "fixedPluginButtonNavRef",
   "class": "cursor-pointer fa fa-cog"
 };
-var _hoisted_19 = {
+var _hoisted_21 = {
   "class": "relative flex items-center pr-2"
 };
 
-var _hoisted_20 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "hidden transform-dropdown-show"
   }, null, -1
@@ -22442,9 +22492,9 @@ var _hoisted_20 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_21 = ["aria-expanded"];
+var _hoisted_23 = ["aria-expanded"];
 
-var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_24 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "cursor-pointer fa fa-bell"
   }, null, -1
@@ -22452,11 +22502,11 @@ var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_23 = [_hoisted_22];
+var _hoisted_25 = [_hoisted_24];
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li class=\"relative mb-2\" data-v-779c299f><a class=\"ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors\" href=\"javascript:;\" data-v-779c299f><div class=\"flex py-1\" data-v-779c299f><div class=\"my-auto\" data-v-779c299f><img src=\"/asset/dashboard4/assets/img/team-2.jpg\" class=\"inline-flex items-center justify-center mr-4 text-white text-size-sm h-9 w-9 max-w-none rounded-xl\" data-v-779c299f></div><div class=\"flex flex-col justify-center\" data-v-779c299f><h6 class=\"mb-1 font-normal leading-normal text-size-sm\" data-v-779c299f><span class=\"font-semibold\" data-v-779c299f>New message</span> from Laur</h6><p class=\"mb-0 leading-tight text-size-xs text-slate-400\" data-v-779c299f><i class=\"mr-1 fa fa-clock\" data-v-779c299f></i> 13 minutes ago </p></div></div></a></li><li class=\"relative mb-2\" data-v-779c299f><a class=\"ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700\" href=\"javascript:;\" data-v-779c299f><div class=\"flex py-1\" data-v-779c299f><div class=\"my-auto\" data-v-779c299f><img src=\"/asset/dashboard4/assets/img/small-logos/logo-spotify.svg\" class=\"inline-flex items-center justify-center mr-4 text-white text-size-sm bg-gradient-dark-gray h-9 w-9 max-w-none rounded-xl\" data-v-779c299f></div><div class=\"flex flex-col justify-center\" data-v-779c299f><h6 class=\"mb-1 font-normal leading-normal text-size-sm\" data-v-779c299f><span class=\"font-semibold\" data-v-779c299f>New album</span> by Travis Scott</h6><p class=\"mb-0 leading-tight text-size-xs text-slate-400\" data-v-779c299f><i class=\"mr-1 fa fa-clock\" data-v-779c299f></i> 1 day </p></div></div></a></li>", 2);
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li class=\"relative mb-2\" data-v-779c299f><a class=\"ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors\" href=\"javascript:;\" data-v-779c299f><div class=\"flex py-1\" data-v-779c299f><div class=\"my-auto\" data-v-779c299f><img src=\"/asset/dashboard4/assets/img/team-2.jpg\" class=\"inline-flex items-center justify-center mr-4 text-white text-size-sm h-9 w-9 max-w-none rounded-xl\" data-v-779c299f></div><div class=\"flex flex-col justify-center\" data-v-779c299f><h6 class=\"mb-1 font-normal leading-normal text-size-sm\" data-v-779c299f><span class=\"font-semibold\" data-v-779c299f>New message</span> from Laur</h6><p class=\"mb-0 leading-tight text-size-xs text-slate-400\" data-v-779c299f><i class=\"mr-1 fa fa-clock\" data-v-779c299f></i> 13 minutes ago </p></div></div></a></li><li class=\"relative mb-2\" data-v-779c299f><a class=\"ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700\" href=\"javascript:;\" data-v-779c299f><div class=\"flex py-1\" data-v-779c299f><div class=\"my-auto\" data-v-779c299f><img src=\"/asset/dashboard4/assets/img/small-logos/logo-spotify.svg\" class=\"inline-flex items-center justify-center mr-4 text-white text-size-sm bg-gradient-dark-gray h-9 w-9 max-w-none rounded-xl\" data-v-779c299f></div><div class=\"flex flex-col justify-center\" data-v-779c299f><h6 class=\"mb-1 font-normal leading-normal text-size-sm\" data-v-779c299f><span class=\"font-semibold\" data-v-779c299f>New album</span> by Travis Scott</h6><p class=\"mb-0 leading-tight text-size-xs text-slate-400\" data-v-779c299f><i class=\"mr-1 fa fa-clock\" data-v-779c299f></i> 1 day </p></div></div></a></li>", 2);
 
-var _hoisted_26 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_28 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "relative"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
@@ -22506,15 +22556,15 @@ var _hoisted_26 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_27 = {
+var _hoisted_29 = {
   "class": "w-full px-6 py-6 mx-auto"
 };
-var _hoisted_28 = {
+var _hoisted_30 = {
   "fixed-plugin": "",
   ref: "fixedPluginRef"
 };
 
-var _hoisted_29 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_31 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "py-2 pointer-events-none fa fa-cog"
   }, null, -1
@@ -22522,9 +22572,9 @@ var _hoisted_29 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_30 = [_hoisted_29];
+var _hoisted_32 = [_hoisted_31];
 
-var _hoisted_31 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_33 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "float-left"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
@@ -22534,7 +22584,7 @@ var _hoisted_31 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_32 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_34 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "fa fa-close"
   }, null, -1
@@ -22542,9 +22592,9 @@ var _hoisted_32 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_33 = [_hoisted_32];
+var _hoisted_35 = [_hoisted_34];
 
-var _hoisted_34 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_36 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
     "class": "h-px mx-0 my-1 bg-transparent bg-gradient-horizontal-dark"
   }, null, -1
@@ -22552,11 +22602,11 @@ var _hoisted_34 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_35 = {
+var _hoisted_37 = {
   "class": "flex-auto p-6 pt-0 sm:pt-4"
 };
 
-var _hoisted_36 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_38 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "mt-0"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
@@ -22568,11 +22618,11 @@ var _hoisted_36 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_37 = {
+var _hoisted_39 = {
   "class": "flex"
 };
 
-var _hoisted_38 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_40 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "block mt-2 leading-normal text-size-sm xl:hidden"
   }, "You can change the sidenav type just on desktop view.", -1
@@ -22580,7 +22630,7 @@ var _hoisted_38 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_39 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_41 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "mt-4"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
@@ -22590,7 +22640,7 @@ var _hoisted_39 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_40 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_42 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "min-h-6 mb-0.5 block pl-0"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -22602,7 +22652,7 @@ var _hoisted_40 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<hr class=\"h-px bg-transparent bg-gradient-horizontal-dark sm:my-6\" data-v-779c299f><a class=\"inline-block w-full px-6 py-3 mb-4 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer leading-pro text-size-xs ease-soft-in hover:shadow-soft-xs hover:scale-102 active:opacity-85 tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-dark-gray\" href=\"https://www.creative-tim.com/product/soft-ui-dashboard-tailwind\" target=\"_blank\" data-v-779c299f>Free Download</a><a class=\"inline-block w-full px-6 py-3 mb-4 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer active:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 border-slate-700 text-slate-700 hover:bg-transparent hover:text-slate-700 hover:shadow-none active:bg-slate-700 active:text-white active:hover:bg-transparent active:hover:text-slate-700 active:hover:shadow-none\" href=\"https://www.creative-tim.com/learning-lab/tailwind/html/quick-start/soft-ui-dashboard/\" target=\"_blank\" data-v-779c299f>View documentation</a><div class=\"w-full text-center\" data-v-779c299f><a class=\"github-button\" href=\"https://github.com/creativetimofficial/soft-ui-dashboard\" data-icon=\"octicon-star\" data-size=\"large\" data-show-count=\"true\" aria-label=\"Star creativetimofficial/soft-ui-dashboard on GitHub\" data-v-779c299f>Star</a><h6 class=\"mt-4\" data-v-779c299f>Thank you for sharing!</h6><a href=\"https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard\" class=\"inline-block px-6 py-3 mb-0 mr-2 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 me-2 border-slate-700 bg-slate-700\" target=\"_blank\" data-v-779c299f><i class=\"mr-1 fab fa-twitter\" data-v-779c299f></i> Tweet </a><a href=\"https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard\" class=\"inline-block px-6 py-3 mb-0 mr-2 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 me-2 border-slate-700 bg-slate-700\" target=\"_blank\" data-v-779c299f><i class=\"mr-1 fab fa-facebook-square\" data-v-779c299f></i> Share </a></div>", 4);
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<hr class=\"h-px bg-transparent bg-gradient-horizontal-dark sm:my-6\" data-v-779c299f><a class=\"inline-block w-full px-6 py-3 mb-4 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer leading-pro text-size-xs ease-soft-in hover:shadow-soft-xs hover:scale-102 active:opacity-85 tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-dark-gray\" href=\"https://www.creative-tim.com/product/soft-ui-dashboard-tailwind\" target=\"_blank\" data-v-779c299f>Free Download</a><a class=\"inline-block w-full px-6 py-3 mb-4 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer active:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 border-slate-700 text-slate-700 hover:bg-transparent hover:text-slate-700 hover:shadow-none active:bg-slate-700 active:text-white active:hover:bg-transparent active:hover:text-slate-700 active:hover:shadow-none\" href=\"https://www.creative-tim.com/learning-lab/tailwind/html/quick-start/soft-ui-dashboard/\" target=\"_blank\" data-v-779c299f>View documentation</a><div class=\"w-full text-center\" data-v-779c299f><a class=\"github-button\" href=\"https://github.com/creativetimofficial/soft-ui-dashboard\" data-icon=\"octicon-star\" data-size=\"large\" data-show-count=\"true\" aria-label=\"Star creativetimofficial/soft-ui-dashboard on GitHub\" data-v-779c299f>Star</a><h6 class=\"mt-4\" data-v-779c299f>Thank you for sharing!</h6><a href=\"https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard\" class=\"inline-block px-6 py-3 mb-0 mr-2 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 me-2 border-slate-700 bg-slate-700\" target=\"_blank\" data-v-779c299f><i class=\"mr-1 fab fa-twitter\" data-v-779c299f></i> Tweet </a><a href=\"https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard\" class=\"inline-block px-6 py-3 mb-0 mr-2 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 me-2 border-slate-700 bg-slate-700\" target=\"_blank\" data-v-779c299f><i class=\"mr-1 fab fa-facebook-square\" data-v-779c299f></i> Share </a></div>", 4);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" sidenav  "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("aside", {
@@ -22658,59 +22708,91 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["class", "href"])]);
   }), 128
   /* KEYED_FRAGMENT */
-  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\r\n                <li class=\"w-full mt-4\">\r\n                    <h6 class=\"pl-6 ml-2 font-bold leading-tight uppercase text-size-xs opacity-60\">Account pages</h6>\r\n                </li>\r\n                "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\r\n                <li v-for=\"link in accountLinks\" :key=\"link.id\" class=\"mt-0.5 w-full\">\r\n                    <a \r\n                        class=\"py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors\" \r\n                        :class=\"{\r\n                            'rounded-lg bg-white font-semibold text-slate-700' : link.isActive, \r\n                            '' : !link.isActive,\r\n                            'shadow-soft-xl' : link.isActive && isTransparent, \r\n                            'shadow-none' : link.isActive && !isTransparent,\r\n                        }\"\r\n                        href=\"./pages/tables.html\"\r\n                    >\r\n                        <div \r\n                            class=\"shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5\"\r\n                            :class=\"{\r\n                                'bg-gradient-fuchsia text-white' : link.isActive, '' : !link.isActive, \r\n                                'bg-white' : isTransparent, \r\n                                'bg-gray-200' : !isTransparent, \r\n                            }\"\r\n                        >\r\n                            <i :class=\"link.icon\"></i>\r\n                        </div>\r\n                        <span class=\"ml-1 duration-300 opacity-100 pointer-events-none ease-soft\">{{ link.title }}</span>\r\n                    </a>\r\n                </li>\r\n                ")])], 512
+  )), _hoisted_7, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.accountLinks, function (link) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
+      key: link.id,
+      "class": "mt-0.5 w-full"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors", {
+        'rounded-lg bg-white font-semibold text-slate-700': link.isActive,
+        '': !link.isActive,
+        'shadow-soft-xl': link.isActive && $setup.isTransparent,
+        'shadow-none': link.isActive && !$setup.isTransparent
+      }]),
+      href: "./pages/tables.html"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5", {
+        'bg-gradient-fuchsia text-white': link.isActive,
+        '': !link.isActive,
+        'bg-white': $setup.isTransparent,
+        'bg-gray-200': !$setup.isTransparent
+      }])
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(link.icon)
+    }, null, 2
+    /* CLASS */
+    )], 2
+    /* CLASS */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(link.title), 1
+    /* TEXT */
+    )], 2
+    /* CLASS */
+    )]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])], 512
   /* NEED_PATCH */
   )], 2
   /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end sidenav "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Breadcrumb"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end sidenav "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Breadcrumb"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     onClick: $setup.toggleSidenav,
     href: "javascript:;",
     "class": "block p-0 transition-all ease-nav-brand text-size-sm text-slate-500",
     "sidenav-trigger": ""
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
       'translate-x-[5px]': $setup.sidebarIsDisplayed
     }, "ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"])
   }, null, 2
   /* CLASS */
-  ), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  ), _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
       'translate-x-[5px]': $setup.sidebarIsDisplayed
     }, "ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"])
   }, null, 2
   /* CLASS */
-  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     onClick: $setup.toggleFixedPluginCard,
     href: "javascript:;",
     "class": "p-0 transition-all text-size-sm ease-nav-brand text-slate-500"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", _hoisted_18, null, 512
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", _hoisted_20, null, 512
   /* NEED_PATCH */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" fixed-plugin-button-nav  ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" notifications "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" fixed-plugin-button-nav  ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" notifications "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     onClick: $setup.toggleDropdownNotification,
     ref: "dropdownTriggerNotificationRef",
     href: "javascript:;",
     "class": "block p-0 transition-all text-size-sm ease-nav-brand text-slate-500",
     "dropdown-trigger": "",
     "aria-expanded": $setup.dropdownDisplayedNotification ? true : false
-  }, _hoisted_23, 8
+  }, _hoisted_25, 8
   /* PROPS */
-  , _hoisted_21), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  , _hoisted_23), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
     "dropdown-menu": "",
     ref: "dropdownmenuNotificationRef",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-size-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer", {
       'before:-top-5 transform-dropdown-show': $setup.dropdownDisplayedNotification,
       'opacity-0 pointer-events-none transform-dropdown': !$setup.dropdownDisplayedNotification
     }])
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" add show class on dropdown open js "), _hoisted_24, _hoisted_26], 2
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" add show class on dropdown open js "), _hoisted_26, _hoisted_28], 2
   /* CLASS */
-  )])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" cards "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Footer"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end cards ")], 512
+  )])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" cards "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Footer"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" end cards ")], 512
   /* NEED_PATCH */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     onClick: $setup.toggleFixedPluginCard,
     ref: "fixedPluginButtonRef",
     "fixed-plugin-button": "",
     "class": "bottom-7.5 right-7.5 text-size-xl z-990 shadow-soft-lg rounded-circle fixed cursor-pointer bg-white px-4 py-2 text-slate-700"
-  }, _hoisted_30, 512
+  }, _hoisted_32, 512
   /* NEED_PATCH */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" -right-90 in loc de 0"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     ref: "fixedPluginContentRef",
@@ -22721,13 +22803,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }])
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "px-6 pt-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl"
-  }, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, [_hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "float-right mt-6"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: $setup.toggleFixedPluginCard,
     "fixed-plugin-close-button": "",
     "class": "inline-block p-0 mb-4 font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 active:opacity-85 text-slate-700"
-  }, _hoisted_33)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Toggle Button ")]), _hoisted_34, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidebar Backgrounds "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\r\n                <div>\r\n                    <h6 class=\"mb-0\">Sidebar Colors</h6>\r\n                </div>\r\n                <a href=\"javascript:void(0)\">\r\n                    <div class=\"my-2 text-left\" sidenav-colors>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-fuchsia relative inline-block cursor-pointer whitespace-nowrap border border-solid border-slate-700 text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" active-color data-color=\"fuchsia\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-dark-gray relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"dark-gray\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-cyan relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"cyan\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-lime relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"lime\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-orange relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"orange\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-red relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"red\" onclick=\"sidebarColor(this)\"></span>\r\n                    </div>\r\n                </a>\r\n                "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidenav Type "), _hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, _hoisted_35)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Toggle Button ")]), _hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidebar Backgrounds "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\r\n                <div>\r\n                    <h6 class=\"mb-0\">Sidebar Colors</h6>\r\n                </div>\r\n                <a href=\"javascript:void(0)\">\r\n                    <div class=\"my-2 text-left\" sidenav-colors>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-fuchsia relative inline-block cursor-pointer whitespace-nowrap border border-solid border-slate-700 text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" active-color data-color=\"fuchsia\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-dark-gray relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"dark-gray\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-cyan relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"cyan\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-lime relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"lime\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-orange relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"orange\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-red relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"red\" onclick=\"sidebarColor(this)\"></span>\r\n                    </div>\r\n                </a>\r\n                "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidenav Type "), _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $setup.changeSidenavColor('transparent');
     }),
@@ -22752,7 +22834,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "data-class": "bg-white"
   }, "White", 2
   /* CLASS */
-  )]), _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar Fixed "), _hoisted_39, _hoisted_40, _hoisted_41])], 2
+  )]), _hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar Fixed "), _hoisted_41, _hoisted_42, _hoisted_43])], 2
   /* CLASS */
   )], 512
   /* NEED_PATCH */
@@ -26194,41 +26276,7 @@ var state = {
   breadcrumb: {
     root: 'Pages',
     currentPage: 'Dashboard'
-  },
-  mainLinks: [{
-    id: 1,
-    isActive: false,
-    title: 'Dashboard',
-    icon: "fa-solid fa-chart-simple",
-    route: 'backoffice.dashboard4'
-  }, {
-    id: 2,
-    isActive: false,
-    title: 'Tables',
-    icon: "fa-solid fa-table",
-    route: 'backoffice.dashboard4.test'
-  } // {
-  //     id: 3,
-  //     isActive: false,
-  //     title: 'Billing',
-  //     icon: `fa-solid fa-file-invoice`,
-  //     route: 'backoffice.dashboard4.test',
-  // },
-  // {
-  //     id: 4,
-  //     isActive: false,
-  //     title: 'Virtual Reality',
-  //     icon: `fa-solid fa-vr-cardboard`,
-  //     route: 'backoffice.dashboard4.test',
-  // },
-  // {
-  //     id: 5,
-  //     isActive: false,
-  //     title: 'RTL',
-  //     icon: `fa-solid fa-align-right`,
-  //     route: 'backoffice.dashboard4.test',
-  // },
-  ]
+  }
 };
 var getters = {
   currentLang: function currentLang(state) {
@@ -26236,9 +26284,6 @@ var getters = {
   },
   breadcrumb: function breadcrumb(state) {
     return state.breadcrumb;
-  },
-  mainLinks: function mainLinks(state) {
-    return state.mainLinks;
   }
 };
 var actions = {
@@ -26247,18 +26292,6 @@ var actions = {
   },
   changeBreadcrumbPageTitle: function changeBreadcrumbPageTitle(context, payload) {
     context.commit('changeBreadcrumbPageTitle', payload);
-  },
-  showIsActiveLink: function showIsActiveLink(context, payload) {
-    var mainLinks = context.state.mainLinks;
-    var currentLink = payload;
-    mainLinks.forEach(function (link) {
-      if (link.route === currentLink) {
-        link.isActive = true;
-      } else {
-        link.isActive = false;
-      }
-    });
-    context.commit('showIsActiveLink', mainLinks);
   }
 };
 var mutations = {
@@ -26267,9 +26300,6 @@ var mutations = {
   },
   changeBreadcrumbPageTitle: function changeBreadcrumbPageTitle(state, payload) {
     state.breadcrumb.currentPage = payload;
-  },
-  showIsActiveLink: function showIsActiveLink(state, payload) {
-    state.mainLinks = payload;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
