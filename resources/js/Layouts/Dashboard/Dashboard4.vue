@@ -323,6 +323,17 @@
     import Footer from '../../Components/Dashboard4/Footer';
 
     /* ================================================
+        ADD CLASS TO BODY
+    ================================================ */
+    onMounted(() => { 
+        document.body.classList.add('dashboard-4');
+    });
+
+    onUnmounted(() => { 
+        document.body.classList.remove('dashboard-4')
+    });
+    
+    /* ================================================
         FIXED PLUGIN CARD
     ================================================ */
     const showFixedPluginCard = ref(false); 

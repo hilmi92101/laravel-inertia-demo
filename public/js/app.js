@@ -20202,13 +20202,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* ================================================
-    FIXED PLUGIN CARD
+    ADD CLASS TO BODY
 ================================================ */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      document.body.classList.add('dashboard-4');
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(function () {
+      document.body.classList.remove('dashboard-4');
+    });
+    /* ================================================
+        FIXED PLUGIN CARD
+    ================================================ */
+
     var showFixedPluginCard = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
     var fixedPluginRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
     var fixedPluginButtonRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
