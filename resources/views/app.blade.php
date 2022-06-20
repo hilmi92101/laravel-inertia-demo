@@ -26,15 +26,19 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
         <!-- ------------------------------------------------------
-            ALL
+            TAILWIND
         ------------------------------------------------------ -->
         <link href="{{ mix('/css/app.css') }}?v={{ mt_rand() }}" rel="stylesheet" />
-        <link href="{{ mix('/css/components.css') }}?v={{ mt_rand() }}" rel="stylesheet" />
 
         <!-- ------------------------------------------------------
             DASHBOARD 4
         ------------------------------------------------------ -->
         <link href="/asset/dashboard4/assets/css/styles.css?v=1.0.0" rel="stylesheet" />
+
+        <!-- ------------------------------------------------------
+            CUSTOM
+        ------------------------------------------------------ -->
+        <link href="{{ mix('/css/custom-style.css') }}?v={{ mt_rand() }}" rel="stylesheet" />
 
         
         
