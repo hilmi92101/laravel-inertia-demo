@@ -426,10 +426,19 @@
         {
             id: 2,
             isActive: false,
-            title: 'Tables',
+            title: 'Datatables',
             icon: `fa-solid fa-table`,
+            route: 'backoffice.dashboard4.datatables',
+        },
+        {
+            id: 999,
+            isActive: false,
+            title: 'Test',
+            icon: `fa-solid fa-person-digging`,
             route: 'backoffice.dashboard4.test',
         },
+
+        
         // {
         //     id: 3,
         //     isActive: false,
