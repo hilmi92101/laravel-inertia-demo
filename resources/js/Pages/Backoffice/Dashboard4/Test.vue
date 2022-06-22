@@ -357,7 +357,7 @@
 
 <script setup>  
 
-    import DashboardLayout from '../../../Layouts/Dashboard/Dashboard4';
+    import DashboardLayout from '@/Layouts/Dashboard/Dashboard4';
     import { Head } from '@inertiajs/inertia-vue3';
 
     import { ref, computed, onMounted, onUnmounted } from 'vue';

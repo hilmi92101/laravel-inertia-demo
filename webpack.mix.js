@@ -17,7 +17,8 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'), 
         require('postcss-import')
     ])
-    .sass('resources/sass/custom-style.scss', 'public/css/custom-style.css');
+    .sass('resources/sass/custom-style.scss', 'public/css/custom-style.css')
+    .webpackConfig(require('./webpack.config'));
 
     //.sass('resources/sass/dashboard3.scss', 'public/css/dashboard-3.css')
     //.sass('resources/sass/dashboard3Custom.scss', 'public/css/dashboard-3-custom.css');
