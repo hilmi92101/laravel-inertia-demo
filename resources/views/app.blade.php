@@ -5,15 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
         <!-- ------------------------------------------------------
-            DASHBOARD 2
+            TAILWIND
         ------------------------------------------------------ -->
-        <!--
-        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-        -->
+        <link href="{{ mix('/css/app.css') }}?v={{ mt_rand() }}" rel="stylesheet" />
 
         <!-- ------------------------------------------------------
             DASHBOARD 4
+
+            NOTES: REASON WHY WE NEED TO ADD ALL HERE BECAUSE
+            HEAD FROM INERTIA LOAD THESE CSS FILES VERY SLOWLY.
+            IT EFFECT USER EXPERIENCE.
         ------------------------------------------------------ -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
@@ -24,22 +25,9 @@
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
-        <!-- ------------------------------------------------------
-            TAILWIND
-        ------------------------------------------------------ -->
-        <link href="{{ mix('/css/app.css') }}?v={{ mt_rand() }}" rel="stylesheet" />
 
-        <!-- ------------------------------------------------------
-            DASHBOARD 4
-        ------------------------------------------------------ -->
         <link href="/asset/dashboard4/assets/css/styles.css?v=1.0.0" rel="stylesheet" />
-
-        <!-- ------------------------------------------------------
-            CUSTOM
-        ------------------------------------------------------ -->
-        <link href="{{ mix('/css/custom-style.css') }}?v={{ mt_rand() }}" rel="stylesheet" />
-
+        <link href="{{ mix('/css/dashboard-4.css') }}?v={{ mt_rand() }}" rel="stylesheet" />
         
         
         @routes 

@@ -31054,10 +31054,10 @@ module.exports = isEqual;
 
 /***/ }),
 
-/***/ "./resources/sass/custom-style.scss":
-/*!******************************************!*\
-  !*** ./resources/sass/custom-style.scss ***!
-  \******************************************/
+/***/ "./resources/sass/dashboard-4/app.scss":
+/*!*********************************************!*\
+  !*** ./resources/sass/dashboard-4/app.scss ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -37787,7 +37787,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/custom-style": 0,
+/******/ 			"css/dashboard-4": 0,
 /******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
@@ -37843,9 +37843,9 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/custom-style","css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/custom-style","css/app"], () => (__webpack_require__("./resources/sass/custom-style.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/custom-style","css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/dashboard-4","css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/dashboard-4","css/app"], () => (__webpack_require__("./resources/sass/dashboard-4/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/dashboard-4","css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
