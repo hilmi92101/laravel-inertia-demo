@@ -15,7 +15,7 @@
             NOTES: REASON WHY WE NEED TO ADD ALL HERE BECAUSE
             HEAD FROM INERTIA LOAD THESE CSS FILES VERY SLOWLY.
             IT EFFECT USER EXPERIENCE.
-        ------------------------------------------------------ -->
+        ------------------------------------------------------
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
         <link href="/asset/dashboard4/assets/css/nucleo-icons.css" rel="stylesheet" />
@@ -28,6 +28,14 @@
 
         <link href="/asset/dashboard4/assets/css/styles.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ mix('/css/dashboard-4.css') }}?v={{ mt_rand() }}" rel="stylesheet" />
+
+        -->
+
+        <!-- ------------------------------------------------------
+            DASHBOARD 5
+        ------------------------------------------------------ -->
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <link href="{{ mix('/css/dashboard-5.css') }}?v={{ mt_rand() }}" rel="stylesheet" />
         
         
         @routes 
@@ -41,11 +49,11 @@
         <!-- ------------------------------------------------------
             DASHBOARD 4
         ------------------------------------------------------ -->
-        
+        <!--
         <script src="/asset/dashboard4/assets/js/plugins/perfect-scrollbar.min.js" async></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-        <!--
+
         <script src="/asset/dashboard4/assets/js/sidenav-burger.js?v=2" async></script>
         <script src="/asset/dashboard4/assets/js/dropdown.js?v=33" async></script>
         <script src="/asset/dashboard4/assets/js/plugins/chartjs.min.js" async></script>
@@ -56,7 +64,6 @@
         <script src="/asset/dashboard4/assets/js/navbar-sticky.js?v={{ mt_rand() }}" async></script>
         <script src="/asset/dashboard4/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.0" async></script>
         <script src="/asset/dashboard4/assets/js/perfect-scrollbar.js?v={{ mt_rand() }}" async></script>
-
         -->
         
     </body>

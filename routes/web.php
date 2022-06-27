@@ -40,6 +40,8 @@ Route::inertia('backoffice/dashboard-4', 'Backoffice/Dashboard4/Index')->name('b
 Route::inertia('backoffice/dashboard-4/test', 'Backoffice/Dashboard4/Test')->name('backoffice.dashboard4.test');
 Route::get('backoffice/dashboard-4/datatables', [\App\Http\Controllers\Backoffice\DatatableController::class, 'index'])->name('backoffice.dashboard4.datatables');
 
+Route::get('backoffice/dashboard-5', [\App\Http\Controllers\Backoffice\Dashboard5\DashboardController::class, 'index'])->name('backoffice.dashboard5');
+
 
 // Route::get('/', function () {
 //     return view('welcome');
