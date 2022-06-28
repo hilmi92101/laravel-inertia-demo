@@ -7,25 +7,23 @@
     box-sizing: border-box;
 }
 
-:root {
-    --grey: #F1F0F6;
-    --dark-grey: #8D8D8D;
-    --light: #fff;
-    --dark: #000;
-    --green: #81D43A;
-    --light-green: #E3FFCB;
-    --blue: #1775F1;
-    --light-blue: #D0E4FF;
-    --dark-blue: #0C5FCD;
-    --red: #FC3B56;
-}
+$grey: #F1F0F6;
+$darkGrey: #8D8D8D;
+$light: #fff;
+$dark: #000;
+$green: #81D43A;
+$lightGreen: #E3FFCB;
+$blue: #1775F1;
+$lightBlue: #D0E4FF;
+$darkBlue: #0C5FCD;
+$red: #FC3B56;
 
 html {
     overflow-x: hidden;
 }
 
 body {
-    background: var(--grey);
+    background: $grey;
     overflow-x: hidden;
 }
 
@@ -43,7 +41,7 @@ li {
     position: fixed;
     max-width: 260px;
     width: 100%;
-    background: var(--light);
+    background: $light;
     top: 0;
     left: 0;
     height: 100%;
@@ -71,12 +69,12 @@ li {
     align-items: center;
     height: 64px;
     font-weight: 700;
-    color: var(--blue);
+    color: $blue;
     position: sticky;
     top: 0;
     left: 0;
     z-index: 100;
-    background: var(--light);
+    background: $light;
     transition: all .3s ease;
     padding: 0 6px;
 }
@@ -112,7 +110,7 @@ li {
     display: flex;
     align-items: center;
     font-size: 14px;
-    color: var(--dark);
+    color: $dark;
     padding: 12px 16px 12px 0;
     transition: all .3s ease;
     border-radius: 10px;
@@ -121,7 +119,7 @@ li {
 }
 
 #sidebar .side-menu>li>a:hover {
-    background: var(--grey);
+    background: $grey;
 }
 
 #sidebar .side-menu>li>a.active .icon-right {
@@ -130,8 +128,8 @@ li {
 
 #sidebar .side-menu>li>a.active,
 #sidebar .side-menu>li>a.active:hover {
-    background: var(--blue);
-    color: var(--light);
+    background: $blue;
+    color: $light;
 }
 
 #sidebar .divider {
@@ -139,7 +137,7 @@ li {
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 700;
-    color: var(--dark-grey);
+    color: $darkGrey;
     transition: all .3s ease;
     white-space: nowrap;
 }
@@ -164,7 +162,7 @@ li {
 }
 
 #sidebar .side-dropdown a:hover {
-    color: var(--blue);
+    color: $blue;
 }
 
 #sidebar .ads {
@@ -181,7 +179,7 @@ li {
 // }
 
 #sidebar .ads .wrapper {
-    background: var(--grey);
+    background: $grey;
     padding: 20px;
     border-radius: 10px;
 }
@@ -192,8 +190,8 @@ li {
     justify-content: center;
     align-items: center;
     padding: 12px 0;
-    color: var(--light);
-    background: var(--blue);
+    color: $light;
+    background: $blue;
     transition: all .3s ease;
     border-radius: 5px;
     font-weight: 600;
@@ -201,12 +199,12 @@ li {
 }
 
 #sidebar .btn-upgrade:hover {
-    background: var(--dark-blue);
+    background: $darkBlue;
 }
 
 #sidebar .ads .wrapper p {
     font-size: 12px;
-    color: var(--dark-grey);
+    color: $darkGrey;
     text-align: center;
 }
 
@@ -232,7 +230,7 @@ li {
 
 /* NAVBAR */
 nav {
-    background: var(--light);
+    background: $light;
     height: 64px;
     padding: 0 20px;
     display: flex;
@@ -261,7 +259,7 @@ nav .form-group {
 
 nav .form-group input {
     width: 100%;
-    background: var(--grey);
+    background: $grey;
     border-radius: 5px;
     border: none;
     outline: none;
@@ -270,7 +268,7 @@ nav .form-group input {
 }
 
 nav .form-group input:focus {
-    box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
+    box-shadow: 0 0 0 1px $blue, 0 0 0 4px $lightBlue;
 }
 
 nav .form-group .icon {
@@ -278,7 +276,7 @@ nav .form-group .icon {
     top: 50%;
     transform: translateY(-50%);
     right: 16px;
-    color: var(--dark-grey);
+    color: $darkGrey;
 }
 
 nav .nav-link {
@@ -287,7 +285,7 @@ nav .nav-link {
 
 nav .nav-link .icon {
     font-size: 18px;
-    color: var(--dark);
+    color: $dark;
 }
 
 nav .nav-link .badge {
@@ -297,19 +295,19 @@ nav .nav-link .badge {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 2px solid var(--light);
-    background: var(--red);
+    border: 2px solid $light;
+    background: $red;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--light);
+    color: $light;
     font-size: 10px;
     font-weight: 700;
 }
 
 nav .divider {
     width: 1px;
-    background: var(--grey);
+    background: $grey;
     height: 12px;
     display: block;
 }
@@ -330,7 +328,7 @@ nav .profile .profile-link {
     position: absolute;
     top: calc(100% + 10px);
     right: 0;
-    background: var(--light);
+    background: $light;
     padding: 10px 0;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
     border-radius: 10px;
@@ -351,13 +349,13 @@ nav .profile .profile-link a {
     display: flex;
     grid-gap: 10px;
     font-size: 14px;
-    color: var(--dark);
+    color: $dark;
     align-items: center;
     transition: all .3s ease;
 }
 
 nav .profile .profile-link a:hover {
-    background: var(--grey);
+    background: $grey;
 }
 
 /* NAVBAR */
@@ -386,12 +384,12 @@ main .breadcrumbs li a {
 }
 
 main .breadcrumbs li a {
-    color: var(--blue);
+    color: $blue;
 }
 
 main .breadcrumbs li a.active,
 main .breadcrumbs li.divider {
-    color: var(--dark-grey);
+    color: $darkGrey;
     pointer-events: none;
 }
 
@@ -405,7 +403,7 @@ main .info-data {
 main .info-data .card {
     padding: 20px;
     border-radius: 10px;
-    background: var(--light);
+    background: $light;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
 }
 
@@ -426,11 +424,11 @@ main .card .head p {
 
 main .card .head .icon {
     font-size: 20px;
-    color: var(--green);
+    color: $green;
 }
 
 main .card .head .icon.down {
-    color: var(--red);
+    color: $red;
 }
 
 main .card .progress {
@@ -439,7 +437,7 @@ main .card .progress {
     height: 10px;
     width: 100%;
     border-radius: 10px;
-    background: var(--grey);
+    background: $grey;
     overflow-y: hidden;
     position: relative;
     margin-bottom: 4px;
@@ -451,7 +449,7 @@ main .card .progress::before {
     top: 0;
     left: 0;
     height: 100%;
-    background: var(--blue);
+    background: $blue;
     width: var(--value);
 }
 
@@ -471,7 +469,7 @@ main .data .content-data {
     flex-grow: 1;
     flex-basis: 400px;
     padding: 20px;
-    background: var(--light);
+    background: $light;
     border-radius: 10px;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
 }
@@ -504,7 +502,7 @@ main .content-data .head .menu-link {
     top: calc(100% + 10px);
     right: 0;
     width: 140px;
-    background: var(--light);
+    background: $light;
     border-radius: 10px;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
     padding: 10px 0;
@@ -524,12 +522,12 @@ main .content-data .head .menu-link a {
     display: block;
     padding: 6px 16px;
     font-size: 14px;
-    color: var(--dark);
+    color: $dark;
     transition: all .3s ease;
 }
 
 main .content-data .head .menu-link a:hover {
-    background: var(--grey);
+    background: $grey;
 }
 
 main .content-data .chart {
@@ -563,8 +561,8 @@ main .chat-box .day span {
     display: inline-block;
     padding: 6px 12px;
     border-radius: 20px;
-    background: var(--light-blue);
-    color: var(--blue);
+    background: $lightBlue;
+    color: $blue;
     font-size: 12px;
     font-weight: 600;
 }
@@ -591,7 +589,7 @@ main .chat-box .profile .username {
 
 main .chat-box .profile .time {
     font-size: 12px;
-    color: var(--dark-grey);
+    color: $darkGrey;
 }
 
 main .chat-box .chat p {
@@ -604,8 +602,8 @@ main .chat-box .chat p {
 
 main .chat-box .msg:not(.me) .chat p {
     border-radius: 0 5px 5px 5px;
-    background: var(--blue);
-    color: var(--light);
+    background: $blue;
+    color: $light;
 }
 
 main .chat-box .msg.me {
@@ -617,7 +615,7 @@ main .chat-box .msg.me .profile {
 }
 
 main .chat-box .msg.me p {
-    background: var(--grey);
+    background: $grey;
     border-radius: 5px 0 5px 5px;
 }
 
@@ -636,28 +634,28 @@ main .form-group input {
     padding: 10px 16px;
     border-radius: 5px;
     outline: none;
-    background: var(--grey);
+    background: $grey;
     border: none;
     transition: all .3s ease;
     width: 100%;
 }
 
 main .form-group input:focus {
-    box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
+    box-shadow: 0 0 0 1px $blue, 0 0 0 4px $lightBlue;
 }
 
 main .btn-send {
     padding: 0 16px;
-    background: var(--blue);
+    background: $blue;
     border-radius: 5px;
-    color: var(--light);
+    color: $light;
     cursor: pointer;
     border: none;
     transition: all .3s ease;
 }
 
 main .btn-send:hover {
-    background: var(--dark-blue);
+    background: $darkBlue;
 }
 
 /* MAIN */
