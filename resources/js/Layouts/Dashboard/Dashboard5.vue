@@ -1,11 +1,11 @@
 <template>  
 
     <!-- SIDEBAR -->
-	<section id="sidebar">
+	<section id="sidebar" :class="{'hide' : sidebarHidden }">
 		<a href="#" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
 		<ul class="side-menu">
 			<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
-			<li class="divider" data-text="main">Main</li>
+			<li class="divider" data-text="main">{{ sidebarHidden ? '-' : 'Main' }}</li>
 			<li>
 				<a @click="toggleDropdown1" :class="{'active' : dropdown1Shown }" href="#">
 					<i class='bx bxs-inbox icon' ></i> 
@@ -21,7 +21,7 @@
 			</li>
 			<li><a href="#"><i class='bx bxs-chart icon' ></i> Charts</a></li>
 			<li><a href="#"><i class='bx bxs-widget icon' ></i> Widgets</a></li>
-			<li class="divider" data-text="table and forms">Table and forms</li>
+			<li class="divider" data-text="table and forms">{{ sidebarHidden ? '-' : 'Table and forms' }}</li>
 			<li><a href="#"><i class='bx bx-table icon' ></i> Tables</a></li>
 			<li>
 				<a href="#" @click="toggleDropdown2" :class="{'active' : dropdown2Shown }" >
@@ -50,7 +50,7 @@
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-			<i class='bx bx-menu toggle-sidebar' ></i>
+			<i @click="toggleSidebar" class='bx bx-menu toggle-sidebar' ></i>
 			<form action="#">
 				<div class="form-group">
 					<input type="text" placeholder="Search...">
@@ -203,7 +203,8 @@
     import Breadcrumb from '../../Components/Dashboard4/Breadcrumb';
     import Footer from '../../Components/Dashboard4/Footer';
 
-    
+	
+
 	/* ================================================
         DROPDOWN
     ================================================ */
@@ -215,6 +216,17 @@
 	const dropdown2Shown = ref(false);
 	const toggleDropdown2 = () => { 
 		dropdown2Shown.value = !dropdown2Shown.value;
+    }
+
+
+	/* ================================================
+        SIDEBAR
+    ================================================ */
+	const sidebarHidden = ref(false);
+	const toggleSidebar = () => { 
+		dropdown1Shown.value = false;
+		dropdown2Shown.value = false;
+		sidebarHidden.value = !sidebarHidden.value;
     }
     
 
