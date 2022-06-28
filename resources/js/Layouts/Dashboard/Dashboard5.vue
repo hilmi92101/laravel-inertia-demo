@@ -7,8 +7,12 @@
 			<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
 			<li class="divider" data-text="main">Main</li>
 			<li>
-				<a href="#"><i class='bx bxs-inbox icon' ></i> Elements <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
+				<a @click="toggleDropdown1" :class="{'active' : dropdown1Shown }" href="#">
+					<i class='bx bxs-inbox icon' ></i> 
+					Elements 
+					<i class='bx bx-chevron-right icon-right' ></i>
+				</a>
+				<ul class="side-dropdown" :class="{'show' : dropdown1Shown }">
 					<li><a href="#">Alert</a></li>
 					<li><a href="#">Badges</a></li>
 					<li><a href="#">Breadcrumbs</a></li>
@@ -20,8 +24,12 @@
 			<li class="divider" data-text="table and forms">Table and forms</li>
 			<li><a href="#"><i class='bx bx-table icon' ></i> Tables</a></li>
 			<li>
-				<a href="#"><i class='bx bxs-notepad icon' ></i> Forms <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
+				<a href="#" @click="toggleDropdown2" :class="{'active' : dropdown2Shown }" >
+					<i class='bx bxs-notepad icon' ></i> 
+					Forms 
+					<i class='bx bx-chevron-right icon-right' ></i>
+				</a>
+				<ul class="side-dropdown" :class="{'show' : dropdown2Shown }">
 					<li><a href="#">Basic</a></li>
 					<li><a href="#">Select</a></li>
 					<li><a href="#">Checkbox</a></li>
@@ -191,18 +199,23 @@
 
     import { ref, computed, onMounted, onUnmounted } from 'vue';
     import { Link } from '@inertiajs/inertia-vue3';
-    import { useStore } from 'vuex';
 
     import Breadcrumb from '../../Components/Dashboard4/Breadcrumb';
     import Footer from '../../Components/Dashboard4/Footer';
 
-    /* ================================================
-        VUEX
-    ================================================ */
-    const store = useStore();
     
-     
+	/* ================================================
+        DROPDOWN
+    ================================================ */
+	const dropdown1Shown = ref(false);
+	const toggleDropdown1 = () => { 
+		dropdown1Shown.value = !dropdown1Shown.value;
+    }
 
+	const dropdown2Shown = ref(false);
+	const toggleDropdown2 = () => { 
+		dropdown2Shown.value = !dropdown2Shown.value;
+    }
     
 
       

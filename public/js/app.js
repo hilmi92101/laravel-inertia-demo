@@ -20501,31 +20501,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
 /* harmony import */ var _Components_Dashboard4_Breadcrumb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/Dashboard4/Breadcrumb */ "./resources/js/Components/Dashboard4/Breadcrumb.vue");
 /* harmony import */ var _Components_Dashboard4_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/Dashboard4/Footer */ "./resources/js/Components/Dashboard4/Footer.vue");
 
 
 
 
-
 /* ================================================
-    VUEX
-================================================ */
+       DROPDOWN
+   ================================================ */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.useStore)();
+    var dropdown1Shown = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+
+    var toggleDropdown1 = function toggleDropdown1() {
+      dropdown1Shown.value = !dropdown1Shown.value;
+    };
+
+    var dropdown2Shown = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+
+    var toggleDropdown2 = function toggleDropdown2() {
+      dropdown2Shown.value = !dropdown2Shown.value;
+    };
+
     var __returned__ = {
-      store: store,
+      dropdown1Shown: dropdown1Shown,
+      toggleDropdown1: toggleDropdown1,
+      dropdown2Shown: dropdown2Shown,
+      toggleDropdown2: toggleDropdown2,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
       onUnmounted: vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted,
       Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link,
-      useStore: vuex__WEBPACK_IMPORTED_MODULE_4__.useStore,
       Breadcrumb: _Components_Dashboard4_Breadcrumb__WEBPACK_IMPORTED_MODULE_2__["default"],
       Footer: _Components_Dashboard4_Footer__WEBPACK_IMPORTED_MODULE_3__["default"]
     };
@@ -23078,13 +23089,168 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  id: "sidebar"
+};
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section id=\"sidebar\"><a href=\"#\" class=\"brand\"><i class=\"bx bxs-smile icon\"></i> AdminSite</a><ul class=\"side-menu\"><li><a href=\"#\" class=\"active\"><i class=\"bx bxs-dashboard icon\"></i> Dashboard</a></li><li class=\"divider\" data-text=\"main\">Main</li><li><a href=\"#\"><i class=\"bx bxs-inbox icon\"></i> Elements <i class=\"bx bx-chevron-right icon-right\"></i></a><ul class=\"side-dropdown\"><li><a href=\"#\">Alert</a></li><li><a href=\"#\">Badges</a></li><li><a href=\"#\">Breadcrumbs</a></li><li><a href=\"#\">Button</a></li></ul></li><li><a href=\"#\"><i class=\"bx bxs-chart icon\"></i> Charts</a></li><li><a href=\"#\"><i class=\"bx bxs-widget icon\"></i> Widgets</a></li><li class=\"divider\" data-text=\"table and forms\">Table and forms</li><li><a href=\"#\"><i class=\"bx bx-table icon\"></i> Tables</a></li><li><a href=\"#\"><i class=\"bx bxs-notepad icon\"></i> Forms <i class=\"bx bx-chevron-right icon-right\"></i></a><ul class=\"side-dropdown\"><li><a href=\"#\">Basic</a></li><li><a href=\"#\">Select</a></li><li><a href=\"#\">Checkbox</a></li><li><a href=\"#\">Radio</a></li></ul></li></ul><div class=\"ads\"><div class=\"wrapper\"><a href=\"#\" class=\"btn-upgrade\">Upgrade</a><p>Become a <span>PRO</span> member and enjoy <span>All Features</span></p></div></div></section>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#",
+  "class": "brand"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bx bxs-smile icon"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" AdminSite")], -1
+/* HOISTED */
+);
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section id=\"content\"><!-- NAVBAR --><nav><i class=\"bx bx-menu toggle-sidebar\"></i><form action=\"#\"><div class=\"form-group\"><input type=\"text\" placeholder=\"Search...\"><i class=\"bx bx-search icon\"></i></div></form><a href=\"#\" class=\"nav-link\"><i class=\"bx bxs-bell icon\"></i><span class=\"badge\">5</span></a><a href=\"#\" class=\"nav-link\"><i class=\"bx bxs-message-square-dots icon\"></i><span class=\"badge\">8</span></a><span class=\"divider\"></span><div class=\"profile\"><img src=\"https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60\" alt=\"\"><ul class=\"profile-link\"><li><a href=\"#\"><i class=\"bx bxs-user-circle icon\"></i> Profile</a></li><li><a href=\"#\"><i class=\"bx bxs-cog\"></i> Settings</a></li><li><a href=\"#\"><i class=\"bx bxs-log-out-circle\"></i> Logout</a></li></ul></div></nav><!-- NAVBAR --><!-- MAIN --><main><h1 class=\"title\">Dashboard</h1><ul class=\"breadcrumbs\"><li><a href=\"#\">Home</a></li><li class=\"divider\">/</li><li><a href=\"#\" class=\"active\">Dashboard</a></li></ul><div class=\"info-data\"><div class=\"card\"><div class=\"head\"><div><h2>1500</h2><p>Traffic</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"40%\"></span><span class=\"label\">40%</span></div><div class=\"card\"><div class=\"head\"><div><h2>234</h2><p>Sales</p></div><i class=\"bx bx-trending-down icon down\"></i></div><span class=\"progress\" data-value=\"60%\"></span><span class=\"label\">60%</span></div><div class=\"card\"><div class=\"head\"><div><h2>465</h2><p>Pageviews</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"30%\"></span><span class=\"label\">30%</span></div><div class=\"card\"><div class=\"head\"><div><h2>235</h2><p>Visitors</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"80%\"></span><span class=\"label\">80%</span></div></div><div class=\"data\"><div class=\"content-data\"><div class=\"head\"><h3>Chatbox</h3><div class=\"menu\"><i class=\"bx bx-dots-horizontal-rounded icon\"></i><ul class=\"menu-link\"><li><a href=\"#\">Edit</a></li><li><a href=\"#\">Save</a></li><li><a href=\"#\">Remove</a></li></ul></div></div><div class=\"chat-box\"><p class=\"day\"><span>Today</span></p><div class=\"msg\"><img src=\"https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60\" alt=\"\"><div class=\"chat\"><div class=\"profile\"><span class=\"username\">Alan</span><span class=\"time\">18:30</span></div><p>Hello</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatum eos quam dolores eligendi exercitationem animi nobis reprehenderit laborum! Nulla.</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, architecto!</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum, dolor sit amet.</p></div></div></div><form action=\"#\"><div class=\"form-group\"><input type=\"text\" placeholder=\"Type...\"><button type=\"submit\" class=\"btn-send\"><i class=\"bx bxs-send\"></i></button></div></form></div></div></main><!-- MAIN --></section>", 1);
+var _hoisted_3 = {
+  "class": "side-menu"
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#",
+  "class": "active"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bx bxs-dashboard icon"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Dashboard")])], -1
+/* HOISTED */
+);
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "divider",
+  "data-text": "main"
+}, "Main", -1
+/* HOISTED */
+);
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bx bxs-inbox icon"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Elements ");
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bx bx-chevron-right icon-right"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_9 = [_hoisted_6, _hoisted_7, _hoisted_8];
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#"
+}, "Alert")], -1
+/* HOISTED */
+);
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#"
+}, "Badges")], -1
+/* HOISTED */
+);
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#"
+}, "Breadcrumbs")], -1
+/* HOISTED */
+);
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#"
+}, "Button")], -1
+/* HOISTED */
+);
+
+var _hoisted_14 = [_hoisted_10, _hoisted_11, _hoisted_12, _hoisted_13];
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li><a href=\"#\"><i class=\"bx bxs-chart icon\"></i> Charts</a></li><li><a href=\"#\"><i class=\"bx bxs-widget icon\"></i> Widgets</a></li><li class=\"divider\" data-text=\"table and forms\">Table and forms</li><li><a href=\"#\"><i class=\"bx bx-table icon\"></i> Tables</a></li>", 4);
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bx bxs-notepad icon"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Forms ");
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bx bx-chevron-right icon-right"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_22 = [_hoisted_19, _hoisted_20, _hoisted_21];
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#"
+}, "Basic")], -1
+/* HOISTED */
+);
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#"
+}, "Select")], -1
+/* HOISTED */
+);
+
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#"
+}, "Checkbox")], -1
+/* HOISTED */
+);
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#"
+}, "Radio")], -1
+/* HOISTED */
+);
+
+var _hoisted_27 = [_hoisted_23, _hoisted_24, _hoisted_25, _hoisted_26];
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "ads"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "wrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#",
+  "class": "btn-upgrade"
+}, "Upgrade"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Become a "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "PRO"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" member and enjoy "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "All Features")])])], -1
+/* HOISTED */
+);
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section id=\"content\"><!-- NAVBAR --><nav><i class=\"bx bx-menu toggle-sidebar\"></i><form action=\"#\"><div class=\"form-group\"><input type=\"text\" placeholder=\"Search...\"><i class=\"bx bx-search icon\"></i></div></form><a href=\"#\" class=\"nav-link\"><i class=\"bx bxs-bell icon\"></i><span class=\"badge\">5</span></a><a href=\"#\" class=\"nav-link\"><i class=\"bx bxs-message-square-dots icon\"></i><span class=\"badge\">8</span></a><span class=\"divider\"></span><div class=\"profile\"><img src=\"https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60\" alt=\"\"><ul class=\"profile-link\"><li><a href=\"#\"><i class=\"bx bxs-user-circle icon\"></i> Profile</a></li><li><a href=\"#\"><i class=\"bx bxs-cog\"></i> Settings</a></li><li><a href=\"#\"><i class=\"bx bxs-log-out-circle\"></i> Logout</a></li></ul></div></nav><!-- NAVBAR --><!-- MAIN --><main><h1 class=\"title\">Dashboard</h1><ul class=\"breadcrumbs\"><li><a href=\"#\">Home</a></li><li class=\"divider\">/</li><li><a href=\"#\" class=\"active\">Dashboard</a></li></ul><div class=\"info-data\"><div class=\"card\"><div class=\"head\"><div><h2>1500</h2><p>Traffic</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"40%\"></span><span class=\"label\">40%</span></div><div class=\"card\"><div class=\"head\"><div><h2>234</h2><p>Sales</p></div><i class=\"bx bx-trending-down icon down\"></i></div><span class=\"progress\" data-value=\"60%\"></span><span class=\"label\">60%</span></div><div class=\"card\"><div class=\"head\"><div><h2>465</h2><p>Pageviews</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"30%\"></span><span class=\"label\">30%</span></div><div class=\"card\"><div class=\"head\"><div><h2>235</h2><p>Visitors</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"80%\"></span><span class=\"label\">80%</span></div></div><div class=\"data\"><div class=\"content-data\"><div class=\"head\"><h3>Chatbox</h3><div class=\"menu\"><i class=\"bx bx-dots-horizontal-rounded icon\"></i><ul class=\"menu-link\"><li><a href=\"#\">Edit</a></li><li><a href=\"#\">Save</a></li><li><a href=\"#\">Remove</a></li></ul></div></div><div class=\"chat-box\"><p class=\"day\"><span>Today</span></p><div class=\"msg\"><img src=\"https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60\" alt=\"\"><div class=\"chat\"><div class=\"profile\"><span class=\"username\">Alan</span><span class=\"time\">18:30</span></div><p>Hello</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatum eos quam dolores eligendi exercitationem animi nobis reprehenderit laborum! Nulla.</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, architecto!</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum, dolor sit amet.</p></div></div></div><form action=\"#\"><div class=\"form-group\"><input type=\"text\" placeholder=\"Type...\"><button type=\"submit\" class=\"btn-send\"><i class=\"bx bxs-send\"></i></button></div></form></div></div></main><!-- MAIN --></section>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" SIDEBAR "), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" SIDEBAR "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" NAVBAR "), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" NAVBAR ")], 64
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" SIDEBAR "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_3, [_hoisted_4, _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    onClick: $setup.toggleDropdown1,
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+      'active': $setup.dropdown1Shown
+    }),
+    href: "#"
+  }, _hoisted_9, 2
+  /* CLASS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["side-dropdown", {
+      'show': $setup.dropdown1Shown
+    }])
+  }, _hoisted_14, 2
+  /* CLASS */
+  )]), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "#",
+    onClick: $setup.toggleDropdown2,
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+      'active': $setup.dropdown2Shown
+    })
+  }, _hoisted_22, 2
+  /* CLASS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["side-dropdown", {
+      'show': $setup.dropdown2Shown
+    }])
+  }, _hoisted_27, 2
+  /* CLASS */
+  )])]), _hoisted_28]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" SIDEBAR "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" NAVBAR "), _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" NAVBAR ")], 64
   /* STABLE_FRAGMENT */
   );
 }
