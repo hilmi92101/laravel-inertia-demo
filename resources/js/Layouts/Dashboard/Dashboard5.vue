@@ -66,7 +66,7 @@
 				<span class="badge">8</span>
 			</a>
 			<span class="divider"></span>
-			<div class="profile">
+			<div ref="profileElRef" class="profile">
 				<img @click="toggleProfileDropdown" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
 				<ul :class="{'show' : profileDropdownShown }" class="profile-link">
 					<li><a href="#"><i class='bx bxs-user-circle icon' ></i> Profile</a></li>
@@ -136,9 +136,9 @@
 				<div class="content-data">
 					<div class="head">
 						<h3>Chatbox</h3>
-						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon'></i>
-							<ul class="menu-link">
+						<div ref="card1ElRef" class="menu">
+							<i @click="toggleCard1Dropdown" class='bx bx-dots-horizontal-rounded icon'></i>
+							<ul :class="{'show' : card1Dropdown }" class="menu-link">
 								<li><a href="#">Edit</a></li>
 								<li><a href="#">Save</a></li>
 								<li><a href="#">Remove</a></li>
@@ -243,9 +243,40 @@
 	const toggleProfileDropdown = () => { 
 		profileDropdownShown.value = !profileDropdownShown.value;
     }
+
+	/* ================================================
+        CARD DROPDOWN
+    ================================================ */
+	const card1Dropdown = ref(false);
+	const toggleCard1Dropdown = () => { 
+		card1Dropdown.value = !card1Dropdown.value;
+    }
+
+
+	/* ================================================
+        WINDOW EVENTS
+    ================================================ */
+	const profileElRef = ref(null);
+	const card1ElRef = ref(null);
+	const closeEveryElements = (e) => { 
+
+		if(!profileElRef.value.contains(e.target)){
+			profileDropdownShown.value = false;
+		}
+
+		if(!card1ElRef.value.contains(e.target)){
+			card1Dropdown.value = false;
+		}
+    }
+
+	onMounted(() => { 
+        window.addEventListener('click', closeEveryElements);
+    }); 
+
+    onUnmounted(() => { 
+        window.removeEventListener('click', closeEveryElements);
+    });
 	
-
-
       
 </script>
 

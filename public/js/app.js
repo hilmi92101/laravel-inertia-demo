@@ -20549,7 +20549,40 @@ __webpack_require__.r(__webpack_exports__);
     var toggleProfileDropdown = function toggleProfileDropdown() {
       profileDropdownShown.value = !profileDropdownShown.value;
     };
+    /* ================================================
+           CARD DROPDOWN
+       ================================================ */
 
+
+    var card1Dropdown = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+
+    var toggleCard1Dropdown = function toggleCard1Dropdown() {
+      card1Dropdown.value = !card1Dropdown.value;
+    };
+    /* ================================================
+           WINDOW EVENTS
+       ================================================ */
+
+
+    var profileElRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    var card1ElRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+
+    var closeEveryElements = function closeEveryElements(e) {
+      if (!profileElRef.value.contains(e.target)) {
+        profileDropdownShown.value = false;
+      }
+
+      if (!card1ElRef.value.contains(e.target)) {
+        card1Dropdown.value = false;
+      }
+    };
+
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      window.addEventListener('click', closeEveryElements);
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(function () {
+      window.removeEventListener('click', closeEveryElements);
+    });
     var __returned__ = {
       dropdown1Shown: dropdown1Shown,
       dropdown2Shown: dropdown2Shown,
@@ -20559,6 +20592,11 @@ __webpack_require__.r(__webpack_exports__);
       toggleSidebar: toggleSidebar,
       profileDropdownShown: profileDropdownShown,
       toggleProfileDropdown: toggleProfileDropdown,
+      card1Dropdown: card1Dropdown,
+      toggleCard1Dropdown: toggleCard1Dropdown,
+      profileElRef: profileElRef,
+      card1ElRef: card1ElRef,
+      closeEveryElements: closeEveryElements,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
@@ -23275,6 +23313,7 @@ var _hoisted_28 = {
 var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<form action=\"#\"><div class=\"form-group\"><input type=\"text\" placeholder=\"Search...\"><i class=\"bx bx-search icon\"></i></div></form><a href=\"#\" class=\"nav-link\"><i class=\"bx bxs-bell icon\"></i><span class=\"badge\">5</span></a><a href=\"#\" class=\"nav-link\"><i class=\"bx bxs-message-square-dots icon\"></i><span class=\"badge\">8</span></a><span class=\"divider\"></span>", 4);
 
 var _hoisted_33 = {
+  ref: "profileElRef",
   "class": "profile"
 };
 
@@ -23282,7 +23321,48 @@ var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticV
 
 var _hoisted_37 = [_hoisted_34];
 
-var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<main><h1 class=\"title\">Dashboard</h1><ul class=\"breadcrumbs\"><li><a href=\"#\">Home</a></li><li class=\"divider\">/</li><li><a href=\"#\" class=\"active\">Dashboard</a></li></ul><div class=\"info-data\"><div class=\"card\"><div class=\"head\"><div><h2>1500</h2><p>Traffic</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"40%\"></span><span class=\"label\">40%</span></div><div class=\"card\"><div class=\"head\"><div><h2>234</h2><p>Sales</p></div><i class=\"bx bx-trending-down icon down\"></i></div><span class=\"progress\" data-value=\"60%\"></span><span class=\"label\">60%</span></div><div class=\"card\"><div class=\"head\"><div><h2>465</h2><p>Pageviews</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"30%\"></span><span class=\"label\">30%</span></div><div class=\"card\"><div class=\"head\"><div><h2>235</h2><p>Visitors</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"80%\"></span><span class=\"label\">80%</span></div></div><div class=\"data\"><div class=\"content-data\"><div class=\"head\"><h3>Chatbox</h3><div class=\"menu\"><i class=\"bx bx-dots-horizontal-rounded icon\"></i><ul class=\"menu-link\"><li><a href=\"#\">Edit</a></li><li><a href=\"#\">Save</a></li><li><a href=\"#\">Remove</a></li></ul></div></div><div class=\"chat-box\"><p class=\"day\"><span>Today</span></p><div class=\"msg\"><img src=\"https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60\" alt=\"\"><div class=\"chat\"><div class=\"profile\"><span class=\"username\">Alan</span><span class=\"time\">18:30</span></div><p>Hello</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatum eos quam dolores eligendi exercitationem animi nobis reprehenderit laborum! Nulla.</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, architecto!</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum, dolor sit amet.</p></div></div></div><form action=\"#\"><div class=\"form-group\"><input type=\"text\" placeholder=\"Type...\"><button type=\"submit\" class=\"btn-send\"><i class=\"bx bxs-send\"></i></button></div></form></div></div></main>", 1);
+var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h1 class=\"title\">Dashboard</h1><ul class=\"breadcrumbs\"><li><a href=\"#\">Home</a></li><li class=\"divider\">/</li><li><a href=\"#\" class=\"active\">Dashboard</a></li></ul><div class=\"info-data\"><div class=\"card\"><div class=\"head\"><div><h2>1500</h2><p>Traffic</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"40%\"></span><span class=\"label\">40%</span></div><div class=\"card\"><div class=\"head\"><div><h2>234</h2><p>Sales</p></div><i class=\"bx bx-trending-down icon down\"></i></div><span class=\"progress\" data-value=\"60%\"></span><span class=\"label\">60%</span></div><div class=\"card\"><div class=\"head\"><div><h2>465</h2><p>Pageviews</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"30%\"></span><span class=\"label\">30%</span></div><div class=\"card\"><div class=\"head\"><div><h2>235</h2><p>Visitors</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"80%\"></span><span class=\"label\">80%</span></div></div>", 3);
+
+var _hoisted_41 = {
+  "class": "data"
+};
+var _hoisted_42 = {
+  "class": "content-data"
+};
+var _hoisted_43 = {
+  "class": "head"
+};
+
+var _hoisted_44 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Chatbox", -1
+/* HOISTED */
+);
+
+var _hoisted_45 = {
+  ref: "card1ElRef",
+  "class": "menu"
+};
+
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#"
+}, "Edit")], -1
+/* HOISTED */
+);
+
+var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#"
+}, "Save")], -1
+/* HOISTED */
+);
+
+var _hoisted_48 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#"
+}, "Remove")], -1
+/* HOISTED */
+);
+
+var _hoisted_49 = [_hoisted_46, _hoisted_47, _hoisted_48];
+
+var _hoisted_50 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"chat-box\"><p class=\"day\"><span>Today</span></p><div class=\"msg\"><img src=\"https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60\" alt=\"\"><div class=\"chat\"><div class=\"profile\"><span class=\"username\">Alan</span><span class=\"time\">18:30</span></div><p>Hello</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatum eos quam dolores eligendi exercitationem animi nobis reprehenderit laborum! Nulla.</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, architecto!</p></div></div><div class=\"msg me\"><div class=\"chat\"><div class=\"profile\"><span class=\"time\">18:30</span></div><p>Lorem ipsum, dolor sit amet.</p></div></div></div><form action=\"#\"><div class=\"form-group\"><input type=\"text\" placeholder=\"Type...\"><button type=\"submit\" class=\"btn-send\"><i class=\"bx bxs-send\"></i></button></div></form>", 2);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" SIDEBAR "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
@@ -23337,7 +23417,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, "profile-link"])
   }, _hoisted_37, 2
   /* CLASS */
-  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" NAVBAR "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MAIN "), _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MAIN ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" NAVBAR ")], 64
+  )], 512
+  /* NEED_PATCH */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" NAVBAR "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MAIN "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", null, [_hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [_hoisted_44, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    onClick: $setup.toggleCard1Dropdown,
+    "class": "bx bx-dots-horizontal-rounded icon"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
+      'show': $setup.card1Dropdown
+    }, "menu-link"])
+  }, _hoisted_49, 2
+  /* CLASS */
+  )], 512
+  /* NEED_PATCH */
+  )]), _hoisted_50])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MAIN ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" NAVBAR ")], 64
   /* STABLE_FRAGMENT */
   );
 }
