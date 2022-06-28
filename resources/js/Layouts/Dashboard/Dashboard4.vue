@@ -319,7 +319,7 @@
     });
 
     onUnmounted(() => { 
-        document.body.classList.remove('dashboard-4')
+        document.body.classList.remove('dashboard-4');
     });
 
     /* ================================================

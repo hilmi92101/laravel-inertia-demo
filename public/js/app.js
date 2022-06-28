@@ -20508,13 +20508,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* ================================================
-       DROPDOWN
+       ADD CLASS TO BODY
    ================================================ */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      document.body.classList.add('dashboard-5');
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(function () {
+      document.body.classList.remove('dashboard-5');
+    });
+    /* ================================================
+           DROPDOWN
+       ================================================ */
+
     var dropdown1Shown = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
     var dropdown2Shown = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
 
@@ -20560,6 +20570,14 @@ __webpack_require__.r(__webpack_exports__);
       card1Dropdown.value = !card1Dropdown.value;
     };
     /* ================================================
+           PROGRESS BAR
+       ================================================ */
+
+
+    var renderProgressBar = function renderProgressBar(percentage) {
+      return "";
+    };
+    /* ================================================
            WINDOW EVENTS
        ================================================ */
 
@@ -20594,6 +20612,7 @@ __webpack_require__.r(__webpack_exports__);
       toggleProfileDropdown: toggleProfileDropdown,
       card1Dropdown: card1Dropdown,
       toggleCard1Dropdown: toggleCard1Dropdown,
+      renderProgressBar: renderProgressBar,
       profileElRef: profileElRef,
       card1ElRef: card1ElRef,
       closeEveryElements: closeEveryElements,
@@ -23321,7 +23340,7 @@ var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticV
 
 var _hoisted_37 = [_hoisted_34];
 
-var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h1 class=\"title\">Dashboard</h1><ul class=\"breadcrumbs\"><li><a href=\"#\">Home</a></li><li class=\"divider\">/</li><li><a href=\"#\" class=\"active\">Dashboard</a></li></ul><div class=\"info-data\"><div class=\"card\"><div class=\"head\"><div><h2>1500</h2><p>Traffic</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"40%\"></span><span class=\"label\">40%</span></div><div class=\"card\"><div class=\"head\"><div><h2>234</h2><p>Sales</p></div><i class=\"bx bx-trending-down icon down\"></i></div><span class=\"progress\" data-value=\"60%\"></span><span class=\"label\">60%</span></div><div class=\"card\"><div class=\"head\"><div><h2>465</h2><p>Pageviews</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"30%\"></span><span class=\"label\">30%</span></div><div class=\"card\"><div class=\"head\"><div><h2>235</h2><p>Visitors</p></div><i class=\"bx bx-trending-up icon\"></i></div><span class=\"progress\" data-value=\"80%\"></span><span class=\"label\">80%</span></div></div>", 3);
+var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h1 class=\"title\">Dashboard</h1><ul class=\"breadcrumbs\"><li><a href=\"#\">Home</a></li><li class=\"divider\">/</li><li><a href=\"#\" class=\"active\">Dashboard</a></li></ul><div class=\"info-data\"><div class=\"card\"><div class=\"head\"><div><h2>1500</h2><p>Traffic</p></div><i class=\"bx bx-trending-up icon\"></i></div><span style=\"--value:40%;\" class=\"progress\" data-value=\"40%\"></span><span class=\"label\">40%</span></div><div class=\"card\"><div class=\"head\"><div><h2>234</h2><p>Sales</p></div><i class=\"bx bx-trending-down icon down\"></i></div><span style=\"--value:60%;\" class=\"progress\" data-value=\"60%\"></span><span class=\"label\">60%</span></div><div class=\"card\"><div class=\"head\"><div><h2>465</h2><p>Pageviews</p></div><i class=\"bx bx-trending-up icon\"></i></div><span style=\"--value:30%;\" class=\"progress\" data-value=\"30%\"></span><span class=\"label\">30%</span></div><div class=\"card\"><div class=\"head\"><div><h2>235</h2><p>Visitors</p></div><i class=\"bx bx-trending-up icon\"></i></div><span style=\"--value:80%;\" class=\"progress\" data-value=\"80%\"></span><span class=\"label\">80%</span></div></div>", 3);
 
 var _hoisted_41 = {
   "class": "data"

@@ -94,7 +94,7 @@
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>
-					<span class="progress" data-value="40%"></span>
+					<span :style="{ '--value': 40 + '%' }" class="progress" data-value="40%"></span>
 					<span class="label">40%</span>
 				</div>
 				<div class="card">
@@ -105,7 +105,7 @@
 						</div>
 						<i class='bx bx-trending-down icon down' ></i>
 					</div>
-					<span class="progress" data-value="60%"></span>
+					<span :style="{ '--value': 60 + '%' }" class="progress" data-value="60%"></span>
 					<span class="label">60%</span>
 				</div>
 				<div class="card">
@@ -116,7 +116,7 @@
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>
-					<span class="progress" data-value="30%"></span>
+					<span :style="{ '--value': 30 + '%' }" class="progress" data-value="30%"></span>
 					<span class="label">30%</span>
 				</div>
 				<div class="card">
@@ -127,7 +127,7 @@
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>
-					<span class="progress" data-value="80%"></span>
+					<span :style="{ '--value': 80 + '%' }" class="progress" data-value="80%"></span>
 					<span class="label">80%</span>
 				</div>
 			</div>
@@ -203,7 +203,16 @@
     import Breadcrumb from '../../Components/Dashboard4/Breadcrumb';
     import Footer from '../../Components/Dashboard4/Footer';
 
-	
+	/* ================================================
+        ADD CLASS TO BODY
+    ================================================ */
+    onMounted(() => { 
+        document.body.classList.add('dashboard-5');
+    });
+
+    onUnmounted(() => { 
+        document.body.classList.remove('dashboard-5');
+    });
 
 	/* ================================================
         DROPDOWN
@@ -252,6 +261,12 @@
 		card1Dropdown.value = !card1Dropdown.value;
     }
 
+	/* ================================================
+        PROGRESS BAR
+    ================================================ */
+	const renderProgressBar = (percentage) => { 
+		return ``;
+    }
 
 	/* ================================================
         WINDOW EVENTS
