@@ -301,8 +301,8 @@
     import { Link } from '@inertiajs/inertia-vue3';
     import { useStore } from 'vuex';
 
-    import Breadcrumb from '../../Components/Dashboard4/Breadcrumb';
-    import Footer from '../../Components/Dashboard4/Footer';
+    import Breadcrumb from '@/app/Components/Dashboard4/Breadcrumb';
+    import Footer from '@/app/Components/Dashboard4/Footer';
 
     /* ================================================
         VUEX

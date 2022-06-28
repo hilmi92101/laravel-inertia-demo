@@ -11,7 +11,7 @@
 
 <script setup>  
 
-    import DashboardLayout from '@/Layouts/Dashboard/Dashboard5';
+    import DashboardLayout from '@/app/Layouts/Dashboard/Dashboard5';
     import { Head } from '@inertiajs/inertia-vue3';
 
     import { ref, computed, onMounted, onUnmounted } from 'vue';

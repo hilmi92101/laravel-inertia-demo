@@ -64,7 +64,7 @@
 
 <script setup>  
 
-    import DashboardLayout from '@/Layouts/Dashboard/Dashboard4';
+    import DashboardLayout from '@/app/Layouts/Dashboard/Dashboard4';
     import { Head } from '@inertiajs/inertia-vue3';
 
     import { ref, computed, onMounted, onUnmounted } from 'vue';
@@ -72,7 +72,7 @@
 
     import { useStore } from 'vuex';
 
-    import dtArrow from '@/Components/Dashboard4/ArrowUpDown';
+    import dtArrow from '@/app/Components/Dashboard4/ArrowUpDown';
 
     /* ================================================
         VUEX
