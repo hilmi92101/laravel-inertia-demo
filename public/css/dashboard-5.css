@@ -55,10 +55,6 @@ li {
   max-width: 60px;
 }
 
-#sidebar.hide:hover {
-  max-width: 260px;
-}
-
 #sidebar::-webkit-scrollbar {
   display: none;
 }
@@ -103,10 +99,6 @@ li {
   padding: 0 6px;
 }
 
-#sidebar.hide:hover .side-menu {
-  padding: 0 20px;
-}
-
 #sidebar .side-menu a {
   display: flex;
   align-items: center;
@@ -143,10 +135,6 @@ li {
   white-space: nowrap;
 }
 
-#sidebar.hide:hover .divider {
-  text-align: left;
-}
-
 #sidebar.hide .divider {
   text-align: center;
 }
@@ -173,10 +161,6 @@ li {
 
 #sidebar.hide .ads {
   display: none;
-}
-
-#sidebar.hide:hover .ads {
-  display: block;
 }
 
 #sidebar .ads .wrapper {

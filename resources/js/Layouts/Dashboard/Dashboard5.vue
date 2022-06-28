@@ -67,8 +67,8 @@
 			</a>
 			<span class="divider"></span>
 			<div class="profile">
-				<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
-				<ul class="profile-link">
+				<img @click="toggleProfileDropdown" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+				<ul :class="{'show' : profileDropdownShown }" class="profile-link">
 					<li><a href="#"><i class='bx bxs-user-circle icon' ></i> Profile</a></li>
 					<li><a href="#"><i class='bx bxs-cog' ></i> Settings</a></li>
 					<li><a href="#"><i class='bx bxs-log-out-circle' ></i> Logout</a></li>
@@ -209,13 +209,20 @@
         DROPDOWN
     ================================================ */
 	const dropdown1Shown = ref(false);
+	const dropdown2Shown = ref(false);
+
 	const toggleDropdown1 = () => { 
 		dropdown1Shown.value = !dropdown1Shown.value;
+
+		
+		if (dropdown2Shown.value) dropdown2Shown.value = false;
     }
 
-	const dropdown2Shown = ref(false);
 	const toggleDropdown2 = () => { 
 		dropdown2Shown.value = !dropdown2Shown.value;
+
+		if (dropdown1Shown.value) dropdown1Shown.value = false;
+
     }
 
 
@@ -228,7 +235,16 @@
 		dropdown2Shown.value = false;
 		sidebarHidden.value = !sidebarHidden.value;
     }
-    
+
+	/* ================================================
+        PROFILE DROPDOWN
+    ================================================ */
+	const profileDropdownShown = ref(false);
+	const toggleProfileDropdown = () => { 
+		profileDropdownShown.value = !profileDropdownShown.value;
+    }
+	
+
 
       
 </script>
