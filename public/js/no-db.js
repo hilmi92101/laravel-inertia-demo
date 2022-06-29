@@ -19718,24 +19718,158 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.useRouter)();
+    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter)();
 
     var redirect = function redirect(route) {
       router.push({
         name: route
       });
     };
+    /* ======================================
+        ADD MAIN CLASS TO BODY
+    ====================================== */
+
+
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      document.body.classList.add('project-resume');
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(function () {
+      document.body.classList.remove('project-resume');
+    });
+    /* ======================================
+        DECLARE
+    ====================================== */
+
+    var profileImg = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('/asset/resume/img/perfil.jpg');
+    var demoResume = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('/asset/resume/pdf/ResumeCv.pdf');
+    /* ======================================
+        MENU FUNCTIONALITIES
+    ====================================== */
+
+    var menuIsShown = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+
+    var toggleMenu = function toggleMenu() {
+      menuIsShown.value = !menuIsShown.value;
+    };
+
+    var closeMenu = function closeMenu() {
+      menuIsShown.value = false;
+    };
+    /* ======================================
+        LINKS
+    ====================================== */
+
+
+    var links = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([{
+      id: 1,
+      icon: 'bx bx-home',
+      title: 'Home',
+      anchor: '#home',
+      isActive: true
+    }, {
+      id: 2,
+      icon: 'bx bx-user',
+      title: 'Profile',
+      anchor: '#profile',
+      isActive: false
+    }, {
+      id: 3,
+      icon: 'bx bx-book',
+      title: 'Education',
+      anchor: '#education',
+      isActive: false
+    }, {
+      id: 4,
+      icon: 'bx bx-receipt',
+      title: 'Skills',
+      anchor: '#skills',
+      isActive: false
+    }, {
+      id: 5,
+      icon: 'bx bx-briefcase-alt',
+      title: 'Experience',
+      anchor: '#experience',
+      isActive: false
+    }, {
+      id: 6,
+      icon: 'bx bx-award',
+      title: 'Certificates',
+      anchor: '#certificates',
+      isActive: false
+    }, {
+      id: 7,
+      icon: 'bx bx-link-external',
+      title: 'References',
+      anchor: '#references',
+      isActive: false
+    }]);
+    var socials = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([{
+      id: 1,
+      icon: 'bx bxl-linkedin-square',
+      title: '@smithmat',
+      url: 'htttps://linkedin.com/'
+    }, {
+      id: 2,
+      icon: 'bx bxl-facebook',
+      title: '@smithmat',
+      url: 'https://www.facebook.com/'
+    }, {
+      id: 3,
+      icon: 'bx bxl-instagram',
+      title: '@smithmat',
+      url: 'https://www.instagram.com/'
+    }]);
+    var educations = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([{
+      id: 1,
+      title: 'FOUNDATION OF DESIGN',
+      studies: 'College of Studies',
+      year: '2008 - 2009'
+    }, {
+      id: 2,
+      title: 'DEGREE OF DESIGN',
+      studies: 'University of Design',
+      year: '2010 - 2015'
+    }, {
+      id: 3,
+      title: 'MASTER OF DESIGN',
+      studies: 'University of Studies',
+      year: '2016 - 2020'
+    }]);
+
+    var processEducationLine = function processEducationLine(index, total) {
+      var no = index + 1;
+
+      if (no == total) {
+        return false;
+      }
+
+      return true;
+    };
 
     var __returned__ = {
       router: router,
       redirect: redirect,
-      useRouter: vue_router__WEBPACK_IMPORTED_MODULE_0__.useRouter
+      profileImg: profileImg,
+      demoResume: demoResume,
+      menuIsShown: menuIsShown,
+      toggleMenu: toggleMenu,
+      closeMenu: closeMenu,
+      links: links,
+      socials: socials,
+      educations: educations,
+      processEducationLine: processEducationLine,
+      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
+      onUnmounted: vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted,
+      useRouter: vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -19781,12 +19915,223 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  "class": "l-header",
+  id: "header"
+};
+var _hoisted_2 = {
+  "class": "nav bd-container"
+};
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<header class=\"l-header\" id=\"header\"></header><main class=\"l-main bd-container\"><!-- All elements within this div, is generated in PDF --><div class=\"resume\" id=\"area-cv\"><div class=\"resume__left\"><!--========== HOME ==========--><section class=\"home\" id=\"home\"><!-- Theme change button --><!-- Button to generate and download the pdf. Available for desktop. --></section><!--========== SOCIAL ==========--><section class=\"social section\"></section><!--========== PROFILE ==========--><section class=\"profile section\" id=\"profile\"></section><!--========== EDUCATION ==========--><section class=\"education section\" id=\"education\"></section><!--========== SKILLS  ==========--><section class=\"skills section\" id=\"skills\"></section></div><div class=\"resume__right\"><!--========== EXPERIENCE ==========--><section class=\"experience section\" id=\"experience\"></section><!--========== CERTIFICATES ==========--><section class=\"certificate section\" id=\"certificates\"></section><!--========== REFERENCES ==========--><section class=\"references section\" id=\"references\"></section><!--========== LANGUAGES ==========--><section class=\"languages section\"></section><!--========== INTERESTS ==========--><section class=\"interests section\"></section></div></div></main>", 2);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#",
+  "class": "nav__logo"
+}, "Smith", -1
+/* HOISTED */
+);
+
+var _hoisted_4 = {
+  "class": "nav__list"
+};
+var _hoisted_5 = ["href"];
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bx bx-grid-alt"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_7 = [_hoisted_6];
+var _hoisted_8 = {
+  "class": "l-main bd-container"
+};
+var _hoisted_9 = {
+  "class": "resume",
+  id: "area-cv"
+};
+var _hoisted_10 = {
+  "class": "resume__left"
+};
+var _hoisted_11 = {
+  "class": "home",
+  id: "home"
+};
+var _hoisted_12 = {
+  "class": "home__container section bd-grid"
+};
+var _hoisted_13 = {
+  "class": "home__data bd-grid"
+};
+var _hoisted_14 = ["src"];
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "home__title"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("SMITH "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "MATTHEW")], -1
+/* HOISTED */
+);
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "home__profession"
+}, "Web Developer", -1
+/* HOISTED */
+);
+
+var _hoisted_17 = ["href"];
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"home__address bd-grid\"><span class=\"home__information\"><i class=\"bx bx-map home__icon\"></i> Av. Bolivar #123 Lima - Peru </span><span class=\"home__information\"><i class=\"bx bx-envelope home__icon\"></i> user@gamil.com </span><span class=\"home__information\"><i class=\"bx bx-phone home__icon\"></i> 999-888-777 </span></div>", 1);
+
+var _hoisted_19 = {
+  "class": "social section"
+};
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "section-title"
+}, "SOCIAL", -1
+/* HOISTED */
+);
+
+var _hoisted_21 = {
+  "class": "social__container bd-grid"
+};
+var _hoisted_22 = ["href"];
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
+  "class": "profile section",
+  id: "profile"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "section-title"
+}, "Profile"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "profile__description"
+}, "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita non quibusdam voluptate magnam dignissimos minus distinctio ducimus dolores, ipsam accusantium excepturi quidem repellendus necessitatibus eaque, obcaecati rerum consectetur tempore cum.")], -1
+/* HOISTED */
+);
+
+var _hoisted_24 = {
+  "class": "education section",
+  id: "education"
+};
+
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "section-title"
+}, "Education", -1
+/* HOISTED */
+);
+
+var _hoisted_26 = {
+  "class": "education__container bd-grid"
+};
+var _hoisted_27 = {
+  "class": "education__time"
+};
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "education__rounder"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_29 = {
+  key: 0,
+  "class": "education__line"
+};
+var _hoisted_30 = {
+  "class": "education__data bd-grid"
+};
+var _hoisted_31 = {
+  "class": "education__title"
+};
+var _hoisted_32 = {
+  "class": "education__studies"
+};
+var _hoisted_33 = {
+  "class": "education__year"
+};
+
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
+  "class": "skills section",
+  id: "skills"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"resume__right\"><!--========== EXPERIENCE ==========--><section class=\"experience section\" id=\"experience\"></section><!--========== CERTIFICATES ==========--><section class=\"certificate section\" id=\"certificates\"></section><!--========== REFERENCES ==========--><section class=\"references section\" id=\"references\"></section><!--========== LANGUAGES ==========--><section class=\"languages section\"></section><!--========== INTERESTS ==========--><section class=\"interests section\"></section></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("========== HEADER =========="), _hoisted_1], 2112
-  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("========== HEADER =========="), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
+      'show-menu': $setup.menuIsShown
+    }, "nav__menu"]),
+    id: "nav-menu"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.links, function (link) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
+      onClick: $setup.closeMenu,
+      key: link.id,
+      "class": "nav__item"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
+        'active-link': link.isActive
+      }, "nav__link"]),
+      href: link.anchor
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([link.icon, "nav__icon"])
+    }, null, 2
+    /* CLASS */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(link.title), 1
+    /* TEXT */
+    )], 10
+    /* CLASS, PROPS */
+    , _hoisted_5)]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])], 2
+  /* CLASS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    onClick: $setup.toggleMenu,
+    "class": "nav__toggle",
+    id: "nav-toggle"
+  }, _hoisted_7)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" All elements within this div, is generated in PDF "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("========== HOME =========="), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    "class": "home__img",
+    src: $setup.profileImg
+  }, null, 8
+  /* PROPS */
+  , _hoisted_14), _hoisted_15, _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    download: "",
+    href: $setup.demoResume,
+    "class": "home__button-movil"
+  }, " Download ", 8
+  /* PROPS */
+  , _hoisted_17)])]), _hoisted_18])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("========== SOCIAL =========="), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.socials, function (social) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", {
+      key: social.id,
+      href: social.url,
+      "class": "social__link",
+      target: "_blank"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([social.icon, "social__icon"])
+    }, null, 2
+    /* CLASS */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(social.title), 1
+    /* TEXT */
+    )], 8
+    /* PROPS */
+    , _hoisted_22);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("========== PROFILE =========="), _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("========== EDUCATION =========="), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.educations, function (education, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      key: education.id,
+      "class": "education__content"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [_hoisted_28, $setup.processEducationLine(index, $setup.educations.length) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_29)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(education.title), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(education.studies), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(education.year), 1
+    /* TEXT */
+    )])]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("========== SKILLS  =========="), _hoisted_34]), _hoisted_35])])], 64
+  /* STABLE_FRAGMENT */
   );
 }
 

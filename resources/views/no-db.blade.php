@@ -7,6 +7,7 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}?v={{ mt_rand() }}">  
+        <link rel="stylesheet" href="{{ mix('css/resume.css') }}?v={{ mt_rand() }}">  
     </head>  
     <body class="antialiased">  
         <div id="app">  
