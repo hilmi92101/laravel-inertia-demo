@@ -44,6 +44,7 @@ Route::get('backoffice/dashboard-5', [\App\Http\Controllers\Backoffice\Dashboard
 
 Route::get('no-db', [\App\Http\Controllers\NoDB\IndexController::class, 'index'])->name('no-db.index');
 Route::get('no-db/about', [\App\Http\Controllers\NoDB\IndexController::class, 'index'])->name('no-db.about');
+Route::get('no-db/resume', [\App\Http\Controllers\NoDB\IndexController::class, 'index'])->name('no-db.resume');
 
 
 // Route::get('/', function () {

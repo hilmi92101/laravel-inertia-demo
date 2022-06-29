@@ -8,7 +8,7 @@
 
     import { useRouter } from 'vue-router';
     
-    import Layout from '@/no-db/Layouts/Test';
+    import Layout from '@/no-db/Layouts/General';
 
     const router = useRouter(); 
     const redirect = (route) => {  

@@ -1,20 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'; 
 
-import Landing from './pages/Landing';  
-import About from './pages/About'; 
+import Resume from './pages/Resume';  
 
 const router = createRouter({  
     history: createWebHistory(),  
     routes: [  
         {  
-            name: 'landing',  
-            path: '/no-db',  
-            component: Landing,  
-        },  
-        {  
-            name: 'about',  
-            path: '/no-db/about',  
-            component: About,  
+            name: 'resume',  
+            path: '/no-db/resume',  
+            component: Resume,  
         },  
     ],  
 });  

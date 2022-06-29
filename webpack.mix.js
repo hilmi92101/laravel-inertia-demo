@@ -20,6 +20,7 @@ mix.js('resources/js/app/app.js', 'public/js')
     ])
     .sass('resources/sass/dashboard-4/app.scss', 'public/css/dashboard-4.css')
     .sass('resources/sass/dashboard-5/app.scss', 'public/css/dashboard-5.css')
+    .sass('resources/sass/resume/app.scss', 'public/css/resume.css')
     .webpackConfig(require('./webpack.config'));
 
     //.sass('resources/sass/dashboard3.scss', 'public/css/dashboard-3.css')
