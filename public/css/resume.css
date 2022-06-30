@@ -274,6 +274,21 @@ body.project-resume {
   border-radius: 50%;
   margin-right: 0.75rem;
 }
+.project-resume .bd-container .resume .resume__right .interests .interests__container {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 1rem;
+}
+.project-resume .bd-container .resume .resume__right .interests .interests__container .interests__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.project-resume .bd-container .resume .resume__right .interests .interests__container .interests__content .interests__icon {
+  font-size: 1.5rem;
+  color: #707070;
+  margin-bottom: 0.25rem;
+}
 .project-resume .bd-grid {
   display: grid;
   gap: 1.5rem;
@@ -344,4 +359,26 @@ body.project-resume {
 }
 .project-resume .l-header .nav .show-menu {
   bottom: 3rem;
+}
+.project-resume .scrolltop {
+  position: fixed;
+  right: 1rem;
+  bottom: -20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem;
+  background-color: #F0EFEF;
+  border-radius: 0.4rem;
+  z-index: 10;
+  transition: 0.4s;
+  visibility: hidden;
+}
+.project-resume .scrolltop .scrolltop__icon {
+  font-size: 1.2rem;
+  color: #403A3A;
+}
+.project-resume .scrolltop.show-scroll {
+  visibility: visible;
+  bottom: 5rem;
 }

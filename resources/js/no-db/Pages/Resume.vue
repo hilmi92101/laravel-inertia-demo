@@ -216,7 +216,7 @@
                             :key="interest.id"
                             class="interests__content"
                         >
-                            <i :class="interest.icon"></i>
+                            <i :class="interest.icon" class="interests__icon"></i>
                             <span class="interests__name">{{ interest.name }}</span>
                         </div>
                     </div>
@@ -224,6 +224,10 @@
             </div>
         </div>        
     </main>
+
+    <a :class="{'show-scroll' : scrollBtnIsShown }" class="scrolltop" id="scroll-top">
+        <i class="bx bx-up-arrow-alt scrolltop__icon"></i>
+    </a>
     
 </template> 
 <script setup> 
@@ -251,6 +255,26 @@
     ====================================== */
     const profileImg = ref('/asset/resume/img/perfil.jpg');
     const demoResume = ref('/asset/resume/pdf/ResumeCv.pdf');
+
+    /* ======================================
+        SCROLL TO TOP
+    ====================================== */
+    const scrollBtnIsShown = ref(false);
+    const scrollToTop = () => { 
+        if(window.scrollY >= 200){
+            scrollBtnIsShown.value = true;
+        } else {
+            scrollBtnIsShown.value = false;
+        }
+    }
+
+    onMounted(() => {  
+        window.addEventListener('scroll', scrollToTop); 
+    }); 
+
+    onUnmounted(() => {  
+        window.removeEventListener('scroll', scrollToTop); 
+    });
 
     /* ======================================
         MENU FUNCTIONALITIES

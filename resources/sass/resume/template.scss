@@ -392,6 +392,30 @@ body.project-resume {
                     }
                 }
 
+                .interests {
+                    .interests__container {
+                            grid-template-columns: repeat(3, 1fr);
+                            margin-top: $mb2;
+                        .interests__content {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                            .interests__icon {
+                                font-size: 1.5rem;
+                                color: $textColorLight;
+                                margin-bottom: .25rem;
+                            }
+                            .interests__name {
+
+                            }
+                        }
+                    }
+                }
+
+
+
+
             }
 
 
@@ -481,6 +505,31 @@ body.project-resume {
             }
 
         }
+    }
+
+    .scrolltop {
+        position: fixed;
+        right: 1rem;
+        bottom: -20%; // 5rem
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .3rem;
+        background-color: $containerColorAlt;
+        border-radius: .4rem;
+        z-index: $zTooltip;
+        transition: .4s;
+        visibility: hidden;
+
+        .scrolltop__icon {
+            font-size: 1.2rem;
+            color: $textColor;
+        }
+    }
+
+    .scrolltop.show-scroll {
+        visibility: visible;
+        bottom: 5rem;
     }
 
     

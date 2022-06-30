@@ -19751,6 +19751,26 @@ __webpack_require__.r(__webpack_exports__);
     var profileImg = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('/asset/resume/img/perfil.jpg');
     var demoResume = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('/asset/resume/pdf/ResumeCv.pdf');
     /* ======================================
+        SCROLL TO TOP
+    ====================================== */
+
+    var scrollBtnIsShown = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+
+    var scrollToTop = function scrollToTop() {
+      if (window.scrollY >= 200) {
+        scrollBtnIsShown.value = true;
+      } else {
+        scrollBtnIsShown.value = false;
+      }
+    };
+
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      window.addEventListener('scroll', scrollToTop);
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(function () {
+      window.removeEventListener('scroll', scrollToTop);
+    });
+    /* ======================================
         MENU FUNCTIONALITIES
     ====================================== */
 
@@ -19970,6 +19990,8 @@ __webpack_require__.r(__webpack_exports__);
       redirect: redirect,
       profileImg: profileImg,
       demoResume: demoResume,
+      scrollBtnIsShown: scrollBtnIsShown,
+      scrollToTop: scrollToTop,
       menuIsShown: menuIsShown,
       toggleMenu: toggleMenu,
       closeMenu: closeMenu,
@@ -20323,6 +20345,14 @@ var _hoisted_70 = {
 var _hoisted_71 = {
   "class": "interests__name"
 };
+
+var _hoisted_72 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bx bx-up-arrow-alt scrolltop__icon"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_73 = [_hoisted_72];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("========== HEADER =========="), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
@@ -20472,7 +20502,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: interest.id,
       "class": "interests__content"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(interest.icon)
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([interest.icon, "interests__icon"])
     }, null, 2
     /* CLASS */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_71, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(interest.name), 1
@@ -20480,7 +20510,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     )]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])])])])])], 64
+  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
+      'show-scroll': $setup.scrollBtnIsShown
+    }, "scrolltop"]),
+    id: "scroll-top"
+  }, _hoisted_73, 2
+  /* CLASS */
+  )], 64
   /* STABLE_FRAGMENT */
   );
 }
