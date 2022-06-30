@@ -261,10 +261,83 @@ body.project-resume {
                     }
 
                 }
+
+                .skills {
+                    .skills__content {
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 0;
+                        .skill__data {
+                            
+                            .skill__name {
+                                display: flex;
+                                align-items: center;
+                                margin-bottom: $mb3;
+
+                                .skill__circle {
+                                    display: inline-block;
+                                    width: 5px;
+                                    height: 5px;
+                                    background-color: $textColor;
+                                    border-radius: 50%;
+                                    margin-right: .75rem;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                
             }
 
             .resume__right {
+                
+                .experience {
+                    .experience__container {
+                        .experience__content {
+                            display: flex;
 
+                            .experience__time{
+                                padding-right: 1rem;
+
+                                .experience__rounder{
+                                    position: relative;
+                                    display: block;
+                                    width: 16px;
+                                    height: 16px;
+                                    background-color: $textColorLight;
+                                    border-radius: 50%;
+                                    margin-top: .25rem;
+                                }
+
+                                .experience__line {
+                                    display: block;
+                                    width: 2px;
+                                    height: 110%;
+                                    background-color: $textColorLight;
+                                    transform: translate(7px, 0);
+                                }
+                            }
+
+                            .experience__data {
+                                gap: .5rem;
+
+                                .experience__title {
+                                    font-size: $h3FontSize;
+                                }
+
+                                .experience__company {
+                                    font-size: $smallFontSize;
+                                    color: $titleColor;
+                                }
+
+                                .experience__description{
+                                    font-size: $smallerFontSize;
+                                }
+                            }
+                        }
+                    }
+
+                }
             }
 
 

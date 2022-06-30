@@ -89,7 +89,7 @@
                         >
                             <div class="education__time">
                                 <span class="education__rounder"></span>
-                                <span v-if="processEducationLine(index, educations.length)" class="education__line"></span>
+                                <span v-if="processTimeLine(index, educations.length)" class="education__line"></span>
                             </div>
                             <div class="education__data bd-grid">
                                 <h3 class="education__title">{{ education.title }}</h3>
@@ -103,7 +103,29 @@
 
                 <!--========== SKILLS  ==========-->
                 <section class="skills section" id="skills">
-                    
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills__content bd-grid">
+                        <ul class="skill__data">
+                            <li 
+                                v-for="skill in skills" 
+                                :key="skill.id" 
+                                class="skill__name"
+                            >
+                                <span class="skill__circle"></span>
+                                {{ skill.title }}
+                            </li>
+                        </ul>
+                        <ul class="skill__data">
+                            <li 
+                                v-for="skill2 in skills2" 
+                                :key="skill2.id" 
+                                class="skill__name"
+                            >
+                                <span class="skill__circle"></span>
+                                {{ skill2.title }}
+                            </li>
+                        </ul>
+                    </div>
                 </section>
 
             </div>
@@ -111,7 +133,24 @@
             <div class="resume__right">
                 <!--========== EXPERIENCE ==========-->
                 <section class="experience section" id="experience">
-                    
+                    <h2 class="section-title">Experience</h2>
+                    <div class="experience__container bd-grid">
+                        <div
+                            v-for="(experience, index) in experiences" 
+                            :key="experience.id" 
+                            class="experience__content"
+                        >
+                            <div class="experience__time">
+                                <span class="experience__rounder"></span>
+                                <span v-if="processTimeLine(index, experiences.length)" class="experience__line"></span>
+                            </div>
+                            <div class="experience__data bd-grid">
+                                <h3 class="experience__title">{{ experience.title }}</h3>
+                                <span class="experience__company">{{ experience.company }}</span>
+                                <p class="experience__description">{{ experience.description }}</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <!--========== CERTIFICATES ==========-->
@@ -174,6 +213,17 @@
 
     const closeMenu = () => { 
         menuIsShown.value = false;
+    }
+
+    /* ======================================
+        PROCESS TIMELINE
+    ====================================== */
+    const processTimeLine = (index, total) => { 
+        var no = index + 1;
+        if(no == total){
+            return false;
+        }
+        return true;
     }
 
     
@@ -267,7 +317,6 @@
             studies: 'University of Design', 
             year: '2010 - 2015', 
         },
-        
         { 
             id: 3, 
             title: 'MASTER OF DESIGN',
@@ -277,14 +326,64 @@
         
     ]);
 
-    const processEducationLine = (index, total) => { 
-        var no = index + 1;
-        if(no == total){
-            return false;
-        }
-        return true;
+    const skills = ref([ 
+        { 
+            id: 1, 
+            title: 'HTML',
+        },
+        { 
+            id: 2, 
+            title: 'CSS',
+        },
+        { 
+            id: 3, 
+            title: 'Sass',
+        },
+        { 
+            id: 4, 
+            title: 'Javascript',
+        },
+    ]);
 
+    const skills2 = ref([ 
+        { 
+            id: 1, 
+            title: 'Laravel',
+        },
+        { 
+            id: 2, 
+            title: 'Inertia',
+        },
+        { 
+            id: 3, 
+            title: 'PHP',
+        },
+        { 
+            id: 4, 
+            title: 'Vue',
+        },
+    ]);
+
+    const experiences = ref([ 
+        { 
+            id: 1, 
+            title: 'WEB DEVELOPER',
+            company: 'From 2013 - 2015 | XOVER SDN BHD',
+            description: 'In ut lectus a tortor porta convallis. Nam sollicitudin ante eget condimentum egestas. Fusce sit amet tortor facilisis, pharetra lacus et, tristique est. Etiam neque massa, faucibus vitae consequat in.',
+        },
+        { 
+            id: 2, 
+            title: 'FULLSTACK WEB DEVELOPER',
+            company: 'From 2016 - 2019 | SR RESOURCES SDN BHD',
+            description: 'Cras viverra congue tortor, sit amet gravida libero placerat in. Nunc tempor justo turpis, aliquam tempor magna aliquet sed. Nunc quis suscipit nunc, sit amet convallis dui.',
+        },
+        { 
+            id: 3, 
+            title: 'FREELANCER WEB DEV',
+            company: 'From 2020 - Current',
+            description: 'Integer auctor eros a porta scelerisque. Integer dapibus bibendum diam, eu ultricies justo. Ut volutpat est magna, id ultricies elit dictum non. Curabitur sit amet ultricies nisi, et ullamcorper erat. Vestibulum ante ipsum primis.',
+        },
         
-    }
-    
+    ]);
+
 </script>

@@ -188,6 +188,58 @@ body.project-resume {
 .project-resume .bd-container .resume .resume__left .education .education__container .education__content .education__data .education__year {
   font-size: 0.813rem;
 }
+.project-resume .bd-container .resume .resume__left .skills .skills__content {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+.project-resume .bd-container .resume .resume__left .skills .skills__content .skill__data .skill__name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.project-resume .bd-container .resume .resume__left .skills .skills__content .skill__data .skill__name .skill__circle {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: #403A3A;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+.project-resume .bd-container .resume .resume__right .experience .experience__container .experience__content {
+  display: flex;
+}
+.project-resume .bd-container .resume .resume__right .experience .experience__container .experience__content .experience__time {
+  padding-right: 1rem;
+}
+.project-resume .bd-container .resume .resume__right .experience .experience__container .experience__content .experience__time .experience__rounder {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #707070;
+  border-radius: 50%;
+  margin-top: 0.25rem;
+}
+.project-resume .bd-container .resume .resume__right .experience .experience__container .experience__content .experience__time .experience__line {
+  display: block;
+  width: 2px;
+  height: 110%;
+  background-color: #707070;
+  transform: translate(7px, 0);
+}
+.project-resume .bd-container .resume .resume__right .experience .experience__container .experience__content .experience__data {
+  gap: 0.5rem;
+}
+.project-resume .bd-container .resume .resume__right .experience .experience__container .experience__content .experience__data .experience__title {
+  font-size: 1rem;
+}
+.project-resume .bd-container .resume .resume__right .experience .experience__container .experience__content .experience__data .experience__company {
+  font-size: 0.875rem;
+  color: #0B0A0A;
+}
+.project-resume .bd-container .resume .resume__right .experience .experience__container .experience__content .experience__data .experience__description {
+  font-size: 0.813rem;
+}
 .project-resume .bd-grid {
   display: grid;
   gap: 1.5rem;
