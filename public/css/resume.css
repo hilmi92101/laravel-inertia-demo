@@ -67,7 +67,7 @@ body.project-resume {
 .project-resume .section {
   padding: 1.5rem 0;
 }
-.project-resume .section .section-title {
+.project-resume .section .section__title {
   font-size: 1.25rem;
   color: #0B0A0A;
   font-weight: 600;
@@ -239,6 +239,40 @@ body.project-resume {
 }
 .project-resume .bd-container .resume .resume__right .experience .experience__container .experience__content .experience__data .experience__description {
   font-size: 0.813rem;
+}
+.project-resume .bd-container .resume .resume__right .certificate .certificate__container .certificate__content .certificate__title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.project-resume .bd-container .resume .resume__right .references .references__container .references__content {
+  gap: 0.25rem;
+}
+.project-resume .bd-container .resume .resume__right .references .references__container .references__content .references__subtitle {
+  color: #707070;
+}
+.project-resume .bd-container .resume .resume__right .references .references__container .references__content .references__subtitle,
+.project-resume .bd-container .resume .resume__right .references .references__container .references__content .references__contact {
+  font-size: 0.813rem;
+}
+.project-resume .bd-container .resume .resume__right .references .references__container .references__content .references__title {
+  font-size: 1rem;
+}
+.project-resume .bd-container .resume .resume__right .languages .languages__content {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+.project-resume .bd-container .resume .resume__right .languages .languages__content .languages__name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.project-resume .bd-container .resume .resume__right .languages .languages__content .languages__name .languages__circle {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: #403A3A;
+  border-radius: 50%;
+  margin-right: 0.75rem;
 }
 .project-resume .bd-grid {
   display: grid;

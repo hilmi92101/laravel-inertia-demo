@@ -61,7 +61,7 @@
                 
                 <!--========== SOCIAL ==========-->
                 <section class="social section">
-                    <h2 class="section-title">SOCIAL</h2>
+                    <h2 class="section__title">SOCIAL</h2>
                     <div class="social__container bd-grid">
                         <a 
                             v-for="social in socials" :key="social.id" :href="social.url" class="social__link"
@@ -75,14 +75,14 @@
 
                 <!--========== PROFILE ==========-->
                 <section class="profile section" id="profile">
-                    <h2 class="section-title">Profile</h2>
+                    <h2 class="section__title">Profile</h2>
                     <p class="profile__description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita non quibusdam voluptate magnam dignissimos minus distinctio ducimus dolores, ipsam accusantium excepturi quidem repellendus necessitatibus eaque, obcaecati rerum consectetur tempore cum.</p>
                     
                 </section>
                 
                 <!--========== EDUCATION ==========-->
                 <section class="education section" id="education">
-                    <h2 class="section-title">Education</h2>
+                    <h2 class="section__title">Education</h2>
                     <div class="education__container bd-grid">
                         <div 
                             v-for="(education, index) in educations" :key="education.id" class="education__content"
@@ -103,7 +103,7 @@
 
                 <!--========== SKILLS  ==========-->
                 <section class="skills section" id="skills">
-                    <h2 class="section-title">Skills</h2>
+                    <h2 class="section__title">Skills</h2>
                     <div class="skills__content bd-grid">
                         <ul class="skill__data">
                             <li 
@@ -133,7 +133,7 @@
             <div class="resume__right">
                 <!--========== EXPERIENCE ==========-->
                 <section class="experience section" id="experience">
-                    <h2 class="section-title">Experience</h2>
+                    <h2 class="section__title">Experience</h2>
                     <div class="experience__container bd-grid">
                         <div
                             v-for="(experience, index) in experiences" 
@@ -155,22 +155,71 @@
 
                 <!--========== CERTIFICATES ==========-->
                 <section class="certificate section" id="certificates">
-                    
+                    <h2 class="section__title">Certificates</h2>
+                    <div class="certificate__container bd-grid">
+                        <div 
+                            v-for="(certificate, index) in certificates" 
+                            :key="certificate.id"
+                            class="certificate__content"
+                        >
+                            <h3 class="certificate__title">{{ certificate.title }}</h3>
+                            <p class="certificate__description">{{ certificate.description }}</p>
+                        </div>
+                    </div>
                 </section>
 
                 <!--========== REFERENCES ==========-->
                 <section class="references section" id="references">
-                    
+                    <h2 class="section__title">References</h2>
+                    <div class="references__container bd-grid">
+                        <div 
+                            v-for="(reference, index) in references" 
+                            :key="reference.id"
+                            class="references__content bd-grid"
+                        >
+                            <span class="references__subtitle">{{ reference.subtitle }}</span>
+                            <h3 class="references__title">{{ reference.title }}</h3>
+                            <ul class="references__contact">
+                                <li 
+                                    v-for="(contact, index) in reference.contacts" 
+                                    :key="contact.id"
+                                >
+                                {{ contact.platform }}: {{ contact.info }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </section>
 
                 <!--========== LANGUAGES ==========-->
                 <section class="languages section">
-                    
+                    <h2 class="section__title">Languages</h2>
+                    <div class="languages__container">
+                        <ul class="languages__content bd-grid">
+                            <li 
+                                v-for="(language, index) in languages" 
+                                :key="language.id" 
+                                class="languages__name"
+                            >
+                                <span class="languages__circle"></span> {{ language.name }}
+                            </li>
+                        </ul>
+                    </div>
                 </section>
                 
                 <!--========== INTERESTS ==========-->
                 <section class="interests section">
-                    
+                    <h2 class="section__title">Interests</h2>
+                    <div class="interests__container bd-grid">
+                        <div 
+                            v-for="(interest, index) in interests" 
+                            :key="interest.id"
+                            class="interests__content"
+                        >
+                            <i :class="interest.icon"></i>
+                            <span class="interests__name">{{ interest.name }}</span>
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>        
@@ -384,6 +433,100 @@
             description: 'Integer auctor eros a porta scelerisque. Integer dapibus bibendum diam, eu ultricies justo. Ut volutpat est magna, id ultricies elit dictum non. Curabitur sit amet ultricies nisi, et ullamcorper erat. Vestibulum ante ipsum primis.',
         },
         
+    ]);
+
+    const certificates = ref([ 
+        { 
+            id: 1, 
+            title: 'Morbi lobortis turpis eget nibh venenatis pulvinar',
+            description: 'Etiam neque justo, viverra ut ex ac, feugiat molestie libero. Cras at blandit neque, eu bibendum nisl. Curabitur at nunc scelerisque, scelerisque sapien vel, varius mi.',
+        },
+        { 
+            id: 2, 
+            title: 'Cras viverra dui eu sapien tincidunt, a efficitur dui condimentum',
+            description: 'Quisque dictum posuere neque, vitae convallis augue semper eget. Praesent quis arcu et felis dignissim ultrices. Etiam a erat ante. In hac habitasse platea dictumst.',
+        },
+        { 
+            id: 3, 
+            title: 'Proin quis nisl dolor',
+            description: 'Sed tempus quam ut faucibus sodales. Etiam tristique urna libero, sed malesuada sem aliquet non.',
+        },
+        
+    ]);
+
+    const references = ref([ 
+        { 
+            id: 1, 
+            subtitle: 'Sr. Director',
+            title: 'Mr. Clay Doe',
+            contacts: [
+                {
+                    id: 1, 
+                    platform: 'Phone',
+                    info: '999-777-666',
+                },
+                {   
+                    id: 2,
+                    platform: 'Email',
+                    info: 'clay@companyA.com',
+                },
+            ],
+        },
+        { 
+            id: 2, 
+            subtitle: 'Project Manager',
+            title: 'Mr. Cameron',
+            contacts: [
+                {
+                    id: 1, 
+                    platform: 'Phone',
+                    info: '555-444-333',
+                },
+                {
+                    id: 2,
+                    platform: 'Email',
+                    info: 'cameron@companyB.com',
+                },
+            ],
+        },
+    ]);
+
+    const languages = ref([ 
+        { 
+            id: 1, 
+            name: 'English',
+        },
+        { 
+            id: 2, 
+            name: 'Malay',
+        },
+        { 
+            id: 3, 
+            name: 'French',
+        },
+        { 
+            id: 4, 
+            name: 'Arabic',
+        },
+        
+    ]);
+
+    const interests = ref([ 
+        { 
+            id: 1, 
+            name: 'Video games',
+            icon: 'bx bx-tv',
+        },
+        { 
+            id: 2, 
+            name: 'Web development',
+            icon: 'bx bx-code-block',
+        },
+        { 
+            id: 3, 
+            name: 'Game development',
+            icon: 'bx bx-code-block',
+        },
     ]);
 
 </script>
