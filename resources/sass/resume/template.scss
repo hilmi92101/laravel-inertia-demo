@@ -412,13 +412,7 @@ body.project-resume {
                         }
                     }
                 }
-
-
-
-
             }
-
-
         }
     }
 
@@ -531,13 +525,110 @@ body.project-resume {
         visibility: visible;
         bottom: 5rem;
     }
-
-    
-
-    
 }
 
+// SMALL DEVICES, MENU COLUMN
+@media screen and (max-width: 320px){
+    .project-resume {
+        .l-header {
+            .nav {
+                .nav__menu {
+                    .nav__list {
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 1rem .5rem;
+                    }
+                }
+            }
+        }
+    }
 
+}
 
+// LARGE SCREEN SIZE
+@media screen and (min-width: 968px){
+    body.project-resume {
+        margin: 3rem 0;
+
+        .bd-container {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            .section__title {
+                text-align: initial;
+            }
+        }
+
+        .l-header,
+        .scrolltop {
+            display: none;
+        }
+
+        .l-main {
+            .resume {
+                display: grid;
+                grid-template-columns: .5fr 1fr;
+                background-color: $containerColor;
+                box-shadow: 0 0 8px rgba(13, 12, 12, .15);
+
+                .resume__left,
+                .resume__right {
+                    padding: 0 1.5rem;
+                }
+
+                .resume__left {
+                    background-color: $containerColorAlt;
+
+                    .home {
+                        .home__container {
+                            gap: 1.5rem;
+                            .home__data {
+                                a.home__button-movil {
+                                    display: none;
+                                }
+                            }
+
+                        }
+                    }
+
+                    .profile {
+
+                        .profile__description {
+                            text-align: initial;
+                        }
+                    }
+                }
+
+                .resume__right {
+                    .references {
+                        .references__container {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                    }
+
+                    .languages {
+                        .languages__content {
+                            grid-template-columns: repeat(3, max-content);
+                            column-gap: 3.5rem;
+                        }
+                    }
+
+                    .interests {
+                        .interests__container {
+                            grid-template-columns: repeat(4, max-content);
+                            column-gap: 3.5rem;
+                        }
+                    }
+                    
+
+                }
+
+                
+
+            }
+        }
+    }
+}
 
 

@@ -57,6 +57,9 @@
                         </div>
                     </div>
 
+                    <!--========== THEME CHANGE BUTTON ==========-->
+                    <i class="bx bx-moon change-team" title="Theme"></i>
+
                 </section>          
                 
                 <!--========== SOCIAL ==========-->
@@ -225,7 +228,7 @@
         </div>        
     </main>
 
-    <a :class="{'show-scroll' : scrollBtnIsShown }" class="scrolltop" id="scroll-top">
+    <a @click="goToTop" :class="{'show-scroll' : scrollBtnIsShown }" class="scrolltop" id="scroll-top">
         <i class="bx bx-up-arrow-alt scrolltop__icon"></i>
     </a>
     
@@ -260,7 +263,7 @@
         SCROLL TO TOP
     ====================================== */
     const scrollBtnIsShown = ref(false);
-    const scrollToTop = () => { 
+    const scrollButton = () => { 
         if(window.scrollY >= 200){
             scrollBtnIsShown.value = true;
         } else {
@@ -268,12 +271,16 @@
         }
     }
 
+    const goToTop = () => { 
+        window.scrollTo(0, 0);
+    }
+
     onMounted(() => {  
-        window.addEventListener('scroll', scrollToTop); 
+        window.addEventListener('scroll', scrollButton); 
     }); 
 
     onUnmounted(() => {  
-        window.removeEventListener('scroll', scrollToTop); 
+        window.removeEventListener('scroll', scrollButton); 
     });
 
     /* ======================================
