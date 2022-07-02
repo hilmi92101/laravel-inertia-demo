@@ -52,7 +52,8 @@ li {
 }
 
 #sidebar.hide {
-    max-width: 60px;
+    max-width: 0px;
+    //max-width: 60px;
 }
 
 // #sidebar.hide:hover {
@@ -224,8 +225,8 @@ li {
 }
 
 #sidebar.hide+#content {
-    width: calc(100% - 60px);
-    left: 60px;
+    width: 100%; // calc(100% - 60px)
+    left: 0px; // 60px
 }
 
 /* NAVBAR */
