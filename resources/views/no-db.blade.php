@@ -13,5 +13,6 @@
         <div id="app">  
         </div>  
     </body>  
+    <script src="/asset/resume/js/html2pdf.bundle.min.js"></script>
     <script src="{{ mix('js/no-db.js') }}?v={{ mt_rand() }}"></script>  
 </html>

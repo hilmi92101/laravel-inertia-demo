@@ -1,5 +1,14 @@
-/*
-:root {
+*,::before,::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body.project-resume {
+
     --header-height: 3rem;
     
     --title-color: #0B0A0A;
@@ -26,52 +35,22 @@
   
     --z-tooltip: 10;
     --z-fixed: 100;
-}
-*/
 
-$headerHeight: 3rem;
 
-$titleColor: #0B0A0A;
-$textColor: #403A3A;
-$textColorLight: #707070;
-$containerColor: #FAFAFA;
-$containerColorAlt: #F0EFEF;
-$bodyColor: #FCFCFC;
-
-$bodyFont: 'Poppins', sans-serif;
-$h1FontSize: 1.5rem;
-$h2FontSize: 1.25rem;
-$h3FontSize: 1rem;
-$normalFontSize: .938rem;
-$smallFontSize: .875rem;
-$smallerFontSize: .813rem;
-
-$fontMedium: 500;
-$fontSemiBold: 600;
-
-$mb1: .5rem;
-$mb2: 1rem;
-$mb3: 1.5rem;
-
-$zTooltip: 10;
-$zFixed: 100;
-
-*,::before,::after {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body.project-resume {
-    margin: 0 0 $headerHeight 0;
+    margin: 0 0 var(--header-height) 0;
     padding: 0;
-    font-family: $bodyFont;
-    font-size: $normalFontSize;
-    background-color: $bodyColor;
-    color: $textColor;
-    
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+body.project-resume.dark-theme {
+    --title-color: #F2F2F2;
+    --text-color: #BFBFBF;
+    --container-color: #212121;
+    --container-color-alt: #181616;
+    --body-color: #2B2B2B;
 }
 
 .project-resume {
@@ -82,8 +61,8 @@ body.project-resume {
     }
 
     h1, h2, h3 {
-        color: $titleColor;
-        font-weight: $fontMedium;
+        color: var(--title-color);
+        font-weight: var(--font-medium);
     }
 
     ul {
@@ -105,21 +84,21 @@ body.project-resume {
         padding: 1.5rem 0;
 
         .section__title {
-            font-size: $h2FontSize;
-            color: $titleColor;
-            font-weight: $fontSemiBold;
+            font-size: var(--h2-font-size);
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
             text-transform: uppercase;
             letter-spacing: .35rem;
             text-align: center;
-            margin-bottom: $mb3;
+            margin-bottom: var(--mb-3);
         }
     }
     
     .bd-container {
         max-width: 968px;
         width: calc(100% - 3rem);
-        margin-left: $mb3;
-        margin-right: $mb3;
+        margin-left: var(--mb-3);
+        margin-right: var(--mb-3);
 
         .resume {
             .resume__left {
@@ -137,32 +116,32 @@ body.project-resume {
                                 height: 120px;
                                 border-radius: 50%;
                                 justify-self: center;
-                                margin-bottom: $mb1;
+                                margin-bottom: var(--mb-1);
                             }
 
                             .home__title {
-                                font-size: $h1FontSize;
+                                font-size: var(--h1-font-size);
                             }
 
                             .home__profession {
-                                font-size: $normalFontSize;
-                                margin-bottom: $mb1;
+                                font-size: var(--normal-font-size);
+                                margin-bottom: var(--mb-1);
                             }
 
                             a.home__button-movil {
                                 display: inline-block;
-                                border: 2px solid $textColor;
-                                color: $titleColor;
+                                border: 2px solid var(--text-color);
+                                color: var(--title-color);
                                 padding: 1rem 2rem;
                                 border-radius: .25rem;
                                 transition: .3s;
-                                font-weight: $fontMedium;
-                                margin-top: $mb3;
+                                font-weight: var(--font-medium);
+                                margin-top: var(--mb-3);
                             }
 
                             a.home__button-movil:hover {
-                                background-color: $textColor;
-                                color: $containerColor;
+                                background-color: var(--text-color);
+                                color: var(--container-color);
                             }
                         }
 
@@ -172,7 +151,7 @@ body.project-resume {
                             .home__information {
                                 display: flex;
                                 align-items: center;
-                                font-size: $smallFontSize;
+                                font-size: var(--small-font-size);
 
                                 .home__icon {
                                     font-size: 1.2rem;
@@ -180,6 +159,34 @@ body.project-resume {
                                 }
                             }
                         }
+                    }
+
+                    .change-theme {
+                        position: absolute;
+                        right: 0;
+                        top: 2.2rem;
+                        display: flex;
+                        color: var(--text-color);
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                    }
+
+                    .change-theme:hover {
+                        color: var(--title-color);
+                    }
+
+                    .generate-pdf {
+                        display: none;
+                        position: absolute;
+                        top: 2.2rem;
+                        left: 0;
+                        font-size: 1.2rem;
+                        color: var(--text-color);
+                        cursor: pointer;
+                    }
+
+                    .generate-pdf:hover {
+                        color: var(--title-color);
                     }
 
                 }
@@ -192,8 +199,8 @@ body.project-resume {
                         .social__link {
                             display: inline-flex;
                             align-items: center;
-                            font-size: $smallFontSize;
-                            color: $textColor;
+                            font-size: var(--small-font-size);
+                            color: var(--text-color);
 
                             .social__icon {
                                 font-size: 1.2rem;
@@ -202,7 +209,7 @@ body.project-resume {
                         }
 
                         .social__link:hover {
-                            color: $titleColor;
+                            color: var(--title-color);
                         }
                     }
                 }
@@ -227,7 +234,7 @@ body.project-resume {
                                     display: block;
                                     width: 16px;
                                     height: 16px;
-                                    background-color: $textColorLight;
+                                    background-color: var(--text-color);
                                     border-radius: 50%;
                                     margin-top: .25rem;
                                 }
@@ -236,7 +243,7 @@ body.project-resume {
                                     display: block;
                                     width: 2px;
                                     height: 110%;
-                                    background-color: $textColorLight;
+                                    background-color: var(--text-color);
                                     transform: translate(7px, 0);
                                 }
                             }
@@ -245,16 +252,16 @@ body.project-resume {
                                 gap: .5rem;
 
                                 .education__title {
-                                    font-size: $h3FontSize;
+                                    font-size: var(--h3-font-size);
                                 }
 
                                 .education__studies {
-                                    font-size: $smallFontSize;
-                                    color: $titleColor;
+                                    font-size: var(--small-font-size);
+                                    color: var(--title-color);
                                 }
 
                                 .education__year{
-                                    font-size: $smallerFontSize;
+                                    font-size: var(--smaller-font-size);
                                 }
                             }
                         }
@@ -271,13 +278,13 @@ body.project-resume {
                             .skill__name {
                                 display: flex;
                                 align-items: center;
-                                margin-bottom: $mb3;
+                                margin-bottom: var(--mb-3);
 
                                 .skill__circle {
                                     display: inline-block;
                                     width: 5px;
                                     height: 5px;
-                                    background-color: $textColor;
+                                    background-color: var(--text-color);
                                     border-radius: 50%;
                                     margin-right: .75rem;
                                 }
@@ -304,7 +311,7 @@ body.project-resume {
                                     display: block;
                                     width: 16px;
                                     height: 16px;
-                                    background-color: $textColorLight;
+                                    background-color: var(--text-color-light);
                                     border-radius: 50%;
                                     margin-top: .25rem;
                                 }
@@ -313,7 +320,7 @@ body.project-resume {
                                     display: block;
                                     width: 2px;
                                     height: 110%;
-                                    background-color: $textColorLight;
+                                    background-color: var(--text-color);
                                     transform: translate(7px, 0);
                                 }
                             }
@@ -322,16 +329,16 @@ body.project-resume {
                                 gap: .5rem;
 
                                 .experience__title {
-                                    font-size: $h3FontSize;
+                                    font-size: var(--h3-font-size);
                                 }
 
                                 .experience__company {
-                                    font-size: $smallFontSize;
-                                    color: $titleColor;
+                                    font-size: var(--small-font-size);
+                                    color: var(--title-color);
                                 }
 
                                 .experience__description {
-                                    font-size: $smallerFontSize;
+                                    font-size: var(--smaller-font-size);
                                 }
                             }
                         }
@@ -343,8 +350,8 @@ body.project-resume {
                     .certificate__container {
                         .certificate__content {
                             .certificate__title {
-                                font-size: $h3FontSize;
-                                margin-bottom: $mb1;
+                                font-size: var(--h3-font-size);
+                                margin-bottom: var(--mb-1);
                             }
                         }
                     }
@@ -356,16 +363,16 @@ body.project-resume {
                             gap: .25rem;
 
                             .references__subtitle {
-                                color: $textColorLight;
+                                color: var(--text-color-light);
                             }
 
                             .references__subtitle, 
                             .references__contact {
-                                font-size: $smallerFontSize;
+                                font-size: var(--smaller-font-size);
                             }
 
                             .references__title {
-                                font-size: $h3FontSize;
+                                font-size: var(--h3-font-size);
                             }
                         }
                     }
@@ -378,13 +385,13 @@ body.project-resume {
                         .languages__name {
                             display: flex;
                             align-items: center;
-                            margin-bottom: $mb3;
+                            margin-bottom: var(--mb-3);
 
                             .languages__circle {
                                 display: inline-block;
                                 width: 5px;
                                 height: 5px;
-                                background-color: $textColor;
+                                background-color: var(--text-color);
                                 border-radius: 50%;
                                 margin-right: .75rem;
                             }
@@ -395,7 +402,7 @@ body.project-resume {
                 .interests {
                     .interests__container {
                             grid-template-columns: repeat(3, 1fr);
-                            margin-top: $mb2;
+                            margin-top: var(--mb-2);
                         .interests__content {
                             display: flex;
                             flex-direction: column;
@@ -403,7 +410,7 @@ body.project-resume {
                             text-align: center;
                             .interests__icon {
                                 font-size: 1.5rem;
-                                color: $textColorLight;
+                                color: var(--text-color);
                                 margin-bottom: .25rem;
                             }
                             .interests__name {
@@ -426,13 +433,13 @@ body.project-resume {
         position: fixed;
         bottom: 0;
         left: 0;
-        z-index: $zFixed;
-        background-color: $bodyColor;
+        z-index: var(--z-fixed);
+        background-color: var(--body-color);
         box-shadow: 0 -1px 4px rgba(0, 0, 0, .1);
         transition: .3s;
 
         .nav {
-            height: $headerHeight;
+            height: var(--header-height);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -440,22 +447,22 @@ body.project-resume {
             @media screen and (max-width: 968px){
                 .nav__menu {
                     position: fixed;
-                    bottom: -100%; // $headerHeight
+                    bottom: -100%; // var(--header-height)
                     left: 0;
                     width: 100%;
                     padding: 2rem 1.5rem;
-                    background-color: $bodyColor;
+                    background-color: var(--body-color);
                     box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
                     border-radius: 1rem 1rem 0 0;
-                    z-index: $zFixed;
+                    z-index: var(--z-fixed);
                     transition: .3s;
                 }
             }
 
             .nav__logo, 
             .nav__toggle {
-                color: $titleColor;
-                font-weight: $fontMedium;
+                color: var(--title-color);
+                font-weight: var(--font-medium);
             }
 
             .nav__toggle {
@@ -473,29 +480,29 @@ body.project-resume {
                         .nav__link {
                             display: flex;
                             flex-direction: column;
-                            font-size: $smallerFontSize;
-                            color: $textColorLight;
-                            font-weight: $fontMedium;
+                            font-size: var(--smaller-font-size);
+                            color: var(--text-color);
+                            font-weight: var(--font-medium);
 
                             .nav__icon {
                                 font-size: 1.2rem;
-                                margin-bottom: $mb1;
+                                margin-bottom: var(--mb-1);
                             }
                         }
 
                         .nav__link.active-link {
-                            color: $titleColor;
+                            color: var(--title-color);
                         }
 
                         .nav__link:hover {
-                            color: $titleColor;
+                            color: var(--title-color);
                         }
                     }
                 }
             }
 
             .show-menu {
-                bottom: $headerHeight;
+                bottom: var(--header-height);
             }
 
         }
@@ -509,21 +516,176 @@ body.project-resume {
         justify-content: center;
         align-items: center;
         padding: .3rem;
-        background-color: $containerColorAlt;
+        background-color: var(--container-color);
         border-radius: .4rem;
-        z-index: $zTooltip;
+        z-index: var(--z-tooltip);
         transition: .4s;
         visibility: hidden;
 
         .scrolltop__icon {
             font-size: 1.2rem;
-            color: $textColor;
+            color: var(--text-color);
         }
     }
 
     .scrolltop.show-scroll {
         visibility: visible;
         bottom: 5rem;
+    }
+}
+
+body.project-resume.scale-cv {
+    --h1-font-size: .938rem;
+    --h2-font-size: .938rem;
+    --h3-font-size: .875rem;
+    --normal-font-size: .813rem;
+    --small-font-size: .75rem;
+    --smaller-font-size: .688rem;
+
+    .bd-container {
+        max-width: 595px;
+        .resume {
+            .resume__left, 
+            .resume__right {
+                padding: 0 1rem;
+            }
+
+            .resume__left {
+                .home {
+                    .change-theme, 
+                    .generate-pdf {
+                        display: none;
+                    }
+
+                    .home__container {
+                        gap: 1.5rem;
+                        .home__data {
+                            gap: .25rem;
+                            .home__img {
+                                width: 90px;
+                                height: 90px;
+                            }
+                        }
+
+                        .home__address {
+                            gap: .75rem;
+
+                            .home__icon {
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+
+                .social {
+                    .social__container {
+                        gap: .75rem;
+                        .social__link {
+                            .social__icon {
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+
+                .education {
+                    .education__container {
+                        gap: 1rem;
+                        .education__content {
+                            .education__time {
+                                padding-right: .5rem;
+
+                                .education__rounder {
+                                    width: 11px;
+                                    height: 11px;
+                                    margin-top: .22rem;
+                                }
+
+                                .education__line {
+                                    width: 1px;
+                                    height: 110%;
+                                    transform: translate(5px, 0);
+                                }
+                            }
+
+                            .education__data {
+                                gap: .25rem;
+                            }
+                        }
+
+                    }
+                }
+
+                .skills {
+                    .skills__content {
+                        .skill__data {
+                            .skill__name {
+                                margin-bottom: var(--mb-1);
+                            }
+                        }
+                    }
+                }
+
+
+
+
+
+            }   
+
+            .resume__right {
+                .interests {
+                    .interests__container {
+                        column-gap: 2.5rem;
+                        .interests__content {
+                            .interests__icon {
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+
+                .experience {
+                    .experience__container {
+                        gap: 1rem;
+                        .experience__content {
+                            .experience__time {
+                                padding-right: .5rem;
+                                .experience__rounder {
+                                    width: 11px;
+                                    height: 11px;
+                                    margin-top: .22rem;
+                                }
+
+                                .experience__line {
+                                    width: 1px;
+                                    height: 110%;
+                                    transform: translate(5px, 0);
+                                }
+                            }
+
+                            .experience__data {
+                                gap: .25rem;
+                            }
+                        }
+
+                    }
+                }
+
+                .certificate {
+                    .certificate__container {
+                        gap: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .section {
+        padding: 1.5rem 0 .80rem; 
+
+        .section__title {
+            margin-bottom: .75rem;
+        }
     }
 }
 
@@ -569,7 +731,7 @@ body.project-resume {
             .resume {
                 display: grid;
                 grid-template-columns: .5fr 1fr;
-                background-color: $containerColor;
+                background-color: var(--container-color);
                 box-shadow: 0 0 8px rgba(13, 12, 12, .15);
 
                 .resume__left,
@@ -578,7 +740,7 @@ body.project-resume {
                 }
 
                 .resume__left {
-                    background-color: $containerColorAlt;
+                    background-color: var(--container-color-alt);
 
                     .home {
                         .home__container {
@@ -589,6 +751,10 @@ body.project-resume {
                                 }
                             }
 
+                        }
+
+                        .generate-pdf {
+                            display: inline-block;
                         }
                     }
 

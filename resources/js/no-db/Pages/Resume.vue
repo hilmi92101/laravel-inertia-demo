@@ -24,7 +24,7 @@
 
     <main class="l-main bd-container">
         <!-- All elements within this div, is generated in PDF -->
-        <div class="resume" id="area-cv">
+        <div ref="areaCvRef" class="resume" id="area-cv">
             <div class="resume__left">
                 <!--========== HOME ==========-->
                 <section class="home" id="home">
@@ -58,7 +58,19 @@
                     </div>
 
                     <!--========== THEME CHANGE BUTTON ==========-->
-                    <i class="bx bx-moon change-team" title="Theme"></i>
+                    <i 
+                        @click="changeTheme" 
+                        class="bx change-theme" 
+                        title="Theme" id="theme-button"
+                        :class="{ 
+                            'bx-moon' : !isDarkTheme, 
+                            'bx-sun' : isDarkTheme, 
+                        }" 
+                    >
+                    </i>
+
+                    <!--========== DOWNLOAD BUTTON ==========-->
+                    <i @click="generatePDF" class="bx bx-download generate-pdf" title="Generate PDF" id="resume-button"></i>
 
                 </section>          
                 
@@ -258,6 +270,38 @@
     ====================================== */
     const profileImg = ref('/asset/resume/img/perfil.jpg');
     const demoResume = ref('/asset/resume/pdf/ResumeCv.pdf');
+
+    /* ======================================
+        CV AREA
+    ====================================== */
+    const areaCvRef = ref(null);
+    const cvOption = ref({
+        margin: 0,
+        filename: 'myResume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 4 },
+        jsPDF:{ format: 'a4', orientation: 'portrait' },
+    });
+
+    /* ======================================
+        GENERATE PDF
+    ====================================== */
+    const generatePDF = () => { 
+        document.body.classList.toggle('scale-cv');
+        html2pdf(areaCvRef.value, cvOption.value);
+    }
+
+    
+    
+
+    /* ======================================
+        CHANGE THEME
+    ====================================== */
+    const isDarkTheme = ref(false);
+    const changeTheme = () => { 
+        document.body.classList.toggle('dark-theme');
+        isDarkTheme.value = !isDarkTheme.value;
+    }
 
     /* ======================================
         SCROLL TO TOP
