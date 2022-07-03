@@ -4,11 +4,30 @@
 	<section id="sidebar" :class="{'hide' : sidebarHidden }">
 		<a href="#" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
 		<ul class="side-menu">
-			<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
+			<li>
+				<Link 
+					:href="route('backoffice.dashboard5')" 
+					:class="{ 'active': $page.component === 'Backoffice/Dashboard5/Index' }"
+				>
+					<i class='bx bxs-dashboard icon'></i> Dashboard
+				</Link></li>
 
 			<li class="divider" data-text="components">{{ sidebarHidden ? '-' : 'Components' }}</li>
-			<li><a href="#"><i class='bx bx-table icon' ></i> Datatable</a></li>
-			<li><a href="#"><i class='bx bx-upload icon' ></i> File Upload</a></li>
+			<li>
+				<Link 
+					:href="route('backoffice.dashboard5.datatable')"
+					:class="{ 'active': $page.component === 'Backoffice/Dashboard5/Datatable' }"
+				>
+					<i class='bx bx-table icon'></i> Datatable
+				</Link>
+			</li>
+			<li>
+				<Link 
+					:href="route('backoffice.dashboard5')"
+				>
+					<i class='bx bx-upload icon'></i> File Upload
+				</Link>
+			</li>
 
 			<!--
 

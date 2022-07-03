@@ -4,7 +4,7 @@
             
         <div class="content-data">
             <div class="head">
-                <h3>Component List</h3>
+                <h3>Post List</h3>
                 <div ref="card1ElRef" class="menu">
                     <i @click="toggleCard1Dropdown" class='bx bx-dots-horizontal-rounded icon'></i>
                     <ul :class="{'show' : card1Dropdown }" class="menu-link">

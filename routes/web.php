@@ -41,6 +41,7 @@ Route::inertia('backoffice/dashboard-4/test', 'Backoffice/Dashboard4/Test')->nam
 Route::get('backoffice/dashboard-4/datatables', [\App\Http\Controllers\Backoffice\DatatableController::class, 'index'])->name('backoffice.dashboard4.datatables');
 
 Route::get('backoffice/dashboard-5', [\App\Http\Controllers\Backoffice\Dashboard5\DashboardController::class, 'index'])->name('backoffice.dashboard5');
+Route::get('backoffice/dashboard-5/datatable', [\App\Http\Controllers\Backoffice\Dashboard5\DatatableController::class, 'index'])->name('backoffice.dashboard5.datatable');
 
 Route::get('no-db', [\App\Http\Controllers\NoDB\IndexController::class, 'index'])->name('no-db.index');
 Route::get('no-db/about', [\App\Http\Controllers\NoDB\IndexController::class, 'index'])->name('no-db.about');
