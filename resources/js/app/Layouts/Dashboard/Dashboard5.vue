@@ -5,6 +5,13 @@
 		<a href="#" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
 		<ul class="side-menu">
 			<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
+
+			<li class="divider" data-text="components">{{ sidebarHidden ? '-' : 'Components' }}</li>
+			<li><a href="#"><i class='bx bx-table icon' ></i> Datatable</a></li>
+			<li><a href="#"><i class='bx bx-upload icon' ></i> File Upload</a></li>
+
+			<!--
+
 			<li class="divider" data-text="main">{{ sidebarHidden ? '-' : 'Main' }}</li>
 			<li>
 				<a @click="toggleDropdown1" :class="{'active' : dropdown1Shown }" href="#">
@@ -21,6 +28,8 @@
 			</li>
 			<li><a href="#"><i class='bx bxs-chart icon' ></i> Charts</a></li>
 			<li><a href="#"><i class='bx bxs-widget icon' ></i> Widgets</a></li>
+
+
 			<li class="divider" data-text="table and forms">{{ sidebarHidden ? '-' : 'Table and forms' }}</li>
 			<li><a href="#"><i class='bx bx-table icon' ></i> Tables</a></li>
 			<li>
@@ -36,13 +45,17 @@
 					<li><a href="#">Radio</a></li>
 				</ul>
 			</li>
+
+			-->
 		</ul>
+		<!--
 		<div class="ads">
 			<div class="wrapper">
 				<a href="#" class="btn-upgrade">Upgrade</a>
 				<p>Become a <span>PRO</span> member and enjoy <span>All Features</span></p>
 			</div>
 		</div>
+		-->
 	</section>
 	<!-- SIDEBAR -->
 
@@ -111,14 +124,11 @@
 
 	const toggleDropdown1 = () => { 
 		dropdown1Shown.value = !dropdown1Shown.value;
-
-		
 		if (dropdown2Shown.value) dropdown2Shown.value = false;
     }
 
 	const toggleDropdown2 = () => { 
 		dropdown2Shown.value = !dropdown2Shown.value;
-
 		if (dropdown1Shown.value) dropdown1Shown.value = false;
 
     }
@@ -133,6 +143,7 @@
 		dropdown2Shown.value = false;
 		sidebarHidden.value = !sidebarHidden.value;
     }
+
 
 	/* ================================================
         PROFILE DROPDOWN
