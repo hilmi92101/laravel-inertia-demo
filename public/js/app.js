@@ -19881,6 +19881,26 @@ __webpack_require__.r(__webpack_exports__);
         PAGINATION
     ================================================ */
 
+    var firstPage = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(1);
+    var lastPage = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(props.posts.last_page);
+    var currentPage = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(props.posts.current_page);
+
+    var processPagination = function processPagination(link) {
+      if (link.label == '&laquo; Previous') {
+        if (firstPage.value == currentPage.value) {
+          return false;
+        }
+      }
+
+      if (link.label == 'Next &raquo;') {
+        if (lastPage.value == currentPage.value) {
+          return false;
+        }
+      }
+
+      return true;
+    };
+
     var paginationBtnClases = function paginationBtnClases(isActive) {
       if (isActive) {
         return "py-2 px-3 text-blue-600 bg-blue-50 border border-gray-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white";
@@ -19920,6 +19940,10 @@ __webpack_require__.r(__webpack_exports__);
     var __returned__ = {
       headers: headers,
       props: props,
+      firstPage: firstPage,
+      lastPage: lastPage,
+      currentPage: currentPage,
+      processPagination: processPagination,
       paginationBtnClases: paginationBtnClases,
       card1Dropdown: card1Dropdown,
       toggleCard1Dropdown: toggleCard1Dropdown,
@@ -22581,13 +22605,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_20, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.posts.links, function (link, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
       key: index
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+    }, [$setup.processPagination(link) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
+      key: 0,
       href: link.url,
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($setup.paginationBtnClases(link.active)),
       innerHTML: link.label
     }, null, 8
     /* PROPS */
-    , ["href", "class", "innerHTML"])]);
+    , ["href", "class", "innerHTML"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" CONTENT END HERE ")])]);

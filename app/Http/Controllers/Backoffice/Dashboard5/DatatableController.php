@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backoffice\Dashboard5;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
 use App\Models\Post;
 
 class DatatableController extends Controller
@@ -13,18 +14,6 @@ class DatatableController extends Controller
     {
         //$posts = Post::all();
 
-        /*
-        $posts = Post::paginate(10)->through(function ($item) {
-            return [
-                'id' => $item->id,
-                'user_id' => $item->user_id,
-                'user_name' => $item->user->name,
-                'title' => $item->title,
-                'content' => $item->content,
-                'created_at' => $item->created_at,
-            ];
-        });
-        */
 
         //$posts = Post::with('user')->paginate(10);
         $posts = Post::with('user')->paginate(10)->through(function ($item) {
@@ -34,7 +23,7 @@ class DatatableController extends Controller
                 'user_name' => $item->user->name,
                 'title' => $item->title,
                 'content' => $item->content,
-                'created_at' => $item->created_at,
+                'created_at' => Carbon::parse($item->created_at)->format('d-M-Y H:i:s'),
             ];
         });
 

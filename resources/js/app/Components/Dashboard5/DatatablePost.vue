@@ -47,11 +47,16 @@
 
             <nav class="pagination__container">
                 <ul class="inline-flex -space-x-px">
-                    <li
+                    <li 
                         v-for="(link, index) in posts.links" 
                         :key="index"
                     >
-                        <Link :href="link.url" :class="paginationBtnClases(link.active)" v-html="link.label"></Link>
+                        <Link 
+                            v-if="processPagination(link)" 
+                            :href="link.url" 
+                            :class="paginationBtnClases(link.active)" 
+                            v-html="link.label">
+                        </Link>
                     </li>
                 </ul>
             </nav>
@@ -108,6 +113,25 @@
     /* ================================================
         PAGINATION
     ================================================ */
+    const firstPage = ref(1);
+    const lastPage = ref(props.posts.last_page);
+    const currentPage = ref(props.posts.current_page);
+    const processPagination = (link) => {
+
+        if(link.label == '&laquo; Previous'){
+            if(firstPage.value == currentPage.value){
+                return false;
+            }
+        }
+
+        if(link.label == 'Next &raquo;'){
+            if(lastPage.value == currentPage.value){
+                return false;
+            }
+        }
+        return true;
+    }
+
     const paginationBtnClases = (isActive) => { 
 		
         if(isActive){
