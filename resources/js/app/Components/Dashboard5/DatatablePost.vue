@@ -16,7 +16,7 @@
             </div>
 
             <!-- CONTENT START HERE -->
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-10 mb-24">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-10 mb-10">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -30,16 +30,32 @@
                     </thead>
                     <tbody>
                         <tr 
-                            v-for="(component, index) in components" 
+                            v-for="(post, index) in posts.data" 
                             :key="index"
                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                         >
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"> {{ component.title }} </th>
-                            <td class="px-6 py-4"> {{ component.createdAt }} </td>
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"> {{ post.id }} </th>
+                            <td class="px-6 py-4"> {{ post.user_id }} </td>
+                            <td class="px-6 py-4"> {{ post.user_name }} </td>
+                            <td class="px-6 py-4"> {{ post.title }} </td>
+                            <td class="px-6 py-4"> {{ post.content }} </td>
+                            <td class="px-6 py-4"> {{ post.created_at }} </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
+            <nav class="pagination__container">
+                <ul class="inline-flex -space-x-px">
+                    <li
+                        v-for="(link, index) in posts.links" 
+                        :key="index"
+                    >
+                        <Link :href="link.url" :class="paginationBtnClases(link.active)" v-html="link.label"></Link>
+                    </li>
+                </ul>
+            </nav>
+
             <!-- CONTENT END HERE -->
             
 
@@ -51,29 +67,55 @@
 <script setup>  
 
     import { ref, onMounted, onUnmounted } from 'vue';
+    import { Link } from '@inertiajs/inertia-vue3';
 
     /* ================================================
         TABLE
     ================================================ */
     const headers = ref([
         {
-            title: 'Name',
+            title: 'ID',
+        },
+        {
+            title: 'User ID',
+        },
+        {
+            title: 'User Name',
+        },
+        {
+            title: 'Title',
+        },
+        {
+            title: 'Description',
         },
         {
             title: 'Created At',
         },
     ]);
 
-    const components = ref([
-        {
-            title: 'Datatable',
-            createdAt: '8:58 pm Sunday, 3 July 2022 (MYT)',
-        },
-        {
-            title: 'File Upload',
-            createdAt: '8:58 pm Sunday, 3 July 2022 (MYT)',
-        },
-    ]);
+
+    /* ================================================
+        PROPS
+    ================================================ */
+    const props = defineProps({ 
+        posts: { 
+            type: Object, 
+        } 
+    });
+
+    console.log(props.posts);
+
+    /* ================================================
+        PAGINATION
+    ================================================ */
+    const paginationBtnClases = (isActive) => { 
+		
+        if(isActive){
+            return `py-2 px-3 text-blue-600 bg-blue-50 border border-gray-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white`;
+        } else {
+            return `py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`;
+        }
+    }
 
     /* ================================================
         CARD DROPDOWN
@@ -102,5 +144,32 @@
     });
       
 </script>
+
+<style>
+    .pagination-container {
+        display: flex;
+        column-gap: 10px;
+    }
+    .paginate-buttons {
+        height: 40px;
+        width: 40px;
+        border-radius: 0px;
+        cursor: pointer;
+        background-color: rgb(242, 242, 242);
+        border: 1px solid rgb(217, 217, 217);
+        color: black;
+    }
+    .paginate-buttons:hover {
+        background-color: #d8d8d8;
+    }
+    .active-page {
+        background-color: #3498db;
+        border: 1px solid #3498db;
+        color: white;
+    }
+    .active-page:hover {
+        background-color: #2988c8;
+    }
+</style>
 
 

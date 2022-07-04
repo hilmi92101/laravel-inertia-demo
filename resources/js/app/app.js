@@ -3,6 +3,8 @@ import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import store from './store';
 
+import VueAwesomePaginate from "vue-awesome-paginate";
+
 createInertiaApp({
     resolve: name => require(`./Pages/${name}`),
     title: title => `${title} - Inertia Course`,
@@ -13,6 +15,7 @@ createInertiaApp({
         })
         .use(plugin)
         .use(store)
+        .use(VueAwesomePaginate)
         .mount(el)
     },
 })

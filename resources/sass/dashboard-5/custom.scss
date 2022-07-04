@@ -1,3 +1,11 @@
 .dashboard-5 {
     background: #F1F0F6;
+
+    .data {
+        .content-data {
+            nav.pagination__container {
+                padding: 0 0;
+            }
+        }
+    }
 }

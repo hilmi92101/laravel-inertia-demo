@@ -4,9 +4,7 @@
 
     <DashboardLayout>
         <Breadcrumb title="Datatable"></Breadcrumb>
-        <DatatablePost></DatatablePost>
-
-        
+        <DatatablePost :posts="posts"></DatatablePost>
     </DashboardLayout>
     
 </template>  
@@ -17,14 +15,15 @@
     import { Head } from '@inertiajs/inertia-vue3';
 
     import { ref, computed, onMounted, onUnmounted } from 'vue';
-    import { Link } from '@inertiajs/inertia-vue3';
-
+    
     import Breadcrumb from '@/app/Components/Dashboard5/Breadcrumb';
     import DatatablePost from '@/app/Components/Dashboard5/DatatablePost';
 
-    
-
-    
+    const props = defineProps({ 
+        posts: { 
+            type: Object, 
+        } 
+    }); 
       
 </script>
 
