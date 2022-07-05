@@ -36,9 +36,9 @@ Route::inertia('backoffice/dashboard-2/alert', 'Backoffice/Alert')->name('backof
 Route::inertia('backoffice/dashboard-2/accordion', 'Backoffice/Accordion')->name('backoffice.accordion');
 
 Route::inertia('backoffice/dashboard-3', 'Backoffice/Dashboard3')->name('backoffice.dashboard3');
-Route::inertia('backoffice/dashboard-4', 'Backoffice/Dashboard4/Index')->name('backoffice.dashboard4');
-Route::inertia('backoffice/dashboard-4/test', 'Backoffice/Dashboard4/Test')->name('backoffice.dashboard4.test');
-Route::get('backoffice/dashboard-4/datatables', [\App\Http\Controllers\Backoffice\DatatableController::class, 'index'])->name('backoffice.dashboard4.datatables');
+Route::get('backoffice/dashboard-4', [\App\Http\Controllers\Backoffice\Dashboard4\IndexController::class, 'index'])->name('backoffice.dashboard4');
+Route::get('backoffice/dashboard-4/test', [\App\Http\Controllers\Backoffice\Dashboard4\TestController::class, 'index'])->name('backoffice.dashboard4.test');
+Route::get('backoffice/dashboard-4/datatables', [\App\Http\Controllers\Backoffice\Dashboard4\DatatableController::class, 'index'])->name('backoffice.dashboard4.datatables');
 
 Route::get('backoffice/dashboard-5', [\App\Http\Controllers\Backoffice\Dashboard5\DashboardController::class, 'index'])->name('backoffice.dashboard5');
 Route::get('backoffice/dashboard-5/datatable', [\App\Http\Controllers\Backoffice\Dashboard5\DatatableController::class, 'index'])->name('backoffice.dashboard5.datatable');

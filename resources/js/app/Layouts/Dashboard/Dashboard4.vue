@@ -32,17 +32,16 @@
                     <Link 
                         class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" 
                         :class="{
-                            'rounded-lg bg-white font-semibold text-slate-700' : link.isActive, 
-                            '' : !link.isActive, 
-                            'shadow-soft-xl' : link.isActive && isTransparent, 
-                            'shadow-none' : link.isActive && !isTransparent, 
+                            'rounded-lg bg-white font-semibold text-slate-700' : $page.component === link.inertiaPath, 
+                            'shadow-soft-xl' : $page.component === link.inertiaPath && isTransparent, 
+                            'shadow-none' : $page.component === link.inertiaPath && !isTransparent, 
                         }"
                         :href="route(link.route)"
                     >
                         <div 
                             class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5"
                             :class="{
-                                'bg-gradient-fuchsia text-white' : link.isActive, '' : !link.isActive,
+                                'bg-gradient-fuchsia text-white' : $page.component === link.inertiaPath,
                                 'bg-white' : isTransparent, 
                                 'bg-gray-200' : !isTransparent, 
                             }"
@@ -248,23 +247,6 @@
             </div>
             <hr class="h-px mx-0 my-1 bg-transparent bg-gradient-horizontal-dark" />
             <div class="flex-auto p-6 pt-0 sm:pt-4">
-                <!-- Sidebar Backgrounds -->
-                <!--
-                <div>
-                    <h6 class="mb-0">Sidebar Colors</h6>
-                </div>
-                <a href="javascript:void(0)">
-                    <div class="my-2 text-left" sidenav-colors>
-                        <span class="py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-fuchsia relative inline-block cursor-pointer whitespace-nowrap border border-solid border-slate-700 text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700" active-color data-color="fuchsia" onclick="sidebarColor(this)"></span>
-                        <span class="py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-dark-gray relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700" data-color="dark-gray" onclick="sidebarColor(this)"></span>
-                        <span class="py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-cyan relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700" data-color="cyan" onclick="sidebarColor(this)"></span>
-                        <span class="py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-lime relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700" data-color="lime" onclick="sidebarColor(this)"></span>
-                        <span class="py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-orange relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700" data-color="orange" onclick="sidebarColor(this)"></span>
-                        <span class="py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-red relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700" data-color="red" onclick="sidebarColor(this)"></span>
-                    </div>
-                </a>
-                -->
-                 
                 <!-- Sidenav Type -->
                 <div class="mt-0">
                     <h6 class="mb-0">Sidenav Type</h6>
@@ -423,6 +405,7 @@
             title: 'Dashboard',
             icon: `fa-solid fa-chart-simple`,
             route: 'backoffice.dashboard4',
+            inertiaPath: 'Backoffice/Dashboard4/Index',
         },
         {
             id: 2,
@@ -430,6 +413,7 @@
             title: 'Datatables',
             icon: `fa-solid fa-table`,
             route: 'backoffice.dashboard4.datatables',
+            inertiaPath: 'Backoffice/Dashboard4/Datatable',
         },
         {
             id: 999,
@@ -437,30 +421,9 @@
             title: 'Test',
             icon: `fa-solid fa-person-digging`,
             route: 'backoffice.dashboard4.test',
+            inertiaPath: 'Backoffice/Dashboard4/Test',
         },
 
-        
-        // {
-        //     id: 3,
-        //     isActive: false,
-        //     title: 'Billing',
-        //     icon: `fa-solid fa-file-invoice`,
-        //     route: 'backoffice.dashboard4.test',
-        // },
-        // {
-        //     id: 4,
-        //     isActive: false,
-        //     title: 'Virtual Reality',
-        //     icon: `fa-solid fa-vr-cardboard`,
-        //     route: 'backoffice.dashboard4.test',
-        // },
-        // {
-        //     id: 5,
-        //     isActive: false,
-        //     title: 'RTL',
-        //     icon: `fa-solid fa-align-right`,
-        //     route: 'backoffice.dashboard4.test',
-        // },
     ]); 
 
     const accountLinks = ref([
@@ -485,20 +448,6 @@
         
     ]);
 
-    const currentRoute = route().current();
-    const showIsActiveLink = () => { 
-        mainLinks.value.forEach(function (link) { 
-            if(link.route === currentRoute) { 
-                link.isActive = true; 
-            } else {
-                link.isActive = false;
-            } 
-        });
-    }
-
-    onMounted(() => { 
-        showIsActiveLink();
-    });
 
       
 </script>
