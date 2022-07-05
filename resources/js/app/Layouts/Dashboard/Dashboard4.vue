@@ -28,7 +28,7 @@
 
         <div ref="sidenavRef" class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
             <ul class="flex flex-col pl-0 mb-0">
-                <li v-for="link in mainLinks" :key="link.id" class="mt-0.5 w-full">
+                <li v-for="(link, index) in mainLinks" :key="index" class="mt-0.5 w-full">
                     <Link 
                         class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" 
                         :class="{
@@ -60,7 +60,7 @@
                 
                 
                 
-                <li v-for="link in accountLinks" :key="link.id" class="mt-0.5 w-full">
+                <li v-for="(link, index) in accountLinks" :key="index" class="mt-0.5 w-full">
                     <a 
                         class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" 
                         :class="{
@@ -334,18 +334,18 @@
     /* ================================================
         PERFECTS SCROLLBAR
     ================================================ */
-    const mainRef = ref(null);
-    const sidenavRef = ref(null);
-    const fixedPluginContentRef = ref(null);
+    // const mainRef = ref(null);
+    // const sidenavRef = ref(null);
+    // const fixedPluginContentRef = ref(null);
     
-    onMounted(() => { 
-        var isWindows = navigator.platform.indexOf("Win") > -1 ? true : false;
-        if(isWindows) {
-            var ps = new PerfectScrollbar(mainRef.value);
-            var ps2 = new PerfectScrollbar(sidenavRef.value);
-            var ps3 = new PerfectScrollbar(fixedPluginContentRef.value);
-        }
-    });
+    // onMounted(() => { 
+    //     var isWindows = navigator.platform.indexOf("Win") > -1 ? true : false;
+    //     if(isWindows) {
+    //         var ps = new PerfectScrollbar(mainRef.value);
+    //         var ps2 = new PerfectScrollbar(sidenavRef.value);
+    //         var ps3 = new PerfectScrollbar(fixedPluginContentRef.value);
+    //     }
+    // });
 
     /* ================================================
         DROPDOWN
@@ -400,24 +400,18 @@
     ================================================ */
     const mainLinks = ref([
         {
-            id: 1,
-            isActive: false,
             title: 'Dashboard',
             icon: `fa-solid fa-chart-simple`,
             route: 'backoffice.dashboard4',
             inertiaPath: 'Backoffice/Dashboard4/Index',
         },
         {
-            id: 2,
-            isActive: false,
             title: 'Datatables',
             icon: `fa-solid fa-table`,
             route: 'backoffice.dashboard4.datatables',
             inertiaPath: 'Backoffice/Dashboard4/Datatable',
         },
         {
-            id: 999,
-            isActive: false,
             title: 'Test',
             icon: `fa-solid fa-person-digging`,
             route: 'backoffice.dashboard4.test',
@@ -428,19 +422,46 @@
 
     const accountLinks = ref([
         {
-            id: 1,
             isActive: false,
             title: 'Profile',
             icon: `fa-solid fa-address-card`,
         },
         {
-            id: 2,
             isActive: false,
             title: 'Sign In',
             icon: `fa-solid fa-right-to-bracket`,
         },
         {
-            id: 3,
+            isActive: false,
+            title: 'Register',
+            icon: `fa-brands fa-wpforms`,
+        },
+        {
+            isActive: false,
+            title: 'Register',
+            icon: `fa-brands fa-wpforms`,
+        },
+        {
+            isActive: false,
+            title: 'Register',
+            icon: `fa-brands fa-wpforms`,
+        },
+        {
+            isActive: false,
+            title: 'Register',
+            icon: `fa-brands fa-wpforms`,
+        },
+        {
+            isActive: false,
+            title: 'Register',
+            icon: `fa-brands fa-wpforms`,
+        },
+        {
+            isActive: false,
+            title: 'Register',
+            icon: `fa-brands fa-wpforms`,
+        },
+        {
             isActive: false,
             title: 'Register',
             icon: `fa-brands fa-wpforms`,

@@ -20622,19 +20622,18 @@ __webpack_require__.r(__webpack_exports__);
     /* ================================================
         PERFECTS SCROLLBAR
     ================================================ */
+    // const mainRef = ref(null);
+    // const sidenavRef = ref(null);
+    // const fixedPluginContentRef = ref(null);
+    // onMounted(() => { 
+    //     var isWindows = navigator.platform.indexOf("Win") > -1 ? true : false;
+    //     if(isWindows) {
+    //         var ps = new PerfectScrollbar(mainRef.value);
+    //         var ps2 = new PerfectScrollbar(sidenavRef.value);
+    //         var ps3 = new PerfectScrollbar(fixedPluginContentRef.value);
+    //     }
+    // });
 
-    var mainRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
-    var sidenavRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
-    var fixedPluginContentRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
-      var isWindows = navigator.platform.indexOf("Win") > -1 ? true : false;
-
-      if (isWindows) {
-        var ps = new PerfectScrollbar(mainRef.value);
-        var ps2 = new PerfectScrollbar(sidenavRef.value);
-        var ps3 = new PerfectScrollbar(fixedPluginContentRef.value);
-      }
-    });
     /* ================================================
         DROPDOWN
     ================================================ */
@@ -20690,39 +20689,54 @@ __webpack_require__.r(__webpack_exports__);
 
 
     var mainLinks = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([{
-      id: 1,
-      isActive: false,
       title: 'Dashboard',
       icon: "fa-solid fa-chart-simple",
       route: 'backoffice.dashboard4',
       inertiaPath: 'Backoffice/Dashboard4/Index'
     }, {
-      id: 2,
-      isActive: false,
       title: 'Datatables',
       icon: "fa-solid fa-table",
       route: 'backoffice.dashboard4.datatables',
       inertiaPath: 'Backoffice/Dashboard4/Datatable'
     }, {
-      id: 999,
-      isActive: false,
       title: 'Test',
       icon: "fa-solid fa-person-digging",
       route: 'backoffice.dashboard4.test',
       inertiaPath: 'Backoffice/Dashboard4/Test'
     }]);
     var accountLinks = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([{
-      id: 1,
       isActive: false,
       title: 'Profile',
       icon: "fa-solid fa-address-card"
     }, {
-      id: 2,
       isActive: false,
       title: 'Sign In',
       icon: "fa-solid fa-right-to-bracket"
     }, {
-      id: 3,
+      isActive: false,
+      title: 'Register',
+      icon: "fa-brands fa-wpforms"
+    }, {
+      isActive: false,
+      title: 'Register',
+      icon: "fa-brands fa-wpforms"
+    }, {
+      isActive: false,
+      title: 'Register',
+      icon: "fa-brands fa-wpforms"
+    }, {
+      isActive: false,
+      title: 'Register',
+      icon: "fa-brands fa-wpforms"
+    }, {
+      isActive: false,
+      title: 'Register',
+      icon: "fa-brands fa-wpforms"
+    }, {
+      isActive: false,
+      title: 'Register',
+      icon: "fa-brands fa-wpforms"
+    }, {
       isActive: false,
       title: 'Register',
       icon: "fa-brands fa-wpforms"
@@ -20735,9 +20749,6 @@ __webpack_require__.r(__webpack_exports__);
       fixedPluginButtonNavRef: fixedPluginButtonNavRef,
       toggleFixedPluginCard: toggleFixedPluginCard,
       closeFixedPluginCard: closeFixedPluginCard,
-      mainRef: mainRef,
-      sidenavRef: sidenavRef,
-      fixedPluginContentRef: fixedPluginContentRef,
       dropdownDisplayedNotification: dropdownDisplayedNotification,
       dropdownTriggerNotificationRef: dropdownTriggerNotificationRef,
       dropdownmenuNotificationRef: dropdownmenuNotificationRef,
@@ -23704,9 +23715,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "sidenav-close": ""
   }, null, 2
   /* CLASS */
-  ), _hoisted_2]), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.mainLinks, function (link) {
+  ), _hoisted_2]), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.mainLinks, function (link, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
-      key: link.id,
+      key: index,
       "class": "mt-0.5 w-full"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors", {
@@ -23741,9 +23752,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["class", "href"])]);
   }), 128
   /* KEYED_FRAGMENT */
-  )), _hoisted_7, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.accountLinks, function (link) {
+  )), _hoisted_7, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.accountLinks, function (link, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
-      key: link.id,
+      key: index,
       "class": "mt-0.5 w-full"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors", {
@@ -23842,7 +23853,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: $setup.toggleFixedPluginCard,
     "fixed-plugin-close-button": "",
     "class": "inline-block p-0 mb-4 font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 active:opacity-85 text-slate-700"
-  }, _hoisted_35)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Toggle Button ")]), _hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidebar Backgrounds "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\r\n                <div>\r\n                    <h6 class=\"mb-0\">Sidebar Colors</h6>\r\n                </div>\r\n                <a href=\"javascript:void(0)\">\r\n                    <div class=\"my-2 text-left\" sidenav-colors>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-fuchsia relative inline-block cursor-pointer whitespace-nowrap border border-solid border-slate-700 text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" active-color data-color=\"fuchsia\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-dark-gray relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"dark-gray\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-cyan relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"cyan\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-lime relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"lime\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-orange relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"orange\" onclick=\"sidebarColor(this)\"></span>\r\n                        <span class=\"py-2.2-em text-size-xs px-3.6-em rounded-circle h-5.75 mr-1.25 w-5.75 ease-soft-in-out bg-gradient-red relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700\" data-color=\"red\" onclick=\"sidebarColor(this)\"></span>\r\n                    </div>\r\n                </a>\r\n                "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidenav Type "), _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, _hoisted_35)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Toggle Button ")]), _hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidenav Type "), _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $setup.changeSidenavColor('transparent');
     }),
